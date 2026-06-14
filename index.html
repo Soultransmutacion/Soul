@@ -389,6 +389,7 @@ section { padding: 7rem 2rem; position: relative; }
 }
 .pillar-item:last-child { border-right: none; }
 .pillar-icon { font-size: 1.4rem; display: block; margin-bottom: 0.4rem; }
+.pillar-svg { width: 28px; height: 28px; display: block; margin: 0 auto 0.5rem; color: var(--lavender); stroke: var(--lavender); }
 .pillar-label {
   font-family: 'Cinzel', serif;
   font-size: 0.6rem;
@@ -486,6 +487,8 @@ section { padding: 7rem 2rem; position: relative; }
 }
 .how-card:hover::before { transform: scaleX(1); }
 .how-icon { font-size: 2.2rem; display: block; margin-bottom: 1.5rem; }
+.how-icon-svg { width: 40px; height: 40px; display: block; margin-bottom: 1.5rem; color: var(--lavender); stroke: var(--lavender); }
+.how-card:hover .how-icon-svg { stroke: var(--gold-light); transition: stroke 0.4s; }
 .how-name {
   font-family: 'Cormorant Garamond', serif;
   font-size: 1.45rem;
@@ -644,6 +647,8 @@ section { padding: 7rem 2rem; position: relative; }
 .value-card:hover { background: rgba(123,79,166,0.08); }
 .value-card:hover::after { transform: translateX(-50%) scaleX(1); }
 .value-icon { font-size: 2rem; display: block; margin-bottom: 1.2rem; }
+.value-svg { width: 36px; height: 36px; display: block; margin: 0 auto 1.2rem; color: var(--lavender); stroke: var(--lavender); }
+.value-card:hover .value-svg { stroke: var(--gold-light); transition: stroke 0.4s; }
 .value-name {
   font-family: 'Cinzel', serif;
   font-size: 0.62rem;
@@ -662,6 +667,7 @@ section { padding: 7rem 2rem; position: relative; }
 }
 .final-cta-inner { max-width: 680px; margin: 0 auto; }
 .final-cta-symbol { font-size: 3.5rem; display: block; margin-bottom: 2.5rem; filter: drop-shadow(0 0 25px rgba(176,142,212,0.6)); animation: pulse-glow 3s ease-in-out infinite; }
+.final-cta-logo { height: 90px; width: auto; display: block; margin: 0 auto 2.5rem; filter: drop-shadow(0 0 25px rgba(176,142,212,0.6)) brightness(1.1); animation: pulse-glow 3s ease-in-out infinite; }
 @keyframes pulse-glow {
   0%,100% { filter: drop-shadow(0 0 10px rgba(176,142,212,0.4)); }
   50%      { filter: drop-shadow(0 0 25px rgba(176,142,212,0.8)); }
@@ -698,7 +704,7 @@ footer {
   flex-wrap: wrap;
   gap: 1.5rem;
 }
-.footer-logo { font-family:'Cinzel',serif;font-size:1.1rem;letter-spacing:0.35em;color:var(--soft); }
+.footer-logo { text-decoration:none; }
 .footer-links { display:flex;gap:2rem; }
 .footer-links a { font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(176,142,212,0.5);text-decoration:none;transition:color 0.3s; }
 .footer-links a:hover { color:var(--lavender); }
@@ -785,7 +791,7 @@ footer {
 
 <!-- NAV -->
 <nav id="mainNav">
-  <a href="#" class="nav-logo">SOUL</a>
+  <a href="#" class="nav-logo"><img src="https://dcdn-us.mitiendanube.com/stores/006/039/762/themes/common/logo-1681072315-1743548616-ba2e2e75afd1ba18d0ef32e974beb7691743548616-640-0.webp" alt="Soul" class="nav-logo-img" /></a>
   <ul class="nav-links">
     <li><a href="#que-es-soul">Soul</a></li>
     <li><a href="#servicios">Servicios</a></li>
@@ -846,8 +852,7 @@ footer {
       <div class="identity-visual reveal">
         <div class="identity-ring">
           <div class="identity-inner">
-            <span class="identity-symbol">&#10024;</span>
-            <span class="identity-name">SOUL</span>
+            <img src="https://dcdn-us.mitiendanube.com/stores/006/039/762/themes/common/logo-1681072315-1743548616-ba2e2e75afd1ba18d0ef32e974beb7691743548616-640-0.webp" alt="Soul" class="identity-logo-img" />
           </div>
         </div>
       </div>
@@ -855,23 +860,23 @@ footer {
 
     <div class="pillars-row reveal">
       <div class="pillar-item">
-        <span class="pillar-icon">&#127807;</span>
+        <svg class="pillar-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8 2 5 5 5 9c0 4 3 7 7 7s7-3 7-7"/><path d="M12 16v6M9 22h6"/><circle cx="12" cy="9" r="2" fill="currentColor" stroke="none" opacity="0.5"/></svg>
         <span class="pillar-label">Liberación</span>
       </div>
       <div class="pillar-item">
-        <span class="pillar-icon">&#9670;</span>
+        <svg class="pillar-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2" fill="currentColor" stroke="none" opacity="0.6"/></svg>
         <span class="pillar-label">Armonía</span>
       </div>
       <div class="pillar-item">
-        <span class="pillar-icon">&#128161;</span>
+        <svg class="pillar-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="5"/><line x1="12" y1="19" x2="12" y2="22"/><line x1="2" y1="12" x2="5" y2="12"/><line x1="19" y1="12" x2="22" y2="12"/><line x1="4.2" y1="4.2" x2="6.3" y2="6.3"/><line x1="17.7" y1="17.7" x2="19.8" y2="19.8"/><line x1="4.2" y1="19.8" x2="6.3" y2="17.7"/><line x1="17.7" y1="6.3" x2="19.8" y2="4.2"/></svg>
         <span class="pillar-label">Claridad</span>
       </div>
       <div class="pillar-item">
-        <span class="pillar-icon">&#127775;</span>
+        <svg class="pillar-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V8M6 14l6-6 6 6"/><path d="M4 22h16" opacity="0.3"/></svg>
         <span class="pillar-label">Transformación</span>
       </div>
       <div class="pillar-item">
-        <span class="pillar-icon">&#128336;</span>
+        <svg class="pillar-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12"/><path d="M12 12C12 7 16 4 20 5c0 5-3 8-8 7z"/><path d="M12 12C12 7 8 4 4 5c0 5 3 8 8 7z" opacity="0.6"/></svg>
         <span class="pillar-label">Evolución</span>
       </div>
     </div>
@@ -936,7 +941,7 @@ footer {
     <div class="how-grid">
 
       <a href="https://soul145.mitiendanube.com/productos/limpieza-energetica-personal-con-pendulo-karnak/" target="_blank" class="how-card reveal">
-        <span class="how-icon">&#128084;</span>
+        <svg class="how-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="7" r="3"/><path d="M5 21v-2a7 7 0 0 1 14 0v2"/><path d="M19 3c1.5 1 2.5 2.5 2.5 4.5" opacity="0.5"/><path d="M5 3C3.5 4 2.5 5.5 2.5 7.5" opacity="0.5"/></svg>
         <span class="how-name">Liberación de Bloqueos Personales</span>
         <span class="how-price">$30.000</span>
         <p class="how-desc">Para quienes sienten cansancio energético, estancamiento o la presencia de cargas externas. Trabajamos en profundidad el campo energético personal para restaurar el equilibrio y la vitalidad.</p>
@@ -944,7 +949,7 @@ footer {
       </a>
 
       <a href="https://soul145.mitiendanube.com/productos/limpieza-energetica-con-mesa-cuantica1/" target="_blank" class="how-card reveal">
-        <span class="how-icon">&#127775;</span>
+        <svg class="how-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" fill="currentColor" opacity="0.3"/></svg>
         <span class="how-name">Armonización y Apertura de Caminos</span>
         <span class="how-price">$25.000</span>
         <p class="how-desc">Ideal cuando sientes que las oportunidades no llegan, que hay obstáculos invisibles en el amor, el trabajo o la economía. Armonizamos y activamos el flujo en las áreas bloqueadas.</p>
@@ -952,7 +957,7 @@ footer {
       </a>
 
       <a href="https://soul145.mitiendanube.com/productos/sanacion-profunda/" target="_blank" class="how-card reveal">
-        <span class="how-icon">&#127807;</span>
+        <svg class="how-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"><path d="M2 12c2-4 4-4 6 0s4 4 6 0 4-4 6 0"/><path d="M2 16c2-4 4-4 6 0s4 4 6 0 4-4 6 0" opacity="0.4"/></svg>
         <span class="how-name">Transformación y Sanación Profunda</span>
         <span class="how-price">$30.000</span>
         <p class="how-desc">Un proceso más profundo de liberación: patrones heredados, vínculos kármicos, creencias limitantes del árbol familiar. Para quienes buscan una transformación desde la raíz.</p>
@@ -960,7 +965,7 @@ footer {
       </a>
 
       <a href="https://soul145.mitiendanube.com/productos/limpieza-energetica-para-hogares/" target="_blank" class="how-card reveal">
-        <span class="how-icon">&#127968;</span>
+        <svg class="how-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
         <span class="how-name">Armonización de Espacios</span>
         <span class="how-price">$45.000</span>
         <p class="how-desc">Los lugares donde vivimos guardan historia energética. Si tu hogar se siente pesado, hay conflictos frecuentes o simplemente no logras descansar bien, este proceso puede restaurar el equilibrio del espacio.</p>
@@ -968,7 +973,7 @@ footer {
       </a>
 
       <a href="https://soul145.mitiendanube.com/productos/limpieza-energetica-para-emprendimientos-empresas-y-negocios/" target="_blank" class="how-card reveal">
-        <span class="how-icon">&#128640;</span>
+        <svg class="how-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
         <span class="how-name">Impulso para Proyectos y Negocios</span>
         <span class="how-price">$40.000</span>
         <p class="how-desc">Para emprendedores y proyectos que no despegan. Liberamos los bloqueos que frenan el crecimiento, activamos la energía de prosperidad y abrimos caminos hacia nuevas oportunidades.</p>
@@ -976,7 +981,7 @@ footer {
       </a>
 
       <a href="https://soul145.mitiendanube.com/productos/armonizacion-de-ninos/" target="_blank" class="how-card reveal">
-        <span class="how-icon">&#127774;</span>
+        <svg class="how-icon-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
         <span class="how-name">Acompañamiento para Niños</span>
         <span class="how-price">$15.000</span>
         <p class="how-desc">Los niños también acumulan cargas energéticas. Este proceso suave y seguro los ayuda a recuperar su calma natural, dormir mejor y procesar los cambios con mayor tranquilidad.</p>
@@ -996,7 +1001,7 @@ footer {
       <div class="bianca-visual reveal">
         <div class="bianca-frame">
           <div class="bianca-placeholder">
-            <span>&#128099;</span>
+            <svg viewBox="0 0 80 100" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:80px;height:100px;opacity:0.4;"><circle cx="40" cy="28" r="18" stroke="#b08ed4" stroke-width="1.2"/><path d="M10 90c0-16.6 13.4-30 30-30s30 13.4 30 30" stroke="#b08ed4" stroke-width="1.2" stroke-linecap="round"/></svg>
             <p>Bianca Di Rino</p>
           </div>
         </div>
@@ -1065,27 +1070,27 @@ footer {
     </div>
     <div class="philosophy-values">
       <div class="value-card reveal">
-        <span class="value-icon">&#128282;</span>
+        <svg class="value-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V6M6 12l6-6 6 6"/><circle cx="12" cy="3" r="1.5" fill="currentColor" stroke="none" opacity="0.6"/></svg>
         <span class="value-name">Transformación</span>
         <p class="value-desc">Creemos en la capacidad innata de cada persona para cambiar, crecer y avanzar.</p>
       </div>
       <div class="value-card reveal">
-        <span class="value-icon">&#128064;</span>
+        <svg class="value-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
         <span class="value-name">Consciencia</span>
         <p class="value-desc">El primer paso de todo proceso es mirar con honestidad lo que está sucediendo.</p>
       </div>
       <div class="value-card reveal">
-        <span class="value-icon">&#9939;</span>
+        <svg class="value-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 9.9-1" opacity="0.5"/></svg>
         <span class="value-name">Liberación</span>
         <p class="value-desc">Soltar lo que ya no sirve es tan importante como construir lo que viene.</p>
       </div>
       <div class="value-card reveal">
-        <span class="value-icon">&#9670;</span>
+        <svg class="value-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5" fill="currentColor" stroke="none" opacity="0.5"/></svg>
         <span class="value-name">Armonía</span>
         <p class="value-desc">El bienestar verdadero surge del equilibrio entre lo que sentimos, pensamos y hacemos.</p>
       </div>
       <div class="value-card reveal">
-        <span class="value-icon">&#127807;</span>
+        <svg class="value-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12"/><path d="M12 12C12 7 16 4 20 5c0 5-3 8-8 7z"/><path d="M12 14C12 9 8 6 4 7c0 5 3 8 8 7z" opacity="0.5"/></svg>
         <span class="value-name">Evolución</span>
         <p class="value-desc">Cada proceso vivido es un paso hacia una versión más plena y auténtica de uno mismo.</p>
       </div>
@@ -1099,7 +1104,7 @@ footer {
 <section class="final-cta" id="contacto">
   <div class="container">
     <div class="final-cta-inner reveal">
-      <span class="final-cta-symbol">&#128142;</span>
+      <img src="https://dcdn-us.mitiendanube.com/stores/006/039/762/themes/common/logo-1681072315-1743548616-ba2e2e75afd1ba18d0ef32e974beb7691743548616-640-0.webp" alt="Soul" class="final-cta-logo" />
       <h2 class="final-cta-title">
         El momento de empezar<br>
         es <em>cuando algo en vos lo pide</em>
@@ -1119,7 +1124,7 @@ footer {
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
-    <span class="footer-logo">SOUL</span>
+    <a href="#" class="footer-logo"><img src="https://dcdn-us.mitiendanube.com/stores/006/039/762/themes/common/logo-1681072315-1743548616-ba2e2e75afd1ba18d0ef32e974beb7691743548616-640-0.webp" alt="Soul" style="height:36px;width:auto;object-fit:contain;filter:brightness(0.9);" /></a>
     <div class="footer-links">
       <a href="https://www.instagram.com/soul.transmutacion" target="_blank">Instagram</a>
       <a href="https://soul145.mitiendanube.com" target="_blank">Tienda</a>

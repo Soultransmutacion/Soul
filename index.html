@@ -370,10 +370,11 @@ section { padding: 7rem 2rem; position: relative; }
   animation: rotate-slow 30s linear infinite reverse;
 }
 .soul-logo-svg {
-  width: 140px;
-  height: 120px;
+  width: 200px;
+  height: 172px;
   display: block;
-  filter: drop-shadow(0 0 18px rgba(176,142,212,0.65));
+  mix-blend-mode: screen;
+  filter: drop-shadow(0 0 20px rgba(123,79,166,0.8));
   animation: pulse-glow-soft 4s ease-in-out infinite;
 }
 @keyframes pulse-glow-soft {
@@ -871,22 +872,27 @@ footer {
       <div class="identity-visual reveal">
         <div class="identity-ring">
           <div class="identity-inner">
-            <svg class="soul-logo-svg" viewBox="0 0 140 120" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- Flame body -->
-  <path d="M70 8 C70 8 90 28 90 46 C90 60 83 70 73 74 C77 62 74 50 67 43 C70 52 63 63 54 68 C48 60 52 45 52 45 C52 28 70 8 70 8Z" fill="#7b4fa6"/>
-  <!-- Flame inner glow -->
-  <path d="M70 25 C70 25 81 38 81 50 C81 58 77 65 70 68 C63 65 59 58 59 50 C59 38 70 25 70 25Z" fill="#d9c8f0" opacity="0.7"/>
-  <!-- Heart on top of flame -->
-  <path d="M70 18 C70 18 65 13 61 15 C57 17 57 23 61 26 L70 34 L79 26 C83 23 83 17 79 15 C75 13 70 18 70 18Z" fill="white" opacity="0.85"/>
-  <!-- SOUL text - bold with purple fill and darker stroke for outline effect -->
-  <text x="70" y="105" text-anchor="middle"
-    font-family="'Arial Black', 'Impact', sans-serif"
-    font-size="32" font-weight="900"
-    fill="#b08ed4"
-    stroke="#7b4fa6"
-    stroke-width="2"
-    paint-order="stroke fill"
-    letter-spacing="4">SOUL</text>
+            <svg class="soul-logo-svg" viewBox="0 0 280 240" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- FLAME: solid purple shape with heart cutout -->
+  <!-- Main flame body -->
+  <path d="M140 10 C140 10 175 50 175 85 C175 115 160 132 148 138 C154 120 151 100 143 88 C146 102 136 118 125 125 C115 112 120 90 120 90 C120 50 140 10 140 10Z" fill="#6B21A8"/>
+  <!-- Side flame curl left -->
+  <path d="M125 40 C110 55 108 72 118 85 C112 70 118 55 125 40Z" fill="#6B21A8"/>
+  <!-- Heart cutout (white = transparent on dark) -->
+  <path d="M140 78 C140 78 130 70 126 73 C122 76 122 82 127 86 L140 98 L153 86 C158 82 158 76 154 73 C150 70 140 78 140 78Z" fill="white"/>
+  
+  <!-- SOUL text: white fill + thick purple stroke for outline effect -->
+  <!-- Using font-based approach with paint-order stroke behind fill -->
+  <text x="140" y="195" 
+    text-anchor="middle"
+    font-family="'Arial Rounded MT Bold', 'Nunito', 'Varela Round', Arial, sans-serif"
+    font-size="88"
+    font-weight="900"
+    fill="white"
+    stroke="#6B21A8"
+    stroke-width="7"
+    stroke-linejoin="round"
+    paint-order="stroke fill">SOUL</text>
 </svg>
           </div>
         </div>

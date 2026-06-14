@@ -369,6 +369,17 @@ section { padding: 7rem 2rem; position: relative; }
   text-align: center;
   animation: rotate-slow 30s linear infinite reverse;
 }
+.soul-logo-svg {
+  width: 140px;
+  height: 120px;
+  display: block;
+  filter: drop-shadow(0 0 18px rgba(176,142,212,0.65));
+  animation: pulse-glow-soft 4s ease-in-out infinite;
+}
+@keyframes pulse-glow-soft {
+  0%,100% { filter: drop-shadow(0 0 15px rgba(176,142,212,0.5)); }
+  50% { filter: drop-shadow(0 0 28px rgba(176,142,212,0.85)); }
+}
 .identity-symbol { font-size: 3.5rem; display: block; filter: drop-shadow(0 0 20px rgba(176,142,212,0.5)); }
 .identity-name {
   display: block;

@@ -1,868 +1,738 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>SOUL — Bianca Di Rino | Limpiezas Energéticas</title>
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet"/>
-  <style>
-    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-
-    :root {
-      --deep: #0d0a14;
-      --dark: #130f1e;
-      --mid: #1e1730;
-      --violet: #7b4fa6;
-      --lavender: #b08ed4;
-      --soft: #d9c8f0;
-      --gold: #c9a84c;
-      --white: #f5f0ff;
-      --text: #e2d9f3;
-    }
-
-    html { scroll-behavior: smooth; color-scheme: only dark; }
-    @media (prefers-color-scheme: light) {
-      html { background-color: #0d0a14 !important; }
-      body { background-color: #0d0a14 !important; color: #e2d9f3 !important; }
-    }
-
-    body {
-      background-color: var(--deep);
-      color: var(--text);
-      font-family: 'Raleway', sans-serif;
-      font-weight: 300;
-      overflow-x: hidden;
-    }
-
-    /* NOISE TEXTURE OVERLAY */
-    body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-      pointer-events: none;
-      z-index: 9999;
-      opacity: 0.4;
-    }
-
-    /* NAV */
-    nav {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 100;
-      padding: 1.5rem 3rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: linear-gradient(to bottom, rgba(13,10,20,0.95), transparent);
-    }
-
-    .nav-logo {
-      font-family: 'Cinzel', serif;
-      font-size: 1.3rem;
-      letter-spacing: 0.3em;
-      color: var(--soft);
-      text-decoration: none;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 2.5rem;
-      list-style: none;
-    }
-
-    .nav-links a {
-      font-family: 'Raleway', sans-serif;
-      font-size: 0.75rem;
-      letter-spacing: 0.2em;
-      text-transform: uppercase;
-      color: var(--lavender);
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-
-    .nav-links a:hover { color: var(--white); }
-
-    /* HERO */
-    .hero {
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      position: relative;
-      padding: 6rem 2rem 4rem;
-      overflow: hidden;
-    }
-
-    .hero-bg {
-      position: absolute;
-      inset: 0;
-      background:
-        radial-gradient(ellipse 60% 60% at 50% 40%, rgba(123,79,166,0.18) 0%, transparent 70%),
-        radial-gradient(ellipse 30% 40% at 80% 20%, rgba(176,142,212,0.1) 0%, transparent 60%),
-        radial-gradient(ellipse 40% 30% at 20% 80%, rgba(201,168,76,0.06) 0%, transparent 60%);
-    }
-
-    /* Floating orbs */
-    .orb {
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(60px);
-      animation: float 8s ease-in-out infinite;
-    }
-
-    .orb-1 {
-      width: 300px; height: 300px;
-      background: rgba(123,79,166,0.12);
-      top: 10%; left: 10%;
-      animation-delay: 0s;
-    }
-
-    .orb-2 {
-      width: 200px; height: 200px;
-      background: rgba(201,168,76,0.08);
-      top: 60%; right: 15%;
-      animation-delay: -3s;
-    }
-
-    .orb-3 {
-      width: 150px; height: 150px;
-      background: rgba(176,142,212,0.1);
-      bottom: 20%; left: 30%;
-      animation-delay: -5s;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0px) scale(1); }
-      50% { transform: translateY(-30px) scale(1.05); }
-    }
-
-    .hero-symbol {
-      font-size: 3rem;
-      margin-bottom: 1.5rem;
-      animation: pulse-glow 3s ease-in-out infinite;
-    }
-
-    @keyframes pulse-glow {
-      0%, 100% { filter: drop-shadow(0 0 8px rgba(176,142,212,0.4)); }
-      50% { filter: drop-shadow(0 0 20px rgba(176,142,212,0.8)); }
-    }
-
-    .hero-eyebrow {
-      font-family: 'Cinzel', serif;
-      font-size: 0.7rem;
-      letter-spacing: 0.4em;
-      text-transform: uppercase;
-      color: var(--gold);
-      margin-bottom: 1.5rem;
-      animation: fadeUp 1s ease forwards;
-      opacity: 0;
-      animation-delay: 0.2s;
-    }
-
-    .hero-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(3.5rem, 8vw, 7rem);
-      font-weight: 300;
-      line-height: 1;
-      letter-spacing: 0.05em;
-      color: var(--white);
-      margin-bottom: 0.3rem;
-      animation: fadeUp 1s ease forwards;
-      opacity: 0;
-      animation-delay: 0.4s;
-    }
-
-    .hero-title em {
-      font-style: italic;
-      color: var(--lavender);
-    }
-
-    .hero-subtitle {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(1rem, 2.5vw, 1.4rem);
-      font-style: italic;
-      font-weight: 300;
-      color: var(--lavender);
-      margin-bottom: 2.5rem;
-      letter-spacing: 0.08em;
-      animation: fadeUp 1s ease forwards;
-      opacity: 0;
-      animation-delay: 0.6s;
-    }
-
-    .hero-desc {
-      max-width: 480px;
-      font-size: 0.95rem;
-      line-height: 1.9;
-      color: rgba(217,200,240,0.75);
-      margin-bottom: 3rem;
-      animation: fadeUp 1s ease forwards;
-      opacity: 0;
-      animation-delay: 0.8s;
-    }
-
-    .hero-cta {
-      display: flex;
-      gap: 1.2rem;
-      flex-wrap: wrap;
-      justify-content: center;
-      animation: fadeUp 1s ease forwards;
-      opacity: 0;
-      animation-delay: 1s;
-    }
-
-    .btn-primary {
-      padding: 0.9rem 2.5rem;
-      background: linear-gradient(135deg, var(--violet), #5a3480);
-      color: var(--white);
-      font-family: 'Cinzel', serif;
-      font-size: 0.7rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      text-decoration: none;
-      border: 1px solid rgba(176,142,212,0.3);
-      transition: all 0.4s;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .btn-primary::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(135deg, rgba(255,255,255,0.1), transparent);
-      opacity: 0;
-      transition: opacity 0.3s;
-    }
-
-    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(123,79,166,0.4); }
-    .btn-primary:hover::before { opacity: 1; }
-
-    .btn-secondary {
-      padding: 0.9rem 2.5rem;
-      background: transparent;
-      color: var(--lavender);
-      font-family: 'Cinzel', serif;
-      font-size: 0.7rem;
-      letter-spacing: 0.25em;
-      text-transform: uppercase;
-      text-decoration: none;
-      border: 1px solid rgba(176,142,212,0.3);
-      transition: all 0.4s;
-    }
-
-    .btn-secondary:hover {
-      background: rgba(176,142,212,0.08);
-      border-color: var(--lavender);
-      transform: translateY(-2px);
-    }
-
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(24px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* DIVIDER */
-    .divider {
-      width: 100%;
-      height: 1px;
-      background: linear-gradient(to right, transparent, rgba(176,142,212,0.3), transparent);
-      margin: 0;
-    }
-
-    /* SECTION BASE */
-    section {
-      padding: 7rem 2rem;
-      position: relative;
-    }
-
-    .container {
-      max-width: 1100px;
-      margin: 0 auto;
-    }
-
-    .section-label {
-      font-family: 'Cinzel', serif;
-      font-size: 0.65rem;
-      letter-spacing: 0.4em;
-      text-transform: uppercase;
-      color: var(--gold);
-      display: block;
-      margin-bottom: 1rem;
-    }
-
-    .section-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2.2rem, 4vw, 3.5rem);
-      font-weight: 300;
-      line-height: 1.15;
-      color: var(--white);
-      margin-bottom: 1.5rem;
-    }
-
-    .section-title em {
-      font-style: italic;
-      color: var(--lavender);
-    }
-
-    /* ABOUT */
-    .about {
-      background: linear-gradient(to bottom, var(--deep), var(--dark));
-    }
-
-    .about-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 6rem;
-      align-items: center;
-    }
-
-    .about-text p {
-      font-size: 0.95rem;
-      line-height: 2;
-      color: rgba(217,200,240,0.7);
-      margin-bottom: 1.5rem;
-    }
-
-    .about-visual {
-      position: relative;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-
-    .about-circle {
-      width: 280px;
-      height: 280px;
-      border-radius: 50%;
-      border: 1px solid rgba(176,142,212,0.2);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      position: relative;
-    }
-
-    .about-circle::before {
-      content: '';
-      position: absolute;
-      inset: -20px;
-      border-radius: 50%;
-      border: 1px solid rgba(176,142,212,0.1);
-    }
-
-    .about-circle::after {
-      content: '';
-      position: absolute;
-      inset: -40px;
-      border-radius: 50%;
-      border: 1px solid rgba(176,142,212,0.05);
-    }
-
-    .about-inner {
-      text-align: center;
-    }
-
-    .about-icon {
-      font-size: 4rem;
-      display: block;
-      margin-bottom: 0.5rem;
-      filter: drop-shadow(0 0 15px rgba(176,142,212,0.5));
-    }
-
-    .about-inner-title {
-      font-family: 'Cinzel', serif;
-      font-size: 1.2rem;
-      letter-spacing: 0.2em;
-      color: var(--soft);
-    }
-
-    /* SERVICES */
-    .services {
-      background: var(--dark);
-    }
-
-    .services-header {
-      text-align: center;
-      margin-bottom: 4rem;
-    }
-
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5px;
-      background: rgba(176,142,212,0.1);
-    }
-
-    .service-card {
-      background: var(--dark);
-      padding: 3rem 2.5rem;
-      transition: background 0.4s;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .service-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 1px;
-      background: linear-gradient(to right, transparent, rgba(176,142,212,0.4), transparent);
-      transform: scaleX(0);
-      transition: transform 0.4s;
-    }
-
-    .service-card:hover { background: rgba(123,79,166,0.08); }
-    .service-card:hover::before { transform: scaleX(1); }
-
-    .service-icon {
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
-      display: block;
-    }
-
-    .service-name {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.5rem;
-      font-weight: 400;
-      color: var(--white);
-      margin-bottom: 0.8rem;
-    }
-
-    .service-desc {
-      font-size: 0.85rem;
-      line-height: 1.9;
-      color: rgba(217,200,240,0.6);
-    }
-
-    /* COMO FUNCIONA */
-    .process {
-      background: linear-gradient(to bottom, var(--dark), var(--mid));
-    }
-
-    .process-header {
-      text-align: center;
-      margin-bottom: 5rem;
-    }
-
-    .process-steps {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 2rem;
-      position: relative;
-    }
-
-    .process-steps::before {
-      content: '';
-      position: absolute;
-      top: 2rem;
-      left: 12%;
-      right: 12%;
-      height: 1px;
-      background: linear-gradient(to right, transparent, rgba(176,142,212,0.3), rgba(176,142,212,0.3), transparent);
-    }
-
-    .step {
-      text-align: center;
-      position: relative;
-    }
-
-    .step-number {
-      width: 4rem;
-      height: 4rem;
-      border-radius: 50%;
-      border: 1px solid rgba(176,142,212,0.3);
-      background: var(--mid);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 1.5rem;
-      font-family: 'Cinzel', serif;
-      font-size: 0.9rem;
-      color: var(--lavender);
-      letter-spacing: 0.1em;
-    }
-
-    .step-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.1rem;
-      color: var(--white);
-      margin-bottom: 0.5rem;
-    }
-
-    .step-desc {
-      font-size: 0.8rem;
-      line-height: 1.8;
-      color: rgba(217,200,240,0.55);
-    }
-
-    /* TESTIMONIOS */
-    .testimonials {
-      background: var(--mid);
-    }
-
-    .testimonials-header {
-      text-align: center;
-      margin-bottom: 4rem;
-    }
-
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 1.5rem;
-    }
-
-    .testimonial {
-      padding: 2.5rem;
-      border: 1px solid rgba(176,142,212,0.12);
-      background: rgba(13,10,20,0.4);
-      position: relative;
-    }
-
-    .testimonial::before {
-      content: '"';
-      position: absolute;
-      top: 1rem; left: 2rem;
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 5rem;
-      color: rgba(176,142,212,0.15);
-      line-height: 1;
-    }
-
-    .testimonial-text {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 1.05rem;
-      font-style: italic;
-      line-height: 1.8;
-      color: var(--soft);
-      margin-bottom: 1.5rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    .testimonial-author {
-      font-size: 0.75rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: var(--gold);
-    }
-
-    /* CTA FINAL */
-    .cta-section {
-      background: linear-gradient(to bottom, var(--mid), var(--deep));
-      text-align: center;
-    }
-
-    .cta-inner {
-      max-width: 650px;
-      margin: 0 auto;
-    }
-
-    .cta-symbol {
-      font-size: 3.5rem;
-      display: block;
-      margin-bottom: 2rem;
-      filter: drop-shadow(0 0 20px rgba(176,142,212,0.6));
-    }
-
-    .cta-title {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(2rem, 4vw, 3.2rem);
-      font-weight: 300;
-      color: var(--white);
-      margin-bottom: 1.2rem;
-      line-height: 1.2;
-    }
-
-    .cta-desc {
-      font-size: 0.95rem;
-      line-height: 1.9;
-      color: rgba(217,200,240,0.65);
-      margin-bottom: 3rem;
-    }
-
-    .cta-buttons {
-      display: flex;
-      gap: 1rem;
-      justify-content: center;
-      flex-wrap: wrap;
-    }
-
-    /* FOOTER */
-    footer {
-      background: var(--deep);
-      padding: 3rem 2rem;
-      border-top: 1px solid rgba(176,142,212,0.1);
-    }
-
-    .footer-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 1.5rem;
-    }
-
-    .footer-logo {
-      font-family: 'Cinzel', serif;
-      font-size: 1.1rem;
-      letter-spacing: 0.3em;
-      color: var(--soft);
-    }
-
-    .footer-links {
-      display: flex;
-      gap: 2rem;
-    }
-
-    .footer-links a {
-      font-size: 0.75rem;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: rgba(176,142,212,0.6);
-      text-decoration: none;
-      transition: color 0.3s;
-    }
-
-    .footer-links a:hover { color: var(--lavender); }
-
-    .footer-copy {
-      font-size: 0.75rem;
-      color: rgba(176,142,212,0.35);
-      letter-spacing: 0.05em;
-    }
-
-    /* SCROLL REVEAL */
-    .reveal {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.8s ease, transform 0.8s ease;
-    }
-
-    .reveal.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* RESPONSIVE */
-    @media (max-width: 900px) {
-      nav { padding: 1.2rem 1.5rem; }
-      .nav-links { display: none; }
-      .about-grid { grid-template-columns: 1fr; gap: 3rem; }
-      .about-visual { order: -1; }
-      .services-grid { grid-template-columns: 1fr; }
-      .process-steps { grid-template-columns: repeat(2, 1fr); }
-      .process-steps::before { display: none; }
-      .testimonials-grid { grid-template-columns: 1fr; }
-      .footer-inner { flex-direction: column; text-align: center; }
-    }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="SOUL — Bianca Di Rino. Limpiezas energeticas, liberacion de bloqueos y transmutacion. Sesiones presenciales y a distancia en Argentina."/>
+<meta property="og:title" content="SOUL — Bianca Di Rino | Limpiezas Energeticas"/>
+<meta property="og:description" content="Sesiones de limpieza energetica, Mesa Cuantica y Pendulo Karnak para liberar bloqueos, elevar tu frecuencia y reconectar con tu esencia."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://soultransmutacion.github.io/Soul/"/>
+<title>SOUL — Bianca Di Rino | Limpiezas Energeticas</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --deep: #0d0a14;
+  --dark: #130f1e;
+  --mid: #1e1730;
+  --violet: #7b4fa6;
+  --lavender: #b08ed4;
+  --soft: #d9c8f0;
+  --gold: #c9a84c;
+  --white: #f5f0ff;
+  --text: #e2d9f3;
+  --wa-green: #25D366;
+}
+
+html { scroll-behavior: smooth; color-scheme: only dark; }
+@media (prefers-color-scheme: light) {
+  html { background-color: #0d0a14 !important; }
+  body { background-color: #0d0a14 !important; color: #e2d9f3 !important; }
+}
+
+body {
+  background-color: var(--deep);
+  color: var(--text);
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.4;
+}
+/* NAV */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  padding: 1.5rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(to bottom, rgba(13,10,20,0.97), transparent);
+  transition: background 0.3s;
+}
+nav.scrolled {
+  background: rgba(13,10,20,0.98);
+  box-shadow: 0 1px 0 rgba(176,142,212,0.1);
+}
+.nav-logo {
+  font-family: 'Cinzel', serif;
+  font-size: 1.3rem;
+  letter-spacing: 0.3em;
+  color: var(--soft);
+  text-decoration: none;
+}
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  list-style: none;
+}
+.nav-links a {
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--lavender);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.nav-links a:hover { color: var(--white); }
+
+/* HAMBURGER */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+  padding: 4px;
+  background: none;
+  border: none;
+}
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 1px;
+  background: var(--lavender);
+  transition: all 0.3s;
+}
+.nav-toggle.active span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+.nav-toggle.active span:nth-child(2) { opacity: 0; }
+.nav-toggle.active span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+.mobile-menu {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(13,10,20,0.98);
+  z-index: 999;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2.5rem;
+}
+.mobile-menu.open { display: flex; }
+.mobile-menu a {
+  font-family: 'Cinzel', serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--soft);
+  text-decoration: none;
+  transition: color 0.3s;
+}
+.mobile-menu a:hover { color: var(--lavender); }
+/* HERO */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  padding: 6rem 2rem 4rem;
+  overflow: hidden;
+}
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 60% 60% at 50% 40%, rgba(123,79,166,0.18) 0%, transparent 70%),
+    radial-gradient(ellipse 30% 40% at 80% 20%, rgba(176,142,212,0.1) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 30% at 20% 80%, rgba(201,168,76,0.06) 0%, transparent 60%);
+}
+.orb {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  animation: float 8s ease-in-out infinite;
+}
+.orb-1 { width:300px;height:300px;background:rgba(123,79,166,0.12);top:10%;left:10%;animation-delay:0s; }
+.orb-2 { width:200px;height:200px;background:rgba(201,168,76,0.08);top:60%;right:15%;animation-delay:-3s; }
+.orb-3 { width:150px;height:150px;background:rgba(176,142,212,0.1);bottom:20%;left:30%;animation-delay:-5s; }
+@keyframes float {
+  0%,100%{transform:translateY(0) scale(1);}
+  50%{transform:translateY(-30px) scale(1.05);}
+}
+.hero-symbol {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+@keyframes pulse-glow {
+  0%,100%{filter:drop-shadow(0 0 8px rgba(176,142,212,0.4));}
+  50%{filter:drop-shadow(0 0 20px rgba(176,142,212,0.8));}
+}
+.hero-eyebrow {
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+  animation: fadeUp 1s ease forwards;
+  opacity: 0;
+  animation-delay: 0.2s;
+}
+.hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3.5rem, 8vw, 7rem);
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: 0.05em;
+  color: var(--white);
+  margin-bottom: 0.3rem;
+  animation: fadeUp 1.2s ease forwards;
+  opacity: 0;
+  animation-delay: 0.4s;
+}
+.hero-title em { font-style:italic; color:var(--lavender); }
+.hero-title .cursor {
+  display: inline-block;
+  animation: blink 1s step-end infinite;
+  color: var(--gold);
+}
+@keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0;} }
+.hero-subtitle {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1rem, 2.5vw, 1.4rem);
+  font-style: italic;
+  font-weight: 300;
+  color: var(--lavender);
+  margin-bottom: 2.5rem;
+  letter-spacing: 0.08em;
+  animation: fadeUp 1s ease forwards;
+  opacity: 0;
+  animation-delay: 0.7s;
+}
+.hero-desc {
+  max-width: 520px;
+  font-size: 0.95rem;
+  line-height: 1.9;
+  color: rgba(217,200,240,0.75);
+  margin-bottom: 3rem;
+  animation: fadeUp 1s ease forwards;
+  opacity: 0;
+  animation-delay: 0.9s;
+}
+.hero-cta {
+  display: flex;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  animation: fadeUp 1s ease forwards;
+  opacity: 0;
+  animation-delay: 1.1s;
+}
+@keyframes fadeUp {
+  from{opacity:0;transform:translateY(24px);}
+  to{opacity:1;transform:translateY(0);}
+}
+/* BUTTONS */
+.btn-primary {
+  padding: 0.9rem 2.5rem;
+  background: linear-gradient(135deg, var(--violet), #5a3480);
+  color: var(--white);
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid rgba(176,142,212,0.3);
+  transition: all 0.4s;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+.btn-primary::before {
+  content:'';
+  position:absolute;
+  inset:0;
+  background:linear-gradient(135deg,rgba(255,255,255,0.1),transparent);
+  opacity:0;
+  transition:opacity 0.3s;
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(123,79,166,0.4);}
+.btn-primary:hover::before{opacity:1;}
+.btn-secondary {
+  padding: 0.9rem 2.5rem;
+  background: transparent;
+  color: var(--lavender);
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid rgba(176,142,212,0.3);
+  transition: all 0.4s;
+  cursor: pointer;
+}
+.btn-secondary:hover{background:rgba(176,142,212,0.08);border-color:var(--lavender);transform:translateY(-2px);}
+
+/* DIVIDER */
+.divider{width:100%;height:1px;background:linear-gradient(to right,transparent,rgba(176,142,212,0.3),transparent);}
+
+/* SECTION BASE */
+section{padding:7rem 2rem;position:relative;}
+.container{max-width:1100px;margin:0 auto;}
+.section-label {
+  font-family:'Cinzel',serif;
+  font-size:0.65rem;
+  letter-spacing:0.4em;
+  text-transform:uppercase;
+  color:var(--gold);
+  display:block;
+  margin-bottom:1rem;
+}
+.section-title {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2.2rem,4vw,3.5rem);
+  font-weight:300;
+  line-height:1.15;
+  color:var(--white);
+  margin-bottom:1.5rem;
+}
+.section-title em{font-style:italic;color:var(--lavender);}
+/* ABOUT */
+.about{background:linear-gradient(to bottom,var(--deep),var(--dark));}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;}
+.about-text p{font-size:0.95rem;line-height:2;color:rgba(217,200,240,0.7);margin-bottom:1.5rem;}
+.about-visual{position:relative;display:flex;justify-content:center;align-items:center;}
+.about-circle{width:280px;height:280px;border-radius:50%;border:1px solid rgba(176,142,212,0.2);display:flex;align-items:center;justify-content:center;position:relative;}
+.about-circle::before{content:'';position:absolute;inset:-20px;border-radius:50%;border:1px solid rgba(176,142,212,0.1);}
+.about-circle::after{content:'';position:absolute;inset:-40px;border-radius:50%;border:1px solid rgba(176,142,212,0.05);}
+.about-inner{text-align:center;}
+.about-icon{font-size:4rem;display:block;margin-bottom:0.5rem;filter:drop-shadow(0 0 15px rgba(176,142,212,0.5));}
+.about-inner-title{font-family:'Cinzel',serif;font-size:1.2rem;letter-spacing:0.2em;color:var(--soft);}
+
+/* INTRO QUOTE */
+.intro-quote {
+  background: linear-gradient(135deg, rgba(123,79,166,0.08), rgba(176,142,212,0.05));
+  border-left: 2px solid var(--gold);
+  padding: 1.5rem 2rem;
+  margin: 2rem 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  font-style: italic;
+  color: var(--soft);
+  line-height: 1.7;
+}
+
+/* SERVICES */
+.services{background:var(--dark);}
+.services-header{text-align:center;margin-bottom:4rem;}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;background:rgba(176,142,212,0.1);}
+.service-card{
+  background:var(--dark);
+  padding:3rem 2.5rem;
+  transition:background 0.4s;
+  position:relative;
+  overflow:hidden;
+  display:flex;
+  flex-direction:column;
+}
+.service-card::before{
+  content:'';
+  position:absolute;
+  top:0;left:0;right:0;
+  height:1px;
+  background:linear-gradient(to right,transparent,rgba(176,142,212,0.4),transparent);
+  transform:scaleX(0);
+  transition:transform 0.4s;
+}
+.service-card:hover{background:rgba(123,79,166,0.08);}
+.service-card:hover::before{transform:scaleX(1);}
+.service-icon{font-size:2rem;margin-bottom:1.5rem;display:block;}
+.service-name{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:400;color:var(--white);margin-bottom:0.5rem;}
+.service-price{
+  font-family:'Cinzel',serif;
+  font-size:0.85rem;
+  color:var(--gold);
+  letter-spacing:0.1em;
+  margin-bottom:0.8rem;
+}
+.service-desc{font-size:0.85rem;line-height:1.9;color:rgba(217,200,240,0.6);flex:1;}
+.service-link{
+  display:inline-block;
+  margin-top:1.2rem;
+  font-family:'Cinzel',serif;
+  font-size:0.65rem;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:var(--lavender);
+  text-decoration:none;
+  border-bottom:1px solid rgba(176,142,212,0.3);
+  padding-bottom:2px;
+  transition:color 0.3s, border-color 0.3s;
+}
+.service-link:hover{color:var(--white);border-color:var(--white);}
+/* PROCESS */
+.process{background:linear-gradient(to bottom,var(--dark),var(--mid));}
+.process-header{text-align:center;margin-bottom:5rem;}
+.process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;position:relative;}
+.process-steps::before{content:'';position:absolute;top:2rem;left:12%;right:12%;height:1px;background:linear-gradient(to right,transparent,rgba(176,142,212,0.3),rgba(176,142,212,0.3),transparent);}
+.step{text-align:center;position:relative;}
+.step-number{width:4rem;height:4rem;border-radius:50%;border:1px solid rgba(176,142,212,0.3);background:var(--mid);display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;font-family:'Cinzel',serif;font-size:0.9rem;color:var(--lavender);letter-spacing:0.1em;transition:all 0.3s;}
+.step:hover .step-number{background:rgba(123,79,166,0.2);border-color:var(--lavender);}
+.step-title{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--white);margin-bottom:0.5rem;}
+.step-desc{font-size:0.8rem;line-height:1.8;color:rgba(217,200,240,0.55);}
+
+/* TESTIMONIALS */
+.testimonials{background:var(--mid);}
+.testimonials-header{text-align:center;margin-bottom:4rem;}
+.testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
+.testimonial{padding:2.5rem;border:1px solid rgba(176,142,212,0.12);background:rgba(13,10,20,0.4);position:relative;transition:border-color 0.3s;}
+.testimonial:hover{border-color:rgba(176,142,212,0.3);}
+.testimonial::before{content:'"';position:absolute;top:1rem;left:2rem;font-family:'Cormorant Garamond',serif;font-size:5rem;color:rgba(176,142,212,0.15);line-height:1;}
+.testimonial-stars{color:var(--gold);font-size:0.85rem;margin-bottom:1rem;letter-spacing:0.1em;}
+.testimonial-text{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-style:italic;line-height:1.8;color:var(--soft);margin-bottom:1.5rem;position:relative;z-index:1;}
+.testimonial-author{font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);}
+
+/* CTA FINAL */
+.cta-section{background:linear-gradient(to bottom,var(--mid),var(--deep));text-align:center;}
+.cta-inner{max-width:650px;margin:0 auto;}
+.cta-symbol{font-size:3.5rem;display:block;margin-bottom:2rem;filter:drop-shadow(0 0 20px rgba(176,142,212,0.6));}
+.cta-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:300;color:var(--white);margin-bottom:1.2rem;line-height:1.2;}
+.cta-desc{font-size:0.95rem;line-height:1.9;color:rgba(217,200,240,0.65);margin-bottom:3rem;}
+.cta-buttons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
+/* WHATSAPP FLOAT */
+.wa-float {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 9998;
+  width: 58px;
+  height: 58px;
+  background: var(--wa-green);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+  text-decoration: none;
+  transition: transform 0.3s, box-shadow 0.3s;
+  animation: wa-pulse 3s ease-in-out infinite;
+}
+.wa-float:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(37,211,102,0.6);}
+@keyframes wa-pulse{
+  0%,100%{box-shadow:0 4px 20px rgba(37,211,102,0.4);}
+  50%{box-shadow:0 4px 30px rgba(37,211,102,0.7);}
+}
+.wa-float svg{width:30px;height:30px;fill:white;}
+.wa-tooltip {
+  position: absolute;
+  right: 68px;
+  background: rgba(13,10,20,0.95);
+  color: var(--soft);
+  font-family: 'Raleway', sans-serif;
+  font-size: 0.8rem;
+  white-space: nowrap;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  border: 1px solid rgba(176,142,212,0.2);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+.wa-float:hover .wa-tooltip{opacity:1;}
+
+/* FOOTER */
+footer{background:var(--deep);padding:3rem 2rem;border-top:1px solid rgba(176,142,212,0.1);}
+.footer-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem;}
+.footer-logo{font-family:'Cinzel',serif;font-size:1.1rem;letter-spacing:0.3em;color:var(--soft);}
+.footer-links{display:flex;gap:2rem;}
+.footer-links a{font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(176,142,212,0.6);text-decoration:none;transition:color 0.3s;}
+.footer-links a:hover{color:var(--lavender);}
+.footer-copy{font-size:0.75rem;color:rgba(176,142,212,0.35);letter-spacing:0.05em;}
+
+/* SCROLL REVEAL */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.8s ease,transform 0.8s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  nav{padding:1.2rem 1.5rem;}
+  .nav-links{display:none;}
+  .nav-toggle{display:flex;}
+  .about-grid{grid-template-columns:1fr;gap:3rem;}
+  .about-visual{order:-1;}
+  .services-grid{grid-template-columns:1fr;}
+  .process-steps{grid-template-columns:repeat(2,1fr);}
+  .process-steps::before{display:none;}
+  .testimonials-grid{grid-template-columns:1fr;}
+  .footer-inner{flex-direction:column;text-align:center;}
+  .wa-float{bottom:1.5rem;right:1.5rem;}
+}
+</style>
 </head>
 <body>
 
-  <!-- NAV -->
-  <nav>
-    <a href="#" class="nav-logo">SOUL</a>
-    <ul class="nav-links">
-      <li><a href="#servicios">Servicios</a></li>
-      <li><a href="#proceso">Proceso</a></li>
-      <li><a href="#testimonios">Experiencias</a></li>
-      <li><a href="#contacto">Contacto</a></li>
-    </ul>
-  </nav>
+<!-- MOBILE MENU -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#servicios" onclick="closeMobile()">Servicios</a>
+  <a href="#proceso" onclick="closeMobile()">Proceso</a>
+  <a href="#testimonios" onclick="closeMobile()">Experiencias</a>
+  <a href="#contacto" onclick="closeMobile()">Contacto</a>
+</div>
 
-  <!-- HERO -->
-  <section class="hero">
-    <div class="hero-bg"></div>
-    <div class="orb orb-1"></div>
-    <div class="orb orb-2"></div>
-    <div class="orb orb-3"></div>
-    <div class="hero-symbol">🔥</div>
-    <p class="hero-eyebrow">Bianca Di Rino · Transmutación</p>
-    <h1 class="hero-title">SOUL<em>_</em></h1>
-    <p class="hero-subtitle">Limpiezas Energéticas & Liberación de Bloqueos</p>
-    <p class="hero-desc">Sesiones para liberar lo que ya no te pertenece, elevar tu frecuencia y reconectar con tu esencia más pura.</p>
-    <div class="hero-cta">
-      <a href="https://soul145.mitiendanube.com" target="_blank" class="btn-primary">Reservar sesión</a>
-      <a href="#servicios" class="btn-secondary">Ver servicios</a>
-    </div>
-  </section>
+<!-- NAV -->
+<nav id="mainNav">
+  <a href="#" class="nav-logo">SOUL</a>
+  <ul class="nav-links">
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#proceso">Proceso</a></li>
+    <li><a href="#testimonios">Experiencias</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+  <button class="nav-toggle" id="navToggle" aria-label="Menu" onclick="toggleMobile()">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+  <div class="hero-symbol">🔥</div>
+  <p class="hero-eyebrow">Bianca Di Rino &middot; Transmutacion</p>
+  <h1 class="hero-title">SOUL<span class="cursor">_</span></h1>
+  <p class="hero-subtitle">Limpiezas Energeticas &amp; Liberacion de Bloqueos</p>
+  <p class="hero-desc">Soy Bianca, y mi mision es ayudarte a armonizar tu energia y la de tus espacios. Si sientes que necesitas equilibrio, renovacion o simplemente queres elevar tu vibracion, estoy aqui para acompanarte.</p>
+  <div class="hero-cta">
+    <a href="https://soul145.mitiendanube.com" target="_blank" class="btn-primary">Reservar sesion</a>
+    <a href="#servicios" class="btn-secondary">Ver servicios</a>
+  </div>
+</section>
 
-  <div class="divider"></div>
+<div class="divider"></div>
 
-  <!-- ABOUT -->
-  <section class="about" id="about">
-    <div class="container">
-      <div class="about-grid">
-        <div class="about-text reveal">
-          <span class="section-label">Sobre mí</span>
-          <h2 class="section-title">El camino hacia tu <em>liberación</em></h2>
-          <p>Soy Bianca Di Rino, facilitadora de procesos energéticos. Trabajo con herramientas como la Mesa Cuántica y el Péndulo Karnak para identificar y liberar los bloqueos que frenan tu expansión.</p>
-          <p>Cada sesión es un espacio sagrado donde el cuerpo, la mente y el alma se alinean. No hay coincidencias — si llegaste aquí, es porque algo en vos está listo para transformarse.</p>
-          <a href="#contacto" class="btn-primary" style="display:inline-block; margin-top:1rem;">Quiero saber más</a>
-        </div>
-        <div class="about-visual reveal">
-          <div class="about-circle">
-            <div class="about-inner">
-              <span class="about-icon">🔮</span>
-              <span class="about-inner-title">SOUL</span>
-            </div>
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <span class="section-label">Sobre mi</span>
+        <h2 class="section-title">El camino hacia tu <em>liberacion</em></h2>
+        <blockquote class="intro-quote">Gracias por estar aqui. Es un placer ayudarte a vibrar alto.</blockquote>
+        <p>Soy Bianca Di Rino, facilitadora de procesos energeticos. Trabajo con herramientas como la Mesa Cuantica y el Pendulo Karnak para identificar y liberar los bloqueos que frenan tu expansion.</p>
+        <p>Cada sesion es un espacio sagrado donde el cuerpo, la mente y el alma se alinean. No hay coincidencias — si llegaste aqui, es porque algo en vos esta listo para transformarse.</p>
+        <a href="#contacto" class="btn-primary" style="display:inline-block;margin-top:1rem;">Quiero saber mas</a>
+      </div>
+      <div class="about-visual reveal">
+        <div class="about-circle">
+          <div class="about-inner">
+            <span class="about-icon">🔮</span>
+            <span class="about-inner-title">SOUL</span>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <div class="divider"></div>
+<div class="divider"></div>
+<!-- SERVICIOS -->
+<section class="services" id="servicios">
+  <div class="container">
+    <div class="services-header reveal">
+      <span class="section-label">Lo que ofrezco</span>
+      <h2 class="section-title">Servicios para tu <em>transformacion</em></h2>
+    </div>
+    <div class="services-grid">
 
-  <!-- SERVICIOS -->
-  <section class="services" id="servicios">
-    <div class="container">
-      <div class="services-header reveal">
-        <span class="section-label">Lo que ofrezco</span>
-        <h2 class="section-title">Servicios para tu <em>transformación</em></h2>
+      <div class="service-card reveal">
+        <span class="service-icon">🖐️</span>
+        <h3 class="service-name">Limpieza Energetica Personal</h3>
+        <div class="service-price">$30.000</div>
+        <p class="service-desc">Con Pendulo Karnak, liberamos tu campo energetico de cargas negativas, bloqueos, virus energeticos y devolviendote equilibrio, claridad y bienestar. Sesiones presenciales y a distancia.</p>
+        <a href="https://soul145.mitiendanube.com/productos/limpieza-energetica-personal-con-pendulo-karnak/" target="_blank" class="service-link">Ver detalles &rarr;</a>
       </div>
-      <div class="services-grid">
-        <div class="service-card reveal">
-          <span class="service-icon">🖐️</span>
-          <h3 class="service-name">Limpieza Energética</h3>
-          <p class="service-desc">Eliminación de cargas, parásitos y virus energéticos que pesan en tu campo áurico y bloquean tu bienestar. Sesiones presenciales y a distancia.</p>
-        </div>
-        <div class="service-card reveal">
-          <span class="service-icon">🌐</span>
-          <h3 class="service-name">Mesa Cuántica</h3>
-          <p class="service-desc">Trabajo profundo a nivel cuántico para reprogramar patrones limitantes y restaurar el flujo natural de tu energía vital.</p>
-        </div>
-        <div class="service-card reveal">
-          <span class="service-icon">🪬</span>
-          <h3 class="service-name">Péndulo Karnak</h3>
-          <p class="service-desc">Herramienta de diagnóstico y sanación que detecta y disuelve bloqueos emocionales, energías densas y programaciones inconscientes.</p>
-        </div>
-        <div class="service-card reveal">
-          <span class="service-icon">⚡</span>
-          <h3 class="service-name">Limpieza Express</h3>
-          <p class="service-desc">Sesiones breves y potentes para momentos donde necesitás reequilibrar tu energía de forma rápida y efectiva.</p>
-        </div>
-        <div class="service-card reveal">
-          <span class="service-icon">🏠</span>
-          <h3 class="service-name">Limpieza de Espacios</h3>
-          <p class="service-desc">Purificación energética de hogares y ambientes cargados con energías densas, presencias o historias que ya no sirven.</p>
-        </div>
-        <div class="service-card reveal">
-          <span class="service-icon">✨</span>
-          <h3 class="service-name">Trabajo con Chakras</h3>
-          <p class="service-desc">Alineación y activación de los centros energéticos para restablecer el equilibrio físico, emocional y espiritual.</p>
-        </div>
+
+      <div class="service-card reveal">
+        <span class="service-icon">🌐</span>
+        <h3 class="service-name">Mesa Cuantica</h3>
+        <div class="service-price">$25.000</div>
+        <p class="service-desc">Herramienta de armonizacion energetica que desbloquea caminos en amor, dinero y trabajo. Elimina miedos, karmas, bloqueos emocionales y patrones limitantes. Atrae prosperidad y bienestar.</p>
+        <a href="https://soul145.mitiendanube.com/productos/limpieza-energetica-con-mesa-cuantica1/" target="_blank" class="service-link">Ver detalles &rarr;</a>
+      </div>
+
+      <div class="service-card reveal">
+        <span class="service-icon">🪬</span>
+        <h3 class="service-name">Sanacion Profunda</h3>
+        <div class="service-price">$30.000</div>
+        <p class="service-desc">Liberacion de bloqueos profundos: sanacion del nino interior, vidas pasadas, votos y vinculos karmicos, reprogramacion del arbol familiar y corte energetico con relaciones densas.</p>
+        <a href="https://soul145.mitiendanube.com/productos/sanacion-profunda/" target="_blank" class="service-link">Ver detalles &rarr;</a>
+      </div>
+
+      <div class="service-card reveal">
+        <span class="service-icon">🏠</span>
+        <h3 class="service-name">Limpieza de Espacios</h3>
+        <div class="service-price">$45.000</div>
+        <p class="service-desc">Purificacion energetica de hogares con energias densas, presencias o conflictos constantes. Tu espacio recuperara su equilibrio, sintiendose mas liviano, armonioso y lleno de paz.</p>
+        <a href="https://soul145.mitiendanube.com/productos/limpieza-energetica-para-hogares/" target="_blank" class="service-link">Ver detalles &rarr;</a>
+      </div>
+
+      <div class="service-card reveal">
+        <span class="service-icon">💼</span>
+        <h3 class="service-name">Negocios y Emprendimientos</h3>
+        <div class="service-price">$40.000</div>
+        <p class="service-desc">Sentes que tu negocio esta estancado? Liberamos bloqueos que impiden tu prosperidad, abrimos caminos para nuevas oportunidades y elevamos la vibracion de tu espacio y proyectos.</p>
+        <a href="https://soul145.mitiendanube.com/productos/limpieza-energetica-para-emprendimientos-empresas-y-negocios/" target="_blank" class="service-link">Ver detalles &rarr;</a>
+      </div>
+
+      <div class="service-card reveal">
+        <span class="service-icon">✨</span>
+        <h3 class="service-name">Armonizacion de Ninos</h3>
+        <div class="service-price">$15.000</div>
+        <p class="service-desc">Sesiones suaves y seguras para equilibrar emociones, liberar tensiones y ayudar a los chicos a reconectar con su calma interior. Ideal para ninos inquietos, ansiosos o con dificultades para dormir.</p>
+        <a href="https://soul145.mitiendanube.com/productos/armonizacion-de-ninos/" target="_blank" class="service-link">Ver detalles &rarr;</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+<!-- PROCESO -->
+<section class="process" id="proceso">
+  <div class="container">
+    <div class="process-header reveal">
+      <span class="section-label">Como funciona</span>
+      <h2 class="section-title">Tu camino de <em>sanacion</em></h2>
+    </div>
+    <div class="process-steps">
+      <div class="step reveal">
+        <div class="step-number">01</div>
+        <h4 class="step-title">Contacto</h4>
+        <p class="step-desc">Me escribis por WhatsApp o reservas directamente en la tienda.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-number">02</div>
+        <h4 class="step-title">Diagnostico</h4>
+        <p class="step-desc">Identificamos juntos que areas necesitan atencion y que herramienta es la indicada.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-number">03</div>
+        <h4 class="step-title">Sesion</h4>
+        <p class="step-desc">Realizamos el trabajo energetico en un espacio de total confianza y presencia.</p>
+      </div>
+      <div class="step reveal">
+        <div class="step-number">04</div>
+        <h4 class="step-title">Integracion</h4>
+        <p class="step-desc">Te acompano en el proceso posterior para que los cambios se anclen y sostengan.</p>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <div class="divider"></div>
+<div class="divider"></div>
 
-  <!-- PROCESO -->
-  <section class="process" id="proceso">
-    <div class="container">
-      <div class="process-header reveal">
-        <span class="section-label">Cómo funciona</span>
-        <h2 class="section-title">Tu camino de <em>sanación</em></h2>
+<!-- TESTIMONIOS -->
+<section class="testimonials" id="testimonios">
+  <div class="container">
+    <div class="testimonials-header reveal">
+      <span class="section-label">Experiencias</span>
+      <h2 class="section-title">Lo que dicen quienes <em>ya transitaron</em> el proceso</h2>
+    </div>
+    <div class="testimonials-grid">
+      <div class="testimonial reveal">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-text">Se nota el cambio despues de la limpieza. Es otra nena, dulce, tranquila, escucha y ve las cosas diferente. Antes era indomable. Me encanto hacerselo, era lo que necesitaba. Ahora voy por mi hermano y mi sobrino!</p>
+        <span class="testimonial-author">— Mama de clienta, Limpieza con Pendulo Karnak</span>
       </div>
-      <div class="process-steps">
-        <div class="step reveal">
-          <div class="step-number">01</div>
-          <h4 class="step-title">Contacto</h4>
-          <p class="step-desc">Me escribís por WhatsApp o reservás directamente en la tienda.</p>
-        </div>
-        <div class="step reveal">
-          <div class="step-number">02</div>
-          <h4 class="step-title">Diagnóstico</h4>
-          <p class="step-desc">Identificamos juntos qué áreas necesitan atención y qué herramienta es la indicada.</p>
-        </div>
-        <div class="step reveal">
-          <div class="step-number">03</div>
-          <h4 class="step-title">Sesión</h4>
-          <p class="step-desc">Realizamos el trabajo energético en un espacio de total confianza y presencia.</p>
-        </div>
-        <div class="step reveal">
-          <div class="step-number">04</div>
-          <h4 class="step-title">Integración</h4>
-          <p class="step-desc">Te acompaño en el proceso posterior para que los cambios se anclen y sostengan.</p>
-        </div>
+      <div class="testimonial reveal">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-text">Asi tal cual la devolucion, asi me sentia. Ojala que poco a poco vaya cambiando la frecuencia. Tengo en cuenta todo lo que me dijiste. Muchas gracias.</p>
+        <span class="testimonial-author">— Clienta adulta, Pendulo Karnak completo</span>
+      </div>
+      <div class="testimonial reveal">
+        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="testimonial-text">Re bien, estuvo muy tranquila y se le pudo hablar. Antes me decia que se sentia rara, que no sabia que le pasaba. Despues durmio bastante, estuvo cansada pero relajada.</p>
+        <span class="testimonial-author">— Mama de clienta, Limpieza energetica infantil</span>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <div class="divider"></div>
-
-  <!-- TESTIMONIOS -->
-  <section class="testimonials" id="testimonios">
-    <div class="container">
-      <div class="testimonials-header reveal">
-        <span class="section-label">Experiencias</span>
-        <h2 class="section-title">Lo que dicen quienes <em>ya transitaron</em> el proceso</h2>
-      </div>
-      <div class="testimonials-grid">
-        <div class="testimonial reveal">
-          <p class="testimonial-text">Se nota el cambio después de la limpieza. Es otra nena — dulce, tranquila, escucha y ve las cosas diferente. Antes era indomable, no se le podía decir nada. Me encantó hacérselo, era lo que necesitaba. ¡Ahora voy por mi hermano y mi sobrino!</p>
-          <span class="testimonial-author">— Mamá de clienta, Limpieza con Péndulo Karnak</span>
-        </div>
-        <div class="testimonial reveal">
-          <p class="testimonial-text">Así tal cual la devolución, así me sentía. Ojalá que poco a poco vaya cambiando la frecuencia. Tengo en cuenta todo lo que me dijiste. Muchas gracias.</p>
-          <span class="testimonial-author">— Clienta adulta, Péndulo Karnak completo</span>
-        </div>
-        <div class="testimonial reveal">
-          <p class="testimonial-text">Re bien, estuvo muy tranquila y se le pudo hablar. Antes me decía que se sentía rara, que no sabía qué le pasaba. Después durmió bastante, estuvo cansada pero relajada.</p>
-          <span class="testimonial-author">— Mamá de clienta, Limpieza energética infantil</span>
-        </div>
+<div class="divider"></div>
+<!-- CTA -->
+<section class="cta-section" id="contacto">
+  <div class="container">
+    <div class="cta-inner reveal">
+      <span class="cta-symbol">✨</span>
+      <h2 class="cta-title">Lista para liberar y <em>elevar tu frecuencia</em>?</h2>
+      <p class="cta-desc">Reserva tu sesion o escribime para consultar que servicio se adapta mejor a lo que estas atravesando. Estoy aca para acompanarte.</p>
+      <div class="cta-buttons">
+        <a href="https://soul145.mitiendanube.com" target="_blank" class="btn-primary">Reservar en la tienda</a>
+        <a href="https://wa.me/5493416644513" target="_blank" class="btn-secondary">Escribir por WhatsApp</a>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <div class="divider"></div>
-
-  <!-- CTA -->
-  <section class="cta-section" id="contacto">
-    <div class="container">
-      <div class="cta-inner reveal">
-        <span class="cta-symbol">✨</span>
-        <h2 class="cta-title">¿Lista para liberar y <em>elevar tu frecuencia</em>?</h2>
-        <p class="cta-desc">Reservá tu sesión o escribime para consultar qué servicio se adapta mejor a lo que estás atravesando. Estoy acá para acompañarte.</p>
-        <div class="cta-buttons">
-          <a href="https://soul145.mitiendanube.com" target="_blank" class="btn-primary">Reservar en la tienda</a>
-          <a href="https://wa.me/5493416644513" target="_blank" class="btn-secondary">Escribir por WhatsApp</a>
-        </div>
-      </div>
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <span class="footer-logo">SOUL</span>
+    <div class="footer-links">
+      <a href="https://www.instagram.com/soul.transmutacion" target="_blank">Instagram</a>
+      <a href="https://soul145.mitiendanube.com" target="_blank">Tienda</a>
+      <a href="#contacto">Contacto</a>
     </div>
-  </section>
+    <span class="footer-copy">&#169; 2025 Bianca Di Rino &middot; SOUL</span>
+  </div>
+</footer>
 
-  <!-- FOOTER -->
-  <footer>
-    <div class="footer-inner">
-      <span class="footer-logo">SOUL</span>
-      <div class="footer-links">
-        <a href="https://www.instagram.com/soul.transmutacion" target="_blank">Instagram</a>
-        <a href="https://soul145.mitiendanube.com" target="_blank">Tienda</a>
-        <a href="#contacto">Contacto</a>
-      </div>
-      <span class="footer-copy">© 2025 Bianca Di Rino · SOUL</span>
-    </div>
-  </footer>
+<!-- WHATSAPP FLOTANTE -->
+<a href="https://wa.me/5493416644513" target="_blank" class="wa-float" aria-label="Escribir por WhatsApp">
+  <span class="wa-tooltip">Escribime por WhatsApp</span>
+  <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+  </svg>
+</a>
 
-  <script>
-    // Scroll reveal
-    const reveals = document.querySelectorAll('.reveal');
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry, i) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => entry.target.classList.add('visible'), i * 80);
-        }
-      });
-    }, { threshold: 0.1 });
-    reveals.forEach(el => observer.observe(el));
-  </script>
+<script>
+// Nav scroll effect
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// Mobile menu
+function toggleMobile(){
+  const menu = document.getElementById('mobileMenu');
+  const toggle = document.getElementById('navToggle');
+  menu.classList.toggle('open');
+  toggle.classList.toggle('active');
+  document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+}
+function closeMobile(){
+  document.getElementById('mobileMenu').classList.remove('open');
+  document.getElementById('navToggle').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+// Scroll reveal
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      setTimeout(() => entry.target.classList.add('visible'), i * 80);
+    }
+  });
+}, { threshold: 0.1 });
+reveals.forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>

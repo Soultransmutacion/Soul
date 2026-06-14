@@ -373,7 +373,6 @@ section { padding: 7rem 2rem; position: relative; }
   width: 200px;
   height: 172px;
   display: block;
-  mix-blend-mode: screen;
   filter: drop-shadow(0 0 20px rgba(123,79,166,0.8));
   animation: pulse-glow-soft 4s ease-in-out infinite;
 }
@@ -872,27 +871,23 @@ footer {
       <div class="identity-visual reveal">
         <div class="identity-ring">
           <div class="identity-inner">
-            <svg class="soul-logo-svg" viewBox="0 0 280 240" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <!-- FLAME: solid purple shape with heart cutout -->
-  <!-- Main flame body -->
-  <path d="M140 10 C140 10 175 50 175 85 C175 115 160 132 148 138 C154 120 151 100 143 88 C146 102 136 118 125 125 C115 112 120 90 120 90 C120 50 140 10 140 10Z" fill="#6B21A8"/>
-  <!-- Side flame curl left -->
-  <path d="M125 40 C110 55 108 72 118 85 C112 70 118 55 125 40Z" fill="#6B21A8"/>
-  <!-- Heart cutout (white = transparent on dark) -->
-  <path d="M140 78 C140 78 130 70 126 73 C122 76 122 82 127 86 L140 98 L153 86 C158 82 158 76 154 73 C150 70 140 78 140 78Z" fill="white"/>
-  
-  <!-- SOUL text: white fill + thick purple stroke for outline effect -->
-  <!-- Using font-based approach with paint-order stroke behind fill -->
-  <text x="140" y="195" 
+            <svg class="soul-logo-svg" viewBox="0 0 280 230" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- FLAME solid purple -->
+  <path d="M140 5 C140 5 178 48 178 86 C178 117 162 135 149 141 C155 122 152 101 143 88 C147 103 136 120 124 127 C113 113 118 90 118 90 C118 48 140 5 140 5Z" fill="#7b4fa6"/>
+  <!-- Side curl -->
+  <path d="M128 38 C112 56 110 74 120 88 C113 72 118 56 128 38Z" fill="#7b4fa6"/>
+  <!-- Heart cutout -->
+  <path d="M140 76 C140 76 129 67 124 71 C119 75 119 82 125 87 L140 101 L155 87 C161 82 161 75 156 71 C151 67 140 76 140 76Z" fill="white" opacity="0.9"/>
+  <!-- SOUL letters: fill transparent + purple stroke = pure outline like logo -->
+  <text x="140" y="196"
     text-anchor="middle"
-    font-family="'Arial Rounded MT Bold', 'Nunito', 'Varela Round', Arial, sans-serif"
-    font-size="88"
+    font-family="'Arial Rounded MT Bold', 'Nunito ExtraBold', Arial Black, sans-serif"
+    font-size="86"
     font-weight="900"
-    fill="white"
-    stroke="#6B21A8"
-    stroke-width="7"
-    stroke-linejoin="round"
-    paint-order="stroke fill">SOUL</text>
+    fill="none"
+    stroke="#7b4fa6"
+    stroke-width="8"
+    stroke-linejoin="round">SOUL</text>
 </svg>
           </div>
         </div>

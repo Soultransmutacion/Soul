@@ -70,12 +70,18 @@ nav.scrolled {
   border-bottom: 1px solid rgba(176,142,212,0.08);
 }
 .nav-logo {
-  font-family: 'Cinzel', serif;
-  font-size: 1.25rem;
-  letter-spacing: 0.35em;
-  color: var(--soft);
   text-decoration: none;
+  display: flex;
+  align-items: center;
 }
+.nav-logo-img {
+  height: 44px;
+  width: auto;
+  object-fit: contain;
+  filter: brightness(1.05);
+  transition: transform 0.3s;
+}
+.nav-logo-img:hover { transform: scale(1.05); }
 .nav-links {
   display: flex;
   gap: 2.5rem;

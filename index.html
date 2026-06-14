@@ -3,12 +3,12 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<meta name="description" content="SOUL — Bianca Di Rino. Limpiezas energeticas, liberacion de bloqueos y transmutacion. Sesiones presenciales y a distancia en Argentina."/>
-<meta property="og:title" content="SOUL — Bianca Di Rino | Limpiezas Energeticas"/>
-<meta property="og:description" content="Sesiones de limpieza energetica, Mesa Cuantica y Pendulo Karnak para liberar bloqueos, elevar tu frecuencia y reconectar con tu esencia."/>
+<meta name="description" content="Soul es un espacio de transformacion, armonizacion y acompanamiento para personas que buscan liberar bloqueos, comprender sus procesos y avanzar con mayor claridad."/>
+<meta property="og:title" content="SOUL — Bianca Di Rino | Transformacion y Bienestar Energetico"/>
+<meta property="og:description" content="Un espacio de acompanamiento para quienes buscan recuperar equilibrio, claridad y movimiento en sus vidas."/>
 <meta property="og:type" content="website"/>
 <meta property="og:url" content="https://soultransmutacion.github.io/Soul/"/>
-<title>SOUL — Bianca Di Rino | Limpiezas Energeticas</title>
+<title>SOUL — Bianca Di Rino | Transformacion y Bienestar</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600&family=Raleway:wght@300;400;500&display=swap" rel="stylesheet"/>
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -17,13 +17,16 @@
   --deep: #0d0a14;
   --dark: #130f1e;
   --mid: #1e1730;
+  --mid2: #251f3a;
   --violet: #7b4fa6;
   --lavender: #b08ed4;
   --soft: #d9c8f0;
   --gold: #c9a84c;
+  --gold-light: #e8c96a;
   --white: #f5f0ff;
   --text: #e2d9f3;
-  --wa-green: #25D366;
+  --muted: rgba(217,200,240,0.65);
+  --wa: #25D366;
 }
 
 html { scroll-behavior: smooth; color-scheme: only dark; }
@@ -44,31 +47,32 @@ body::before {
   content: '';
   position: fixed;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
   pointer-events: none;
   z-index: 9999;
-  opacity: 0.4;
+  opacity: 0.35;
 }
-/* NAV */
+
+/* ── NAV ── */
 nav {
   position: fixed;
   top: 0; left: 0; right: 0;
   z-index: 1000;
-  padding: 1.5rem 3rem;
+  padding: 1.4rem 3rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: linear-gradient(to bottom, rgba(13,10,20,0.97), transparent);
-  transition: background 0.3s;
+  transition: background 0.4s, backdrop-filter 0.4s;
 }
 nav.scrolled {
-  background: rgba(13,10,20,0.98);
-  box-shadow: 0 1px 0 rgba(176,142,212,0.1);
+  background: rgba(13,10,20,0.96);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(176,142,212,0.08);
 }
 .nav-logo {
   font-family: 'Cinzel', serif;
-  font-size: 1.3rem;
-  letter-spacing: 0.3em;
+  font-size: 1.25rem;
+  letter-spacing: 0.35em;
   color: var(--soft);
   text-decoration: none;
 }
@@ -79,7 +83,7 @@ nav.scrolled {
 }
 .nav-links a {
   font-family: 'Raleway', sans-serif;
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--lavender);
@@ -87,33 +91,31 @@ nav.scrolled {
   transition: color 0.3s;
 }
 .nav-links a:hover { color: var(--white); }
-
-/* HAMBURGER */
 .nav-toggle {
   display: none;
   flex-direction: column;
   gap: 5px;
   cursor: pointer;
-  padding: 4px;
   background: none;
   border: none;
+  padding: 4px;
 }
 .nav-toggle span {
   display: block;
   width: 24px;
   height: 1px;
   background: var(--lavender);
-  transition: all 0.3s;
+  transition: all 0.35s;
 }
 .nav-toggle.active span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
 .nav-toggle.active span:nth-child(2) { opacity: 0; }
 .nav-toggle.active span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
-
 .mobile-menu {
   display: none;
   position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
+  inset: 0;
   background: rgba(13,10,20,0.98);
+  backdrop-filter: blur(20px);
   z-index: 999;
   flex-direction: column;
   align-items: center;
@@ -131,7 +133,8 @@ nav.scrolled {
   transition: color 0.3s;
 }
 .mobile-menu a:hover { color: var(--lavender); }
-/* HERO */
+
+/* ── HERO ── */
 .hero {
   min-height: 100vh;
   display: flex;
@@ -140,136 +143,137 @@ nav.scrolled {
   align-items: center;
   text-align: center;
   position: relative;
-  padding: 6rem 2rem 4rem;
+  padding: 8rem 2rem 6rem;
   overflow: hidden;
 }
 .hero-bg {
   position: absolute;
   inset: 0;
   background:
-    radial-gradient(ellipse 60% 60% at 50% 40%, rgba(123,79,166,0.18) 0%, transparent 70%),
-    radial-gradient(ellipse 30% 40% at 80% 20%, rgba(176,142,212,0.1) 0%, transparent 60%),
-    radial-gradient(ellipse 40% 30% at 20% 80%, rgba(201,168,76,0.06) 0%, transparent 60%);
+    radial-gradient(ellipse 70% 60% at 50% 45%, rgba(123,79,166,0.15) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 85% 15%, rgba(176,142,212,0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 50% 35% at 15% 85%, rgba(201,168,76,0.05) 0%, transparent 60%);
 }
 .orb {
   position: absolute;
   border-radius: 50%;
-  filter: blur(60px);
-  animation: float 8s ease-in-out infinite;
+  filter: blur(70px);
+  pointer-events: none;
 }
-.orb-1 { width:300px;height:300px;background:rgba(123,79,166,0.12);top:10%;left:10%;animation-delay:0s; }
-.orb-2 { width:200px;height:200px;background:rgba(201,168,76,0.08);top:60%;right:15%;animation-delay:-3s; }
-.orb-3 { width:150px;height:150px;background:rgba(176,142,212,0.1);bottom:20%;left:30%;animation-delay:-5s; }
+.orb-1 { width:350px;height:350px;background:rgba(123,79,166,0.1);top:8%;left:8%;animation:float 10s ease-in-out infinite; }
+.orb-2 { width:220px;height:220px;background:rgba(201,168,76,0.07);top:55%;right:10%;animation:float 13s ease-in-out infinite;animation-delay:-4s; }
+.orb-3 { width:180px;height:180px;background:rgba(176,142,212,0.09);bottom:15%;left:25%;animation:float 9s ease-in-out infinite;animation-delay:-7s; }
 @keyframes float {
   0%,100%{transform:translateY(0) scale(1);}
-  50%{transform:translateY(-30px) scale(1.05);}
+  50%{transform:translateY(-28px) scale(1.04);}
 }
-.hero-symbol {
-  font-size: 3rem;
-  margin-bottom: 1.5rem;
-  animation: pulse-glow 3s ease-in-out infinite;
-}
-@keyframes pulse-glow {
-  0%,100%{filter:drop-shadow(0 0 8px rgba(176,142,212,0.4));}
-  50%{filter:drop-shadow(0 0 20px rgba(176,142,212,0.8));}
-}
-.hero-eyebrow {
+.hero-tagline {
   font-family: 'Cinzel', serif;
-  font-size: 0.7rem;
-  letter-spacing: 0.4em;
+  font-size: 0.65rem;
+  letter-spacing: 0.5em;
   text-transform: uppercase;
   color: var(--gold);
-  margin-bottom: 1.5rem;
-  animation: fadeUp 1s ease forwards;
+  margin-bottom: 2rem;
   opacity: 0;
-  animation-delay: 0.2s;
+  animation: fadeUp 1s ease forwards 0.3s;
 }
 .hero-title {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(3.5rem, 8vw, 7rem);
+  font-size: clamp(2.4rem, 5.5vw, 5.2rem);
   font-weight: 300;
-  line-height: 1;
-  letter-spacing: 0.05em;
+  line-height: 1.15;
   color: var(--white);
-  margin-bottom: 0.3rem;
-  animation: fadeUp 1.2s ease forwards;
+  max-width: 820px;
+  margin: 0 auto 1.8rem;
   opacity: 0;
-  animation-delay: 0.4s;
+  animation: fadeUp 1.1s ease forwards 0.5s;
 }
-.hero-title em { font-style:italic; color:var(--lavender); }
-.hero-title .cursor {
-  display: inline-block;
-  animation: blink 1s step-end infinite;
-  color: var(--gold);
-}
-@keyframes blink { 0%,100%{opacity:1;} 50%{opacity:0;} }
-.hero-subtitle {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(1rem, 2.5vw, 1.4rem);
-  font-style: italic;
-  font-weight: 300;
-  color: var(--lavender);
-  margin-bottom: 2.5rem;
-  letter-spacing: 0.08em;
-  animation: fadeUp 1s ease forwards;
+.hero-title em { font-style: italic; color: var(--lavender); }
+.hero-sub {
+  font-size: clamp(0.9rem, 1.8vw, 1.05rem);
+  line-height: 1.95;
+  color: var(--muted);
+  max-width: 600px;
+  margin: 0 auto 3.5rem;
   opacity: 0;
-  animation-delay: 0.7s;
-}
-.hero-desc {
-  max-width: 520px;
-  font-size: 0.95rem;
-  line-height: 1.9;
-  color: rgba(217,200,240,0.75);
-  margin-bottom: 3rem;
-  animation: fadeUp 1s ease forwards;
-  opacity: 0;
-  animation-delay: 0.9s;
+  animation: fadeUp 1s ease forwards 0.8s;
 }
 .hero-cta {
   display: flex;
   gap: 1.2rem;
   flex-wrap: wrap;
   justify-content: center;
-  animation: fadeUp 1s ease forwards;
   opacity: 0;
-  animation-delay: 1.1s;
+  animation: fadeUp 1s ease forwards 1.1s;
 }
 @keyframes fadeUp {
-  from{opacity:0;transform:translateY(24px);}
-  to{opacity:1;transform:translateY(0);}
+  from { opacity:0; transform:translateY(22px); }
+  to   { opacity:1; transform:translateY(0); }
 }
-/* BUTTONS */
+.hero-scroll {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 0;
+  animation: fadeUp 1s ease forwards 1.5s;
+}
+.hero-scroll span {
+  font-family: 'Cinzel', serif;
+  font-size: 0.55rem;
+  letter-spacing: 0.4em;
+  color: rgba(176,142,212,0.4);
+  text-transform: uppercase;
+}
+.hero-scroll-line {
+  width: 1px;
+  height: 40px;
+  background: linear-gradient(to bottom, rgba(176,142,212,0.4), transparent);
+  animation: scrollLine 2s ease-in-out infinite;
+}
+@keyframes scrollLine {
+  0%,100% { transform: scaleY(1); opacity:0.6; }
+  50% { transform: scaleY(0.4); opacity:0.2; }
+}
+
+/* ── BUTTONS ── */
 .btn-primary {
-  padding: 0.9rem 2.5rem;
+  display: inline-block;
+  padding: 1rem 2.8rem;
   background: linear-gradient(135deg, var(--violet), #5a3480);
   color: var(--white);
   font-family: 'Cinzel', serif;
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   letter-spacing: 0.25em;
   text-transform: uppercase;
   text-decoration: none;
-  border: 1px solid rgba(176,142,212,0.3);
+  border: 1px solid rgba(176,142,212,0.25);
   transition: all 0.4s;
   position: relative;
   overflow: hidden;
   cursor: pointer;
 }
-.btn-primary::before {
-  content:'';
-  position:absolute;
-  inset:0;
-  background:linear-gradient(135deg,rgba(255,255,255,0.1),transparent);
-  opacity:0;
-  transition:opacity 0.3s;
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.12), transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
 }
-.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(123,79,166,0.4);}
-.btn-primary:hover::before{opacity:1;}
-.btn-secondary {
-  padding: 0.9rem 2.5rem;
+.btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 35px rgba(123,79,166,0.45); }
+.btn-primary:hover::after { opacity: 1; }
+.btn-ghost {
+  display: inline-block;
+  padding: 1rem 2.8rem;
   background: transparent;
   color: var(--lavender);
   font-family: 'Cinzel', serif;
-  font-size: 0.7rem;
+  font-size: 0.68rem;
   letter-spacing: 0.25em;
   text-transform: uppercase;
   text-decoration: none;
@@ -277,135 +281,430 @@ nav.scrolled {
   transition: all 0.4s;
   cursor: pointer;
 }
-.btn-secondary:hover{background:rgba(176,142,212,0.08);border-color:var(--lavender);transform:translateY(-2px);}
+.btn-ghost:hover { background: rgba(176,142,212,0.08); border-color: var(--lavender); transform: translateY(-3px); }
 
-/* DIVIDER */
-.divider{width:100%;height:1px;background:linear-gradient(to right,transparent,rgba(176,142,212,0.3),transparent);}
-
-/* SECTION BASE */
-section{padding:7rem 2rem;position:relative;}
-.container{max-width:1100px;margin:0 auto;}
+/* ── LAYOUT BASE ── */
+.divider { width:100%;height:1px;background:linear-gradient(to right,transparent,rgba(176,142,212,0.2),transparent); }
+section { padding: 7rem 2rem; position: relative; }
+.container { max-width: 1100px; margin: 0 auto; }
 .section-label {
-  font-family:'Cinzel',serif;
-  font-size:0.65rem;
-  letter-spacing:0.4em;
-  text-transform:uppercase;
-  color:var(--gold);
-  display:block;
-  margin-bottom:1rem;
+  display: block;
+  font-family: 'Cinzel', serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.5em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.2rem;
 }
 .section-title {
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(2.2rem,4vw,3.5rem);
-  font-weight:300;
-  line-height:1.15;
-  color:var(--white);
-  margin-bottom:1.5rem;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 3.8vw, 3.2rem);
+  font-weight: 300;
+  line-height: 1.2;
+  color: var(--white);
+  margin-bottom: 1.5rem;
 }
-.section-title em{font-style:italic;color:var(--lavender);}
-/* ABOUT */
-.about{background:linear-gradient(to bottom,var(--deep),var(--dark));}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:6rem;align-items:center;}
-.about-text p{font-size:0.95rem;line-height:2;color:rgba(217,200,240,0.7);margin-bottom:1.5rem;}
-.about-visual{position:relative;display:flex;justify-content:center;align-items:center;}
-.about-circle{width:280px;height:280px;border-radius:50%;border:1px solid rgba(176,142,212,0.2);display:flex;align-items:center;justify-content:center;position:relative;}
-.about-circle::before{content:'';position:absolute;inset:-20px;border-radius:50%;border:1px solid rgba(176,142,212,0.1);}
-.about-circle::after{content:'';position:absolute;inset:-40px;border-radius:50%;border:1px solid rgba(176,142,212,0.05);}
-.about-inner{text-align:center;}
-.about-icon{font-size:4rem;display:block;margin-bottom:0.5rem;filter:drop-shadow(0 0 15px rgba(176,142,212,0.5));}
-.about-inner-title{font-family:'Cinzel',serif;font-size:1.2rem;letter-spacing:0.2em;color:var(--soft);}
+.section-title em { font-style: italic; color: var(--lavender); }
+.section-lead {
+  font-size: 0.95rem;
+  line-height: 2;
+  color: var(--muted);
+  max-width: 640px;
+}
 
-/* INTRO QUOTE */
-.intro-quote {
-  background: linear-gradient(135deg, rgba(123,79,166,0.08), rgba(176,142,212,0.05));
-  border-left: 2px solid var(--gold);
-  padding: 1.5rem 2rem;
-  margin: 2rem 0;
+/* ── QUE ES SOUL ── */
+.identity { background: linear-gradient(to bottom, var(--deep), var(--dark)); }
+.identity-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 7rem;
+  align-items: center;
+}
+.identity-text .section-lead { max-width: 100%; margin-top: 1rem; }
+.identity-text p { font-size: 0.95rem; line-height: 2.1; color: var(--muted); margin-bottom: 1.4rem; }
+.identity-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+.identity-ring {
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  border: 1px solid rgba(176,142,212,0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  animation: rotate-slow 30s linear infinite;
+}
+@keyframes rotate-slow {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+.identity-ring::before {
+  content: '';
+  position: absolute;
+  inset: -22px;
+  border-radius: 50%;
+  border: 1px solid rgba(176,142,212,0.08);
+  animation: rotate-slow 20s linear infinite reverse;
+}
+.identity-ring::after {
+  content: '';
+  position: absolute;
+  inset: -44px;
+  border-radius: 50%;
+  border: 1px dashed rgba(201,168,76,0.12);
+}
+.identity-inner {
+  text-align: center;
+  animation: rotate-slow 30s linear infinite reverse;
+}
+.identity-symbol { font-size: 3.5rem; display: block; filter: drop-shadow(0 0 20px rgba(176,142,212,0.5)); }
+.identity-name {
+  display: block;
+  font-family: 'Cinzel', serif;
+  font-size: 1rem;
+  letter-spacing: 0.5em;
+  color: var(--soft);
+  margin-top: 0.5rem;
+}
+
+/* ── PILARES / VALORES rápidos ── */
+.pillars-row {
+  display: flex;
+  gap: 0;
+  flex-wrap: wrap;
+  margin-top: 3rem;
+  border: 1px solid rgba(176,142,212,0.1);
+}
+.pillar-item {
+  flex: 1;
+  min-width: 140px;
+  padding: 1.2rem 1.5rem;
+  border-right: 1px solid rgba(176,142,212,0.1);
+  text-align: center;
+}
+.pillar-item:last-child { border-right: none; }
+.pillar-icon { font-size: 1.4rem; display: block; margin-bottom: 0.4rem; }
+.pillar-label {
+  font-family: 'Cinzel', serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--lavender);
+}
+
+/* ── SITUACIONES ── */
+.situations { background: var(--dark); }
+.situations-header { text-align: center; margin-bottom: 4rem; }
+.situations-header .section-lead { margin: 0 auto; text-align: center; }
+.situations-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: rgba(176,142,212,0.08);
+  margin-top: 3rem;
+}
+.situation-card {
+  background: var(--dark);
+  padding: 2.5rem 2rem;
+  position: relative;
+  transition: background 0.4s;
+  cursor: default;
+}
+.situation-card::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(to right, transparent, rgba(201,168,76,0.4), transparent);
+  transform: scaleX(0);
+  transition: transform 0.4s;
+}
+.situation-card:hover { background: rgba(123,79,166,0.06); }
+.situation-card:hover::before { transform: scaleX(1); }
+.situation-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3rem;
+  font-weight: 300;
+  color: rgba(176,142,212,0.12);
+  line-height: 1;
+  margin-bottom: 0.8rem;
+  display: block;
+}
+.situation-text {
   font-family: 'Cormorant Garamond', serif;
   font-size: 1.15rem;
   font-style: italic;
-  color: var(--soft);
   line-height: 1.7;
+  color: var(--soft);
+  margin-bottom: 0.6rem;
+}
+.situation-sub {
+  font-size: 0.8rem;
+  line-height: 1.7;
+  color: rgba(217,200,240,0.45);
 }
 
-/* SERVICES */
-.services{background:var(--dark);}
-.services-header{text-align:center;margin-bottom:4rem;}
-.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;background:rgba(176,142,212,0.1);}
-.service-card{
-  background:var(--dark);
-  padding:3rem 2.5rem;
-  transition:background 0.4s;
-  position:relative;
-  overflow:hidden;
-  display:flex;
-  flex-direction:column;
+/* ── COMO ACOMPANAMOS ── */
+.how { background: linear-gradient(to bottom, var(--dark), var(--mid)); }
+.how-header { text-align: center; margin-bottom: 5rem; }
+.how-header .section-lead { margin: 0 auto; text-align: center; }
+.how-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 1rem;
 }
-.service-card::before{
-  content:'';
-  position:absolute;
-  top:0;left:0;right:0;
-  height:1px;
-  background:linear-gradient(to right,transparent,rgba(176,142,212,0.4),transparent);
-  transform:scaleX(0);
-  transition:transform 0.4s;
+.how-card {
+  padding: 3rem 2.5rem;
+  border: 1px solid rgba(176,142,212,0.1);
+  background: rgba(13,10,20,0.3);
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  text-decoration: none;
+  display: block;
+  transition: background 0.4s, border-color 0.4s, transform 0.3s;
 }
-.service-card:hover{background:rgba(123,79,166,0.08);}
-.service-card:hover::before{transform:scaleX(1);}
-.service-icon{font-size:2rem;margin-bottom:1.5rem;display:block;}
-.service-name{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:400;color:var(--white);margin-bottom:0.5rem;}
-.service-price{
-  font-family:'Cinzel',serif;
-  font-size:0.85rem;
-  color:var(--gold);
-  letter-spacing:0.1em;
-  margin-bottom:0.8rem;
+.how-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(201,168,76,0.5), transparent);
+  transform: scaleX(0);
+  transition: transform 0.4s;
 }
-.service-desc{font-size:0.85rem;line-height:1.9;color:rgba(217,200,240,0.6);flex:1;}
-.service-link{
-  display:inline-block;
-  margin-top:1.2rem;
-  font-family:'Cinzel',serif;
-  font-size:0.65rem;
-  letter-spacing:0.2em;
-  text-transform:uppercase;
-  color:var(--lavender);
-  text-decoration:none;
-  border-bottom:1px solid rgba(176,142,212,0.3);
-  padding-bottom:2px;
-  transition:color 0.3s, border-color 0.3s;
+.how-card:hover {
+  background: rgba(123,79,166,0.1);
+  border-color: rgba(176,142,212,0.25);
+  transform: translateY(-4px);
 }
-.service-link:hover{color:var(--white);border-color:var(--white);}
-/* PROCESS */
-.process{background:linear-gradient(to bottom,var(--dark),var(--mid));}
-.process-header{text-align:center;margin-bottom:5rem;}
-.process-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:2rem;position:relative;}
-.process-steps::before{content:'';position:absolute;top:2rem;left:12%;right:12%;height:1px;background:linear-gradient(to right,transparent,rgba(176,142,212,0.3),rgba(176,142,212,0.3),transparent);}
-.step{text-align:center;position:relative;}
-.step-number{width:4rem;height:4rem;border-radius:50%;border:1px solid rgba(176,142,212,0.3);background:var(--mid);display:flex;align-items:center;justify-content:center;margin:0 auto 1.5rem;font-family:'Cinzel',serif;font-size:0.9rem;color:var(--lavender);letter-spacing:0.1em;transition:all 0.3s;}
-.step:hover .step-number{background:rgba(123,79,166,0.2);border-color:var(--lavender);}
-.step-title{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--white);margin-bottom:0.5rem;}
-.step-desc{font-size:0.8rem;line-height:1.8;color:rgba(217,200,240,0.55);}
+.how-card:hover::before { transform: scaleX(1); }
+.how-icon { font-size: 2.2rem; display: block; margin-bottom: 1.5rem; }
+.how-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.45rem;
+  font-weight: 400;
+  color: var(--white);
+  margin-bottom: 0.5rem;
+  display: block;
+}
+.how-price {
+  font-family: 'Cinzel', serif;
+  font-size: 0.78rem;
+  color: var(--gold);
+  letter-spacing: 0.1em;
+  margin-bottom: 1rem;
+  display: block;
+}
+.how-desc {
+  font-size: 0.84rem;
+  line-height: 1.95;
+  color: rgba(217,200,240,0.55);
+}
+.how-arrow {
+  display: inline-block;
+  margin-top: 1.5rem;
+  font-family: 'Cinzel', serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--lavender);
+  transition: color 0.3s, letter-spacing 0.3s;
+}
+.how-card:hover .how-arrow { color: var(--gold-light); letter-spacing: 0.3em; }
 
-/* TESTIMONIALS */
-.testimonials{background:var(--mid);}
-.testimonials-header{text-align:center;margin-bottom:4rem;}
-.testimonials-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;}
-.testimonial{padding:2.5rem;border:1px solid rgba(176,142,212,0.12);background:rgba(13,10,20,0.4);position:relative;transition:border-color 0.3s;}
-.testimonial:hover{border-color:rgba(176,142,212,0.3);}
-.testimonial::before{content:'"';position:absolute;top:1rem;left:2rem;font-family:'Cormorant Garamond',serif;font-size:5rem;color:rgba(176,142,212,0.15);line-height:1;}
-.testimonial-stars{color:var(--gold);font-size:0.85rem;margin-bottom:1rem;letter-spacing:0.1em;}
-.testimonial-text{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-style:italic;line-height:1.8;color:var(--soft);margin-bottom:1.5rem;position:relative;z-index:1;}
-.testimonial-author{font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);}
+/* ── SOBRE BIANCA ── */
+.bianca { background: var(--mid); }
+.bianca-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.4fr;
+  gap: 6rem;
+  align-items: start;
+}
+.bianca-visual { display: flex; flex-direction: column; align-items: center; gap: 2rem; }
+.bianca-frame {
+  width: 260px;
+  height: 320px;
+  border: 1px solid rgba(176,142,212,0.2);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(123,79,166,0.08), rgba(176,142,212,0.05));
+  overflow: hidden;
+}
+.bianca-frame::before {
+  content: '';
+  position: absolute;
+  inset: 8px;
+  border: 1px solid rgba(176,142,212,0.08);
+}
+.bianca-placeholder {
+  text-align: center;
+  padding: 2rem;
+}
+.bianca-placeholder span { font-size: 4rem; display: block; margin-bottom: 1rem; filter: drop-shadow(0 0 15px rgba(176,142,212,0.4)); }
+.bianca-placeholder p { font-size: 0.75rem; letter-spacing: 0.15em; text-transform: uppercase; color: rgba(176,142,212,0.4); }
+.bianca-signature {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  font-style: italic;
+  color: var(--lavender);
+  opacity: 0.7;
+}
+.bianca-text .section-lead { max-width: 100%; }
+.bianca-text p { font-size: 0.95rem; line-height: 2.1; color: var(--muted); margin-bottom: 1.4rem; }
+.bianca-quote {
+  margin: 2rem 0;
+  padding: 1.5rem 2rem;
+  border-left: 2px solid var(--gold);
+  background: rgba(201,168,76,0.04);
+}
+.bianca-quote p {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  font-style: italic;
+  line-height: 1.7;
+  color: var(--soft);
+  margin: 0;
+}
 
-/* CTA FINAL */
-.cta-section{background:linear-gradient(to bottom,var(--mid),var(--deep));text-align:center;}
-.cta-inner{max-width:650px;margin:0 auto;}
-.cta-symbol{font-size:3.5rem;display:block;margin-bottom:2rem;filter:drop-shadow(0 0 20px rgba(176,142,212,0.6));}
-.cta-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3.2rem);font-weight:300;color:var(--white);margin-bottom:1.2rem;line-height:1.2;}
-.cta-desc{font-size:0.95rem;line-height:1.9;color:rgba(217,200,240,0.65);margin-bottom:3rem;}
-.cta-buttons{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;}
-/* WHATSAPP FLOAT */
+/* ── TESTIMONIOS ── */
+.testimonials { background: linear-gradient(to bottom, var(--mid), var(--mid2)); }
+.testimonials-header { text-align: center; margin-bottom: 4rem; }
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+.testimonial {
+  padding: 2.8rem 2.5rem 2.2rem;
+  border: 1px solid rgba(176,142,212,0.1);
+  background: rgba(13,10,20,0.5);
+  position: relative;
+  transition: border-color 0.4s, transform 0.4s;
+}
+.testimonial:hover { border-color: rgba(176,142,212,0.25); transform: translateY(-4px); }
+.testimonial-mark {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 5rem;
+  color: rgba(176,142,212,0.12);
+  line-height: 1;
+  position: absolute;
+  top: 0.8rem;
+  left: 1.8rem;
+}
+.testimonial-stars { color: var(--gold); font-size: 0.8rem; letter-spacing: 0.1em; margin-bottom: 1.2rem; display: block; }
+.testimonial-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.05rem;
+  font-style: italic;
+  line-height: 1.85;
+  color: var(--soft);
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+.testimonial-author { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); }
+
+/* ── FILOSOFIA ── */
+.philosophy { background: var(--mid2); }
+.philosophy-header { text-align: center; margin-bottom: 5rem; }
+.philosophy-values {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 1px;
+  background: rgba(176,142,212,0.08);
+}
+.value-card {
+  background: var(--mid2);
+  padding: 3rem 1.5rem;
+  text-align: center;
+  position: relative;
+  transition: background 0.4s;
+  overflow: hidden;
+}
+.value-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 50%;
+  transform: translateX(-50%) scaleX(0);
+  width: 80%;
+  height: 1px;
+  background: var(--gold);
+  transition: transform 0.4s;
+}
+.value-card:hover { background: rgba(123,79,166,0.08); }
+.value-card:hover::after { transform: translateX(-50%) scaleX(1); }
+.value-icon { font-size: 2rem; display: block; margin-bottom: 1.2rem; }
+.value-name {
+  font-family: 'Cinzel', serif;
+  font-size: 0.62rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--soft);
+  display: block;
+  margin-bottom: 0.8rem;
+}
+.value-desc { font-size: 0.78rem; line-height: 1.7; color: rgba(217,200,240,0.45); }
+
+/* ── CTA FINAL ── */
+.final-cta {
+  background: linear-gradient(to bottom, var(--mid2), var(--deep));
+  text-align: center;
+}
+.final-cta-inner { max-width: 680px; margin: 0 auto; }
+.final-cta-symbol { font-size: 3.5rem; display: block; margin-bottom: 2.5rem; filter: drop-shadow(0 0 25px rgba(176,142,212,0.6)); animation: pulse-glow 3s ease-in-out infinite; }
+@keyframes pulse-glow {
+  0%,100% { filter: drop-shadow(0 0 10px rgba(176,142,212,0.4)); }
+  50%      { filter: drop-shadow(0 0 25px rgba(176,142,212,0.8)); }
+}
+.final-cta-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 300;
+  line-height: 1.2;
+  color: var(--white);
+  margin-bottom: 1.2rem;
+}
+.final-cta-title em { font-style: italic; color: var(--lavender); }
+.final-cta-sub {
+  font-size: 0.95rem;
+  line-height: 1.9;
+  color: var(--muted);
+  margin-bottom: 3rem;
+}
+.final-cta-btns { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--deep);
+  padding: 3rem 2rem;
+  border-top: 1px solid rgba(176,142,212,0.08);
+}
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+.footer-logo { font-family:'Cinzel',serif;font-size:1.1rem;letter-spacing:0.35em;color:var(--soft); }
+.footer-links { display:flex;gap:2rem; }
+.footer-links a { font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(176,142,212,0.5);text-decoration:none;transition:color 0.3s; }
+.footer-links a:hover { color:var(--lavender); }
+.footer-copy { font-size:0.72rem;color:rgba(176,142,212,0.3);letter-spacing:0.05em; }
+
+/* ── WA FLOAT ── */
 .wa-float {
   position: fixed;
   bottom: 2rem;
@@ -413,7 +712,7 @@ section{padding:7rem 2rem;position:relative;}
   z-index: 9998;
   width: 58px;
   height: 58px;
-  background: var(--wa-green);
+  background: var(--wa);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -421,21 +720,21 @@ section{padding:7rem 2rem;position:relative;}
   box-shadow: 0 4px 20px rgba(37,211,102,0.4);
   text-decoration: none;
   transition: transform 0.3s, box-shadow 0.3s;
-  animation: wa-pulse 3s ease-in-out infinite;
+  animation: wa-pulse 3.5s ease-in-out infinite;
 }
-.wa-float:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(37,211,102,0.6);}
-@keyframes wa-pulse{
-  0%,100%{box-shadow:0 4px 20px rgba(37,211,102,0.4);}
-  50%{box-shadow:0 4px 30px rgba(37,211,102,0.7);}
+.wa-float:hover { transform: scale(1.1); box-shadow: 0 6px 30px rgba(37,211,102,0.65); }
+@keyframes wa-pulse {
+  0%,100% { box-shadow: 0 4px 20px rgba(37,211,102,0.4); }
+  50%      { box-shadow: 0 4px 35px rgba(37,211,102,0.7); }
 }
-.wa-float svg{width:30px;height:30px;fill:white;}
+.wa-float svg { width:30px;height:30px;fill:white; }
 .wa-tooltip {
   position: absolute;
   right: 68px;
-  background: rgba(13,10,20,0.95);
+  background: rgba(13,10,20,0.96);
   color: var(--soft);
   font-family: 'Raleway', sans-serif;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   white-space: nowrap;
   padding: 0.5rem 1rem;
   border-radius: 4px;
@@ -444,33 +743,32 @@ section{padding:7rem 2rem;position:relative;}
   pointer-events: none;
   transition: opacity 0.3s;
 }
-.wa-float:hover .wa-tooltip{opacity:1;}
+.wa-float:hover .wa-tooltip { opacity: 1; }
 
-/* FOOTER */
-footer{background:var(--deep);padding:3rem 2rem;border-top:1px solid rgba(176,142,212,0.1);}
-.footer-inner{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1.5rem;}
-.footer-logo{font-family:'Cinzel',serif;font-size:1.1rem;letter-spacing:0.3em;color:var(--soft);}
-.footer-links{display:flex;gap:2rem;}
-.footer-links a{font-size:0.75rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(176,142,212,0.6);text-decoration:none;transition:color 0.3s;}
-.footer-links a:hover{color:var(--lavender);}
-.footer-copy{font-size:0.75rem;color:rgba(176,142,212,0.35);letter-spacing:0.05em;}
+/* ── REVEAL ── */
+.reveal { opacity:0;transform:translateY(28px);transition:opacity 0.85s ease,transform 0.85s ease; }
+.reveal.visible { opacity:1;transform:translateY(0); }
 
-/* SCROLL REVEAL */
-.reveal{opacity:0;transform:translateY(30px);transition:opacity 0.8s ease,transform 0.8s ease;}
-.reveal.visible{opacity:1;transform:translateY(0);}
-/* RESPONSIVE */
-@media (max-width: 900px) {
-  nav{padding:1.2rem 1.5rem;}
-  .nav-links{display:none;}
-  .nav-toggle{display:flex;}
-  .about-grid{grid-template-columns:1fr;gap:3rem;}
-  .about-visual{order:-1;}
-  .services-grid{grid-template-columns:1fr;}
-  .process-steps{grid-template-columns:repeat(2,1fr);}
-  .process-steps::before{display:none;}
-  .testimonials-grid{grid-template-columns:1fr;}
-  .footer-inner{flex-direction:column;text-align:center;}
-  .wa-float{bottom:1.5rem;right:1.5rem;}
+/* ── RESPONSIVE ── */
+@media (max-width: 960px) {
+  nav { padding: 1.2rem 1.5rem; }
+  .nav-links { display: none; }
+  .nav-toggle { display: flex; }
+  .identity-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .identity-visual { order: -1; }
+  .situations-grid { grid-template-columns: 1fr; }
+  .how-grid { grid-template-columns: 1fr; }
+  .bianca-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .bianca-visual { flex-direction: row; }
+  .testimonials-grid { grid-template-columns: 1fr; }
+  .philosophy-values { grid-template-columns: repeat(2, 1fr); }
+  .pillars-row { justify-content: center; }
+  .footer-inner { flex-direction: column; text-align: center; }
+  .wa-float { bottom: 1.5rem; right: 1.5rem; }
+}
+@media (max-width: 600px) {
+  .philosophy-values { grid-template-columns: 1fr; }
+  .bianca-visual { flex-direction: column; }
 }
 </style>
 </head>
@@ -478,8 +776,9 @@ footer{background:var(--deep);padding:3rem 2rem;border-top:1px solid rgba(176,14
 
 <!-- MOBILE MENU -->
 <div class="mobile-menu" id="mobileMenu">
+  <a href="#que-es-soul" onclick="closeMobile()">Soul</a>
   <a href="#servicios" onclick="closeMobile()">Servicios</a>
-  <a href="#proceso" onclick="closeMobile()">Proceso</a>
+  <a href="#bianca" onclick="closeMobile()">Bianca</a>
   <a href="#testimonios" onclick="closeMobile()">Experiencias</a>
   <a href="#contacto" onclick="closeMobile()">Contacto</a>
 </div>
@@ -488,8 +787,9 @@ footer{background:var(--deep);padding:3rem 2rem;border-top:1px solid rgba(176,14
 <nav id="mainNav">
   <a href="#" class="nav-logo">SOUL</a>
   <ul class="nav-links">
+    <li><a href="#que-es-soul">Soul</a></li>
     <li><a href="#servicios">Servicios</a></li>
-    <li><a href="#proceso">Proceso</a></li>
+    <li><a href="#bianca">Bianca</a></li>
     <li><a href="#testimonios">Experiencias</a></li>
     <li><a href="#contacto">Contacto</a></li>
   </ul>
@@ -497,139 +797,226 @@ footer{background:var(--deep);padding:3rem 2rem;border-top:1px solid rgba(176,14
     <span></span><span></span><span></span>
   </button>
 </nav>
+
 <!-- HERO -->
 <section class="hero">
   <div class="hero-bg"></div>
   <div class="orb orb-1"></div>
   <div class="orb orb-2"></div>
   <div class="orb orb-3"></div>
-  <div class="hero-symbol">🔥</div>
-  <p class="hero-eyebrow">Bianca Di Rino &middot; Transmutacion</p>
-  <h1 class="hero-title">SOUL<span class="cursor">_</span></h1>
-  <p class="hero-subtitle">Limpiezas Energeticas &amp; Liberacion de Bloqueos</p>
-  <p class="hero-desc">Soy Bianca, y mi mision es ayudarte a armonizar tu energia y la de tus espacios. Si sientes que necesitas equilibrio, renovacion o simplemente queres elevar tu vibracion, estoy aqui para acompanarte.</p>
+
+  <p class="hero-tagline">Bianca Di Rino &middot; Soul &middot; Transmutacion</p>
+
+  <h1 class="hero-title">
+    Cuando algo en tu vida <em>no fluye</em>,<br>
+    quizas sea momento de mirar<br>
+    un poco mas profundo.
+  </h1>
+
+  <p class="hero-sub">
+    Soul es un espacio de transformacion, armonizacion y acompanamiento
+    para personas que buscan liberar bloqueos, comprender sus procesos
+    y avanzar con mayor claridad.
+  </p>
+
   <div class="hero-cta">
-    <a href="https://soul145.mitiendanube.com" target="_blank" class="btn-primary">Reservar sesion</a>
-    <a href="#servicios" class="btn-secondary">Ver servicios</a>
+    <a href="#servicios" class="btn-primary">Conocer los servicios</a>
+    <a href="#que-es-soul" class="btn-ghost">Descubrir Soul</a>
+  </div>
+
+  <div class="hero-scroll">
+    <span>Explorar</span>
+    <div class="hero-scroll-line"></div>
   </div>
 </section>
 
 <div class="divider"></div>
 
-<!-- ABOUT -->
-<section class="about" id="about">
+<!-- QUE ES SOUL -->
+<section class="identity" id="que-es-soul">
   <div class="container">
-    <div class="about-grid">
-      <div class="about-text reveal">
-        <span class="section-label">Sobre mi</span>
-        <h2 class="section-title">El camino hacia tu <em>liberacion</em></h2>
-        <blockquote class="intro-quote">Gracias por estar aqui. Es un placer ayudarte a vibrar alto.</blockquote>
-        <p>Soy Bianca Di Rino, facilitadora de procesos energeticos. Trabajo con herramientas como la Mesa Cuantica y el Pendulo Karnak para identificar y liberar los bloqueos que frenan tu expansion.</p>
-        <p>Cada sesion es un espacio sagrado donde el cuerpo, la mente y el alma se alinean. No hay coincidencias — si llegaste aqui, es porque algo en vos esta listo para transformarse.</p>
-        <a href="#contacto" class="btn-primary" style="display:inline-block;margin-top:1rem;">Quiero saber mas</a>
+    <div class="identity-grid">
+      <div class="identity-text reveal">
+        <span class="section-label">Que es Soul</span>
+        <h2 class="section-title">Un espacio para quienes buscan <em>recuperar su movimiento</em></h2>
+        <p>Soul nacio como un espacio de acompanamiento energetico y espiritual. No es un lugar de respuestas rapidas ni de soluciones magicas. Es un espacio de proceso, de mirada interna, de reconexion con lo que ya esta en vos.</p>
+        <p>Desde una perspectiva energetica, muchos de los estados que vivimos, el estancamiento, la confusion, el cansancio sin causa aparente, los patrones que se repiten, tienen una dimension invisible que puede ser trabajada, comprendida y transformada.</p>
+        <p>Soul acompana esos procesos con herramientas de armonizacion energetica, en un marco de escucha, presencia y compromiso genuino con tu bienestar.</p>
       </div>
-      <div class="about-visual reveal">
-        <div class="about-circle">
-          <div class="about-inner">
-            <span class="about-icon">🔮</span>
-            <span class="about-inner-title">SOUL</span>
+      <div class="identity-visual reveal">
+        <div class="identity-ring">
+          <div class="identity-inner">
+            <span class="identity-symbol">&#10024;</span>
+            <span class="identity-name">SOUL</span>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
 
-<div class="divider"></div>
-<!-- SERVICIOS -->
-<section class="services" id="servicios">
-  <div class="container">
-    <div class="services-header reveal">
-      <span class="section-label">Lo que ofrezco</span>
-      <h2 class="section-title">Servicios para tu <em>transformacion</em></h2>
-    </div>
-    <div class="services-grid">
-
-      <div class="service-card reveal">
-        <span class="service-icon">🖐️</span>
-        <h3 class="service-name">Limpieza Energetica Personal</h3>
-        <div class="service-price">$30.000</div>
-        <p class="service-desc">Con Pendulo Karnak, liberamos tu campo energetico de cargas negativas, bloqueos, virus energeticos y devolviendote equilibrio, claridad y bienestar. Sesiones presenciales y a distancia.</p>
-        <a href="https://soul145.mitiendanube.com/productos/limpieza-energetica-personal-con-pendulo-karnak/" target="_blank" class="service-link">Ver detalles &rarr;</a>
+    <div class="pillars-row reveal">
+      <div class="pillar-item">
+        <span class="pillar-icon">&#127807;</span>
+        <span class="pillar-label">Liberacion</span>
       </div>
-
-      <div class="service-card reveal">
-        <span class="service-icon">🌐</span>
-        <h3 class="service-name">Mesa Cuantica</h3>
-        <div class="service-price">$25.000</div>
-        <p class="service-desc">Herramienta de armonizacion energetica que desbloquea caminos en amor, dinero y trabajo. Elimina miedos, karmas, bloqueos emocionales y patrones limitantes. Atrae prosperidad y bienestar.</p>
-        <a href="https://soul145.mitiendanube.com/productos/limpieza-energetica-con-mesa-cuantica1/" target="_blank" class="service-link">Ver detalles &rarr;</a>
+      <div class="pillar-item">
+        <span class="pillar-icon">&#9670;</span>
+        <span class="pillar-label">Armonia</span>
       </div>
-
-      <div class="service-card reveal">
-        <span class="service-icon">🪬</span>
-        <h3 class="service-name">Sanacion Profunda</h3>
-        <div class="service-price">$30.000</div>
-        <p class="service-desc">Liberacion de bloqueos profundos: sanacion del nino interior, vidas pasadas, votos y vinculos karmicos, reprogramacion del arbol familiar y corte energetico con relaciones densas.</p>
-        <a href="https://soul145.mitiendanube.com/productos/sanacion-profunda/" target="_blank" class="service-link">Ver detalles &rarr;</a>
+      <div class="pillar-item">
+        <span class="pillar-icon">&#128161;</span>
+        <span class="pillar-label">Claridad</span>
       </div>
-
-      <div class="service-card reveal">
-        <span class="service-icon">🏠</span>
-        <h3 class="service-name">Limpieza de Espacios</h3>
-        <div class="service-price">$45.000</div>
-        <p class="service-desc">Purificacion energetica de hogares con energias densas, presencias o conflictos constantes. Tu espacio recuperara su equilibrio, sintiendose mas liviano, armonioso y lleno de paz.</p>
-        <a href="https://soul145.mitiendanube.com/productos/limpieza-energetica-para-hogares/" target="_blank" class="service-link">Ver detalles &rarr;</a>
+      <div class="pillar-item">
+        <span class="pillar-icon">&#127775;</span>
+        <span class="pillar-label">Transformacion</span>
       </div>
-
-      <div class="service-card reveal">
-        <span class="service-icon">💼</span>
-        <h3 class="service-name">Negocios y Emprendimientos</h3>
-        <div class="service-price">$40.000</div>
-        <p class="service-desc">Sentes que tu negocio esta estancado? Liberamos bloqueos que impiden tu prosperidad, abrimos caminos para nuevas oportunidades y elevamos la vibracion de tu espacio y proyectos.</p>
-        <a href="https://soul145.mitiendanube.com/productos/limpieza-energetica-para-emprendimientos-empresas-y-negocios/" target="_blank" class="service-link">Ver detalles &rarr;</a>
+      <div class="pillar-item">
+        <span class="pillar-icon">&#128336;</span>
+        <span class="pillar-label">Evolucion</span>
       </div>
-
-      <div class="service-card reveal">
-        <span class="service-icon">✨</span>
-        <h3 class="service-name">Armonizacion de Ninos</h3>
-        <div class="service-price">$15.000</div>
-        <p class="service-desc">Sesiones suaves y seguras para equilibrar emociones, liberar tensiones y ayudar a los chicos a reconectar con su calma interior. Ideal para ninos inquietos, ansiosos o con dificultades para dormir.</p>
-        <a href="https://soul145.mitiendanube.com/productos/armonizacion-de-ninos/" target="_blank" class="service-link">Ver detalles &rarr;</a>
-      </div>
-
     </div>
   </div>
 </section>
 
 <div class="divider"></div>
-<!-- PROCESO -->
-<section class="process" id="proceso">
+
+<!-- QUE BUSCAN LAS PERSONAS -->
+<section class="situations" id="situaciones">
   <div class="container">
-    <div class="process-header reveal">
-      <span class="section-label">Como funciona</span>
-      <h2 class="section-title">Tu camino de <em>sanacion</em></h2>
+    <div class="situations-header reveal">
+      <span class="section-label">Reconocete en esto</span>
+      <h2 class="section-title">Las personas llegan a Soul cuando <em>algo no termina de fluir</em></h2>
+      <p class="section-lead">No hace falta estar en crisis. A veces es solo esa sensacion persistente de que algo podria ser diferente, pero no saber bien por donde empezar.</p>
     </div>
-    <div class="process-steps">
-      <div class="step reveal">
-        <div class="step-number">01</div>
-        <h4 class="step-title">Contacto</h4>
-        <p class="step-desc">Me escribis por WhatsApp o reservas directamente en la tienda.</p>
+    <div class="situations-grid">
+      <div class="situation-card reveal">
+        <span class="situation-num">01</span>
+        <p class="situation-text">"Siento que estoy dando vueltas en circulos. Las mismas situaciones, las mismas respuestas, los mismos resultados."</p>
+        <p class="situation-sub">Patrones que se repiten sin que encuentres la salida.</p>
       </div>
-      <div class="step reveal">
-        <div class="step-number">02</div>
-        <h4 class="step-title">Diagnostico</h4>
-        <p class="step-desc">Identificamos juntos que areas necesitan atencion y que herramienta es la indicada.</p>
+      <div class="situation-card reveal">
+        <span class="situation-num">02</span>
+        <p class="situation-text">"Hay algo que me frena. No es falta de ganas ni de esfuerzo. Es como si hubiera una pared invisible."</p>
+        <p class="situation-sub">Bloqueos energeticos que detienen el avance.</p>
       </div>
-      <div class="step reveal">
-        <div class="step-number">03</div>
-        <h4 class="step-title">Sesion</h4>
-        <p class="step-desc">Realizamos el trabajo energetico en un espacio de total confianza y presencia.</p>
+      <div class="situation-card reveal">
+        <span class="situation-num">03</span>
+        <p class="situation-text">"Estoy agotado sin razon clara. El cansancio no desaparece aunque descanse."</p>
+        <p class="situation-sub">Cansancio energetico y perdida de vitalidad.</p>
       </div>
-      <div class="step reveal">
-        <div class="step-number">04</div>
-        <h4 class="step-title">Integracion</h4>
-        <p class="step-desc">Te acompano en el proceso posterior para que los cambios se anclen y sostengan.</p>
+      <div class="situation-card reveal">
+        <span class="situation-num">04</span>
+        <p class="situation-text">"No tengo claridad sobre que camino tomar. Todo parece incierto y las decisiones me cuestan mucho."</p>
+        <p class="situation-sub">Falta de claridad y confusion en el proposito.</p>
+      </div>
+      <div class="situation-card reveal">
+        <span class="situation-num">05</span>
+        <p class="situation-text">"Siento que algo en mi casa o mi entorno esta cargado. El ambiente se siente pesado."</p>
+        <p class="situation-sub">Energias densas en los espacios que habitamos.</p>
+      </div>
+      <div class="situation-card reveal">
+        <span class="situation-num">06</span>
+        <p class="situation-text">"Necesito reconectar conmigo. Perdi el hilo y no se bien quien soy ni que quiero."</p>
+        <p class="situation-sub">Desconexion del proposito y la esencia propia.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- COMO ACOMPANAMOS / SERVICIOS -->
+<section class="how" id="servicios">
+  <div class="container">
+    <div class="how-header reveal">
+      <span class="section-label">Como acompanamos</span>
+      <h2 class="section-title">Herramientas al servicio de <em>tu proceso</em></h2>
+      <p class="section-lead">En Soul usamos distintas herramientas energeticas segun lo que cada persona necesita. Lo importante no es la tecnica, sino el proceso que atravesas y la transformacion que buscas.</p>
+    </div>
+    <div class="how-grid">
+
+      <a href="https://soul145.mitiendanube.com/productos/limpieza-energetica-personal-con-pendulo-karnak/" target="_blank" class="how-card reveal">
+        <span class="how-icon">&#128084;</span>
+        <span class="how-name">Liberacion de Bloqueos Personales</span>
+        <span class="how-price">$30.000</span>
+        <p class="how-desc">Para quienes sienten cansancio energetico, estancamiento o la presencia de cargas externas. Trabajamos en profundidad el campo energetico personal para restaurar el equilibrio y la vitalidad.</p>
+        <span class="how-arrow">Reservar sesion &rarr;</span>
+      </a>
+
+      <a href="https://soul145.mitiendanube.com/productos/limpieza-energetica-con-mesa-cuantica1/" target="_blank" class="how-card reveal">
+        <span class="how-icon">&#127775;</span>
+        <span class="how-name">Armonizacion y Apertura de Caminos</span>
+        <span class="how-price">$25.000</span>
+        <p class="how-desc">Ideal cuando sientes que las oportunidades no llegan, que hay obstaculos invisibles en el amor, el trabajo o la economia. Armonizamos y activamos el flujo en las areas bloqueadas.</p>
+        <span class="how-arrow">Reservar sesion &rarr;</span>
+      </a>
+
+      <a href="https://soul145.mitiendanube.com/productos/sanacion-profunda/" target="_blank" class="how-card reveal">
+        <span class="how-icon">&#127807;</span>
+        <span class="how-name">Transformacion y Sanacion Profunda</span>
+        <span class="how-price">$30.000</span>
+        <p class="how-desc">Un proceso mas profundo de liberacion: patrones heredados, vinculos karmicos, creencias limitantes del arbol familiar. Para quienes buscan una transformacion desde la raiz.</p>
+        <span class="how-arrow">Reservar sesion &rarr;</span>
+      </a>
+
+      <a href="https://soul145.mitiendanube.com/productos/limpieza-energetica-para-hogares/" target="_blank" class="how-card reveal">
+        <span class="how-icon">&#127968;</span>
+        <span class="how-name">Armonizacion de Espacios</span>
+        <span class="how-price">$45.000</span>
+        <p class="how-desc">Los lugares donde vivimos guardan historia energetica. Si tu hogar se siente pesado, hay conflictos frecuentes o simplemente no logras descansar bien, este proceso puede restaurar el equilibrio del espacio.</p>
+        <span class="how-arrow">Reservar sesion &rarr;</span>
+      </a>
+
+      <a href="https://soul145.mitiendanube.com/productos/limpieza-energetica-para-emprendimientos-empresas-y-negocios/" target="_blank" class="how-card reveal">
+        <span class="how-icon">&#128640;</span>
+        <span class="how-name">Impulso para Proyectos y Negocios</span>
+        <span class="how-price">$40.000</span>
+        <p class="how-desc">Para emprendedores y proyectos que no despegan. Liberamos los bloqueos que frenan el crecimiento, activamos la energia de prosperidad y abrimos caminos hacia nuevas oportunidades.</p>
+        <span class="how-arrow">Reservar sesion &rarr;</span>
+      </a>
+
+      <a href="https://soul145.mitiendanube.com/productos/armonizacion-de-ninos/" target="_blank" class="how-card reveal">
+        <span class="how-icon">&#127774;</span>
+        <span class="how-name">Acompanamiento para Ninos</span>
+        <span class="how-price">$15.000</span>
+        <p class="how-desc">Los ninos tambien acumulan cargas energeticas. Este proceso suave y seguro los ayuda a recuperar su calma natural, dormir mejor y procesar los cambios con mayor tranquilidad.</p>
+        <span class="how-arrow">Reservar sesion &rarr;</span>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- SOBRE BIANCA -->
+<section class="bianca" id="bianca">
+  <div class="container">
+    <div class="bianca-grid">
+      <div class="bianca-visual reveal">
+        <div class="bianca-frame">
+          <div class="bianca-placeholder">
+            <span>&#128099;</span>
+            <p>Bianca Di Rino</p>
+          </div>
+        </div>
+        <span class="bianca-signature">Bianca Di Rino</span>
+      </div>
+      <div class="bianca-text reveal">
+        <span class="section-label">Sobre Bianca</span>
+        <h2 class="section-title">Una facilitadora, <em>no una gurua</em></h2>
+
+        <div class="bianca-quote">
+          <p>Creo profundamente en la capacidad de transformacion de cada persona. Mi trabajo es acompanar ese proceso, no reemplazarlo.</p>
+        </div>
+
+        <p>Soy Bianca Di Rino, y llegue al trabajo energetico por un camino personal antes que profesional. Atravese mis propios procesos de bloqueo, confusion y desconexion, y fue a traves de la exploracion energetica y espiritual que encontre herramientas que realmente me funcionaron.</p>
+
+        <p>Eso me llevo a formarme, a profundizar, y eventualmente a acompanar a otras personas en procesos similares. Trabajo con herramientas como la Mesa Cuantica y el Pendulo Karnak, que me permiten identificar y trabajar los bloqueos energeticos con precision y con cuidado.</p>
+
+        <p>Cada sesion es diferente porque cada persona es diferente. No tengo formulas. Tengo presencia, experiencia y un compromiso genuino con tu proceso.</p>
+
+        <a href="https://wa.me/5493416644513" target="_blank" class="btn-ghost" style="margin-top:1.5rem;">Escribirme por WhatsApp</a>
       </div>
     </div>
   </div>
@@ -641,40 +1028,89 @@ footer{background:var(--deep);padding:3rem 2rem;border-top:1px solid rgba(176,14
 <section class="testimonials" id="testimonios">
   <div class="container">
     <div class="testimonials-header reveal">
-      <span class="section-label">Experiencias</span>
-      <h2 class="section-title">Lo que dicen quienes <em>ya transitaron</em> el proceso</h2>
+      <span class="section-label">Experiencias reales</span>
+      <h2 class="section-title">Lo que dicen quienes <em>ya iniciaron su proceso</em></h2>
     </div>
     <div class="testimonials-grid">
       <div class="testimonial reveal">
-        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="testimonial-text">Se nota el cambio despues de la limpieza. Es otra nena, dulce, tranquila, escucha y ve las cosas diferente. Antes era indomable. Me encanto hacerselo, era lo que necesitaba. Ahora voy por mi hermano y mi sobrino!</p>
-        <span class="testimonial-author">— Mama de clienta, Limpieza con Pendulo Karnak</span>
+        <span class="testimonial-mark">&ldquo;</span>
+        <span class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        <p class="testimonial-text">Se nota el cambio despues de la limpieza. Es otra nena, dulce, tranquila, escucha y ve las cosas diferente. Antes era indomable, no se le podia decir nada. Me encanto hacerselo, era lo que necesitaba.</p>
+        <span class="testimonial-author">Mama de clienta &mdash; Liberacion energetica infantil</span>
       </div>
       <div class="testimonial reveal">
-        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
-        <p class="testimonial-text">Asi tal cual la devolucion, asi me sentia. Ojala que poco a poco vaya cambiando la frecuencia. Tengo en cuenta todo lo que me dijiste. Muchas gracias.</p>
-        <span class="testimonial-author">— Clienta adulta, Pendulo Karnak completo</span>
+        <span class="testimonial-mark">&ldquo;</span>
+        <span class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+        <p class="testimonial-text">Asi tal cual la devolucion, asi me sentia. Ojala que poco a poco vaya cambiando la frecuencia. Tengo en cuenta todo lo que me dijiste. Muchas gracias, de verdad.</p>
+        <span class="testimonial-author">Clienta adulta &mdash; Sesion personal completa</span>
       </div>
       <div class="testimonial reveal">
-        <div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <span class="testimonial-mark">&ldquo;</span>
+        <span class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
         <p class="testimonial-text">Re bien, estuvo muy tranquila y se le pudo hablar. Antes me decia que se sentia rara, que no sabia que le pasaba. Despues durmio bastante, estuvo cansada pero relajada.</p>
-        <span class="testimonial-author">— Mama de clienta, Limpieza energetica infantil</span>
+        <span class="testimonial-author">Mama de clienta &mdash; Acompanamiento para ninos</span>
       </div>
     </div>
   </div>
 </section>
 
 <div class="divider"></div>
-<!-- CTA -->
-<section class="cta-section" id="contacto">
+
+<!-- FILOSOFIA -->
+<section class="philosophy" id="filosofia">
   <div class="container">
-    <div class="cta-inner reveal">
-      <span class="cta-symbol">✨</span>
-      <h2 class="cta-title">Lista para liberar y <em>elevar tu frecuencia</em>?</h2>
-      <p class="cta-desc">Reserva tu sesion o escribime para consultar que servicio se adapta mejor a lo que estas atravesando. Estoy aca para acompanarte.</p>
-      <div class="cta-buttons">
-        <a href="https://soul145.mitiendanube.com" target="_blank" class="btn-primary">Reservar en la tienda</a>
-        <a href="https://wa.me/5493416644513" target="_blank" class="btn-secondary">Escribir por WhatsApp</a>
+    <div class="philosophy-header reveal">
+      <span class="section-label">Filosofia Soul</span>
+      <h2 class="section-title">Los valores que guian <em>cada proceso</em></h2>
+    </div>
+    <div class="philosophy-values">
+      <div class="value-card reveal">
+        <span class="value-icon">&#128282;</span>
+        <span class="value-name">Transformacion</span>
+        <p class="value-desc">Creemos en la capacidad innata de cada persona para cambiar, crecer y avanzar.</p>
+      </div>
+      <div class="value-card reveal">
+        <span class="value-icon">&#128064;</span>
+        <span class="value-name">Consciencia</span>
+        <p class="value-desc">El primer paso de todo proceso es mirar con honestidad lo que esta sucediendo.</p>
+      </div>
+      <div class="value-card reveal">
+        <span class="value-icon">&#9939;</span>
+        <span class="value-name">Liberacion</span>
+        <p class="value-desc">Soltar lo que ya no sirve es tan importante como construir lo que viene.</p>
+      </div>
+      <div class="value-card reveal">
+        <span class="value-icon">&#9670;</span>
+        <span class="value-name">Armonia</span>
+        <p class="value-desc">El bienestar verdadero surge del equilibrio entre lo que sentimos, pensamos y hacemos.</p>
+      </div>
+      <div class="value-card reveal">
+        <span class="value-icon">&#127807;</span>
+        <span class="value-name">Evolucion</span>
+        <p class="value-desc">Cada proceso vivido es un paso hacia una version mas plena y autentica de uno mismo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CTA FINAL -->
+<section class="final-cta" id="contacto">
+  <div class="container">
+    <div class="final-cta-inner reveal">
+      <span class="final-cta-symbol">&#128142;</span>
+      <h2 class="final-cta-title">
+        El momento de empezar<br>
+        es <em>cuando algo en vos lo pide</em>
+      </h2>
+      <p class="final-cta-sub">
+        Si algo de lo que leiste resuena con lo que estas viviendo, ese es ya un primer senial. Podes escribirme para contarme tu situacion o reservar directamente tu sesion.
+        No hay un camino igual para dos personas. Hay un proceso que es tuyo.
+      </p>
+      <div class="final-cta-btns">
+        <a href="https://soul145.mitiendanube.com" target="_blank" class="btn-primary">Reservar una sesion</a>
+        <a href="https://wa.me/5493416644513" target="_blank" class="btn-ghost">Escribir por WhatsApp</a>
       </div>
     </div>
   </div>
@@ -702,37 +1138,32 @@ footer{background:var(--deep);padding:3rem 2rem;border-top:1px solid rgba(176,14
 </a>
 
 <script>
-// Nav scroll effect
 const nav = document.getElementById('mainNav');
 window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 60);
+  nav.classList.toggle('scrolled', window.scrollY > 50);
 });
 
-// Mobile menu
-function toggleMobile(){
-  const menu = document.getElementById('mobileMenu');
-  const toggle = document.getElementById('navToggle');
-  menu.classList.toggle('open');
-  toggle.classList.toggle('active');
-  document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
+function toggleMobile() {
+  const m = document.getElementById('mobileMenu');
+  const t = document.getElementById('navToggle');
+  m.classList.toggle('open');
+  t.classList.toggle('active');
+  document.body.style.overflow = m.classList.contains('open') ? 'hidden' : '';
 }
-function closeMobile(){
+function closeMobile() {
   document.getElementById('mobileMenu').classList.remove('open');
   document.getElementById('navToggle').classList.remove('active');
   document.body.style.overflow = '';
 }
 
-// Scroll reveal
-const reveals = document.querySelectorAll('.reveal');
 const observer = new IntersectionObserver((entries) => {
-  entries.forEach((entry, i) => {
-    if (entry.isIntersecting) {
-      setTimeout(() => entry.target.classList.add('visible'), i * 80);
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 90);
     }
   });
-}, { threshold: 0.1 });
-reveals.forEach(el => observer.observe(el));
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
-
 </body>
 </html>

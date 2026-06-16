@@ -464,30 +464,26 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   // hue-rotate ajusta el color para que quede en tonos violeta/lavender
   function initLogo() {
     img.style.filter = 'invert(1) hue-rotate(200deg) saturate(1.8) brightness(1.1)';
-    logo.style.mixBlendMode = 'screen';
+    img.style.mixBlendMode = 'screen';
     logo.style.opacity = '0.28';
   }
+  initLogo();
 
-  if (img.complete) {
-    initLogo();
-  } else {
-    img.onload = initLogo;
-  }
-
-  // Parallax scroll suave
   let ticking = false;
   window.addEventListener('scroll', function() {
     if (!ticking) {
       requestAnimationFrame(function() {
         const scrollY = window.scrollY || window.pageYOffset;
-        const parallaxY = scrollY * 0.35;
-        logo.style.transform = 'translate(-50%, calc(-50% - ' + parallaxY + 'px))';
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const progress = docHeight > 0 ? scrollY / docHeight : 0;
+        // Movimiento de -120px a +120px según el progreso del scroll
+        const parallaxOffset = (progress - 0.5) * 240;
+        logo.style.transform = 'translate(-50%, calc(-50% + ' + parallaxOffset + 'px))';
         ticking = false;
       });
       ticking = true;
     }
-  }, { passive: true });
-})();
+  });
 </script>
 </body>
 </html>

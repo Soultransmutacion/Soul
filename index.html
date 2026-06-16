@@ -160,7 +160,7 @@ footer { background: var(--deep); border-top: 1px solid rgba(123,79,166,0.12); p
   pointer-events: none;
   z-index: 0;
   opacity: 0;
-  mix-blend-mode: normal;
+  mix-blend-mode: screen;
   will-change: transform;
   transition: none;
   user-select: none;
@@ -459,35 +459,22 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
   const img = logo ? logo.querySelector('img') : null;
   if (!logo || !img) return;
 
-  // Eliminar fondo blanco via canvas y activar logo
+  // Usar CSS filter para eliminar el fondo blanco y colorear el logo
+  // invert() convierte blanco->negro (transparente en fondo oscuro via screen)
+  // hue-rotate ajusta el color para que quede en tonos violeta/lavender
   function initLogo() {
-    const canvas = document.createElement('canvas');
-    const ctx = canvas.getContext('2d');
-    canvas.width = img.naturalWidth;
-    canvas.height = img.naturalHeight;
-    ctx.drawImage(img, 0, 0);
-    const imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
-    const data = imageData.data;
-    for (let i = 0; i < data.length; i += 4) {
-      const r = data[i], g = data[i+1], b = data[i+2];
-      // Eliminar pixeles blancos o casi blancos
-      if (r > 180 && g > 180 && b > 180) {
-        data[i+3] = 0;
-      }
-    }
-    ctx.putImageData(imageData, 0, 0);
-    img.src = canvas.toDataURL('image/png');
-    img.style.filter = 'brightness(2.8) saturate(0.9)';
-    logo.style.opacity = '0.17';
+    img.style.filter = 'invert(1) hue-rotate(200deg) saturate(1.8) brightness(1.1)';
+    logo.style.mixBlendMode = 'screen';
+    logo.style.opacity = '0.28';
   }
 
-  if (img.complete && img.naturalWidth > 0) {
+  if (img.complete) {
     initLogo();
   } else {
     img.onload = initLogo;
   }
 
-  // Parallax scroll
+  // Parallax scroll suave
   let ticking = false;
   window.addEventListener('scroll', function() {
     if (!ticking) {

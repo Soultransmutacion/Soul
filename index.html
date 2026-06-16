@@ -455,35 +455,38 @@ document.querySelectorAll('a[href^="#"]').forEach(a => {
 
 // ——— PARALLAX LOGO ———
 (function() {
-  const logo = document.getElementById('logoParallax');
-  const img = logo ? logo.querySelector('img') : null;
+  var logo = document.getElementById('logoParallax');
+  var img = logo ? logo.querySelector('img') : null;
   if (!logo || !img) return;
 
-  // Usar CSS filter para eliminar el fondo blanco y colorear el logo
-  // invert() convierte blanco->negro (transparente en fondo oscuro via screen)
-  // hue-rotate ajusta el color para que quede en tonos violeta/lavender
-  function initLogo() {
+  function applyLogoStyle() {
     img.style.filter = 'invert(1) hue-rotate(200deg) saturate(1.8) brightness(1.1)';
     img.style.mixBlendMode = 'screen';
     logo.style.opacity = '0.28';
   }
-  initLogo();
 
-  let ticking = false;
+  if (img.complete && img.naturalWidth > 0) {
+    applyLogoStyle();
+  } else {
+    img.addEventListener('load', applyLogoStyle);
+    applyLogoStyle();
+  }
+
+  var ticking = false;
   window.addEventListener('scroll', function() {
     if (!ticking) {
       requestAnimationFrame(function() {
-        const scrollY = window.scrollY || window.pageYOffset;
-        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-        const progress = docHeight > 0 ? scrollY / docHeight : 0;
-        // Movimiento de -120px a +120px según el progreso del scroll
-        const parallaxOffset = (progress - 0.5) * 240;
-        logo.style.transform = 'translate(-50%, calc(-50% + ' + parallaxOffset + 'px))';
+        var scrollY = window.scrollY || window.pageYOffset || 0;
+        var docH = document.documentElement.scrollHeight - window.innerHeight;
+        var progress = docH > 0 ? scrollY / docH : 0;
+        var offset = (progress - 0.5) * 240;
+        logo.style.transform = 'translate(-50%, calc(-50% + ' + offset + 'px))';
         ticking = false;
       });
       ticking = true;
     }
-  });
+  }, { passive: true });
+})();
 </script>
 </body>
 </html>

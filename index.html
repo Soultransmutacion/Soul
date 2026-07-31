@@ -650,7 +650,7 @@ ticking = true;
       });
       const data = await res.json();
       mostrarEscribiendo(false);
-      if (!res.ok) { renderBotMessage("Se me complicó procesar eso, ¿lo intentamos de nuevo?"); return; }
+      if (!res.ok) { const mensajeError = (data && typeof data.error === "string" && data.error) || "Se me complicó procesar eso, ¿lo intentamos de nuevo?"; renderBotMessage(mensajeError); return; }
 
       setHistorial(data.historial || []);
       if (data.texto) renderBotMessage(data.texto);

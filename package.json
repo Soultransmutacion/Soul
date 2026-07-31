@@ -1,8 +1,11 @@
 {
-    "name": "soul",
-    "version": "1.0.0",
-    "private": true,
-    "dependencies": {
-          "@anthropic-ai/sdk": "^0.32.1"
-    }
+      "name": "soul",
+      "version": "1.0.0",
+      "private": true,
+      "scripts": {
+              "test": "node scripts/check-catalog-sync.js && node scripts/test-security.js"
+      },
+      "dependencies": {
+              "@anthropic-ai/sdk": "^0.32.1"
+      }
 }

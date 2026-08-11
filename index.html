@@ -169,6 +169,32 @@ width: 100%;
 height: auto;
 display: block;
 }
+.nav-toggle{display:none;flex-direction:column;justify-content:center;align-items:center;gap:5px;width:34px;height:34px;background:transparent;border:1px solid rgba(176,142,212,0.35);border-radius:6px;cursor:pointer;padding:0;}
+.nav-toggle span{display:block;width:18px;height:2px;background:var(--gold);transition:transform 0.25s ease, opacity 0.25s ease;}
+.nav-toggle.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.nav-toggle.open span:nth-child(2){opacity:0;}
+.nav-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.nav-links-mobile-cta{display:none;}
+.wa-float{position:fixed;}
+.wa-float::before{content:"WhatsApp";position:absolute;right:66px;top:50%;transform:translateY(-50%);background:rgba(13,10,20,0.88);color:var(--white);font-family:'Cinzel',serif;font-size:0.62rem;letter-spacing:0.06em;text-transform:uppercase;padding:0.35rem 0.7rem;border-radius:20px;white-space:nowrap;box-shadow:0 2px 10px rgba(0,0,0,0.3);pointer-events:none;opacity:0.9;}
+.hero-soul-hint{margin-top:1.25rem;font-size:0.82rem;color:var(--muted);text-align:center;}
+.hero-soul-hint a{color:var(--gold);text-decoration:underline;text-underline-offset:3px;}
+@media (max-width: 768px) {
+nav{flex-wrap:wrap;}
+.nav-links{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:rgba(13,10,20,0.98);border-bottom:1px solid rgba(123,79,166,0.2);padding:0 1.5rem;gap:0;max-height:0;overflow:hidden;opacity:0;pointer-events:none;transition:max-height 0.3s ease, opacity 0.25s ease, padding 0.3s ease;}
+.nav-links.open{max-height:420px;opacity:1;pointer-events:auto;padding:0.5rem 1.5rem 1.5rem;}
+.nav-links li{width:100%;}
+.nav-links a{display:block;padding:0.85rem 0;border-bottom:1px solid rgba(176,142,212,0.1);}
+.nav-links-mobile-cta{display:block;margin-top:0.4rem;}
+.nav-links-mobile-cta a{color:var(--wa) !important;border-bottom:none !important;font-weight:600;}
+.nav-toggle{display:flex;}
+.wa-float, #soul-advisor-btn{width:48px;height:48px;font-size:1.3rem;}
+.wa-float{bottom:1.1rem;right:1.1rem;}
+.wa-float::before{display:none;}
+.logo-parallax{width:min(60vw,420px);}
+section{padding:4rem 1.5rem 6rem;}
+.cta-final{padding:5rem 1.5rem 7rem;}
+}
 </style>
 </head>
 <body>
@@ -178,13 +204,15 @@ display: block;
 </div>
 <nav>
 <div class="nav-logo"><a href="#"><img src="bian.jpg" alt="Soul" style="height:38px;width:38px;object-fit:cover;border-radius:50%;border:1px solid rgba(176,142,212,0.3);"/></a></div>
-<ul class="nav-links">
+<ul class="nav-links" id="navLinks">
 <li><a href="#para-quien">¿Es para mí?</a></li>
 <li><a href="#servicios">Servicios</a></li>
 <li><a href="#bianca">Bianca</a></li>
 <li><a href="#faq">Preguntas</a></li>
+<li class="nav-links-mobile-cta"><a href="https://wa.me/5493416644513" target="_blank">💬 Escribirme</a></li>
 </ul>
 <a href="https://wa.me/5493416644513" target="_blank" class="nav-cta">💬 Escribirme</a>
+<button type="button" id="navToggle" class="nav-toggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="navLinks"><span></span><span></span><span></span></button>
 </nav>
 <section class="hero" id="inicio">
 <div class="container" style="max-width:780px;">
@@ -194,8 +222,9 @@ display: block;
 <p class="hero-quien">Sesiones energéticas · 100% Online · Argentina</p>
 <div class="hero-ctas">
 <a href="https://wa.me/5493416644513?text=Hola%20Bianca%2C%20quiero%20saber%20m%C3%A1s%20sobre%20las%20sesiones" target="_blank" class="btn-wa">💬 Quiero más información</a>
-<a href="#servicios" class="btn-ghost">Ver sesiones</a>
+<a href="#servicios" class="btn-ghost">Ver sesiones y precios</a>
 </div>
+<p class="hero-soul-hint">¿No sabés qué sesión elegir? <a href="#" onclick="document.getElementById('soul-advisor-btn').click();return false;">Preguntale a SOUL</a></p>
 <div class="hero-promise">
 <div class="hero-promise-item"><strong>✓</strong>Sin protocolos rígidos</div>
 <div class="hero-promise-item"><strong>✓</strong>A tu ritmo</div>
@@ -217,28 +246,13 @@ display: block;
 </div>
 <div class="situacion-card">
 <div class="situacion-num">02</div>
-<blockquote>"Tengo ganas, tengo ideas, pero algo me frena. Es como si hubiera una pared invisible."</blockquote>
-<p>Bloqueos que detienen el avance aunque tenés las herramientas y la voluntad.</p>
-</div>
-<div class="situacion-card">
-<div class="situacion-num">03</div>
 <blockquote>"Estoy agotada/o sin razón clara. Descanso y el cansancio no se va."</blockquote>
 <p>Agotamiento emocional y pérdida de energía que no tiene explicación aparente.</p>
 </div>
 <div class="situacion-card">
-<div class="situacion-num">04</div>
-<blockquote>"No tengo claridad. No sé qué quiero, a dónde voy ni qué me está pasando."</blockquote>
-<p>Confusión interna, dificultad para tomar decisiones y sensación de estar perdida/o.</p>
-</div>
-<div class="situacion-card">
-<div class="situacion-num">05</div>
+<div class="situacion-num">03</div>
 <blockquote>"Siento que me desconecté. Ya no sé quién soy ni qué me importa de verdad."</blockquote>
 <p>Desconexión de tu esencia, tus valores y lo que te da propósito.</p>
-</div>
-<div class="situacion-card">
-<div class="situacion-num">06</div>
-<blockquote>"Mi proyecto no despega. Hago todo bien pero la abundancia no llega."</blockquote>
-<p>Bloqueos energéticos que limitan el flujo en el trabajo, la economía o los proyectos.</p>
 </div>
 </div>
 <div style="text-align:center;">
@@ -253,12 +267,9 @@ display: block;
 <h2 class="section-title">Lo que cambia después del proceso</h2>
 <p class="section-lead">Cada persona es única, pero hay transformaciones que se repiten una y otra vez en quienes trabajan con Bianca.</p>
 <div class="beneficios-grid">
-<div class="beneficio-card"><span class="beneficio-icon">🌊</span><h3>Flujo restaurado</h3><p>Lo que antes estaba trabado empieza a moverse. Decisiones, relaciones, proyectos — con menos resistencia.</p></div>
-<div class="beneficio-card"><span class="beneficio-icon">🧭</span><h3>Claridad interior</h3><p>Recuperás la conexión con lo que realmente querés. Las respuestas que buscabas afuera empiezan a aparecer adentro.</p></div>
 <div class="beneficio-card"><span class="beneficio-icon">⚡</span><h3>Energía renovada</h3><p>El agotamiento sin causa empieza a ceder. Te sentís más liviana/o, presente y con más capacidad de disfrute.</p></div>
 <div class="beneficio-card"><span class="beneficio-icon">🔓</span><h3>Patrones que se cortan</h3><p>Dejás de repetir las mismas situaciones. Algo en vos se reordena y empieza a atraer experiencias distintas.</p></div>
 <div class="beneficio-card"><span class="beneficio-icon">🌱</span><h3>Reconexión con tu propósito</h3><p>Recuperás el hilo. Sabés quién sos, qué te importa y en qué dirección querés avanzar.</p></div>
-<div class="beneficio-card"><span class="beneficio-icon">🏠</span><h3>Ambientes que acompañan</h3><p>Tu espacio se siente más liviano y armonioso. El entorno deja de ser un obstáculo y empieza a sostenerte.</p></div>
 </div>
 <div style="text-align:center;"><a href="#servicios" class="btn-primary">Ver cómo trabajamos →</a></div>
 </div>
@@ -448,7 +459,7 @@ if (!logo || !img) return;
 function applyLogoStyle() {
 img.style.filter = 'invert(1) hue-rotate(200deg) saturate(1.8) brightness(1.1)';
 img.style.mixBlendMode = 'screen';
-logo.style.opacity = '0.28';
+logo.style.opacity = '0.16';
 }
 if (img.complete && img.naturalWidth > 0) {
 applyLogoStyle();
@@ -532,6 +543,12 @@ ticking = true;
     #soul-advisor-input { flex: 1; background: var(--dark); border: 1px solid rgba(176,142,212,0.2); border-radius: 6px; color: var(--text); padding: 0.5rem 0.7rem; font-size: 0.85rem; outline: none; font-family: inherit; }
     #soul-advisor-send { margin-left: 8px; background: var(--violet); border: none; border-radius: 6px; padding: 0 0.9rem; font-size: 0.72rem; font-family: 'Cinzel', serif; letter-spacing: 0.08em; text-transform: uppercase; cursor: pointer; color: var(--white); }
     .soul-typing { color: var(--muted); font-size: 0.8rem; align-self: flex-start; font-style: italic; }
+    #soul-advisor-btn::before { content: "SOUL"; position: absolute; left: 66px; top: 50%; transform: translateY(-50%); background: rgba(13,10,20,0.88); color: var(--gold-light); font-family: 'Cinzel', serif; font-size: 0.62rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.35rem 0.7rem; border-radius: 20px; white-space: nowrap; box-shadow: 0 2px 10px rgba(0,0,0,0.3); pointer-events: none; opacity: 0.92; }
+    @media (max-width: 768px) {
+      #soul-advisor-btn { width: 48px; height: 48px; font-size: 1.3rem; bottom: 1.1rem; left: 1.1rem; }
+      #soul-advisor-btn::before { font-size: 0.58rem; padding: 0.3rem 0.55rem; left: 58px; }
+      #soul-advisor-panel { left: 1.1rem; bottom: 4.6rem; width: min(88vw, 360px); }
+    }
   `;
 
   function inject() {
@@ -676,6 +693,30 @@ ticking = true;
   else inject();
 })();
 
+</script>
+<script>
+(function () {
+  var toggle = document.getElementById('navToggle');
+  var nav = document.getElementById('navLinks');
+  function closeMenu() {
+    nav.classList.remove('open');
+    toggle.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+  }
+  function toggleMenu() {
+    var isOpen = nav.classList.toggle('open');
+    toggle.classList.toggle('open', isOpen);
+    toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+  }
+  toggle.addEventListener('click', toggleMenu);
+  nav.querySelectorAll('a').forEach(function (a) {
+    a.addEventListener('click', closeMenu);
+  });
+  document.addEventListener('click', function (e) {
+    if (nav.contains(e.target) || toggle.contains(e.target)) return;
+    closeMenu();
+  });
+})();
 </script>
 </body>
 </html>

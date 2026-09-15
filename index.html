@@ -4,10 +4,25 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <meta name="description" content="Acompaño a personas que sienten bloqueos emocionales, repiten patrones o buscan recuperar claridad, equilibrio y conexión con su propósito. Transformá tu realidad desde adentro hacia afuera."/>
+<link rel="canonical" href="https://soultransmutacion.com/"/>
 <meta property="og:title" content="Bianca Di Rino | Soul — Transformación Energética y Bienestar"/>
 <meta property="og:description" content="¿Algo en tu vida no fluye? Acompaño a personas que repiten patrones, sienten bloqueos o buscan reconectarse con su propósito."/>
 <meta property="og:type" content="website"/>
-<meta property="og:url" content="https://soultransmutacion.github.io/Soul/"/>
+<meta property="og:url" content="https://soultransmutacion.com/"/>
+<meta property="og:site_name" content="Soul — Bianca Di Rino"/>
+<meta property="og:locale" content="es_AR"/>
+<meta property="og:image" content="https://soultransmutacion.com/og-image.jpg"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="Bianca Di Rino | Soul — Transformación y Bienestar"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Bianca Di Rino | Soul — Transformación Energética y Bienestar"/>
+<meta name="twitter:description" content="¿Algo en tu vida no fluye? Acompaño a personas que repiten patrones, sienten bloqueos o buscan reconectarse con su propósito."/>
+<meta name="twitter:image" content="https://soultransmutacion.com/og-image.jpg"/>
+<link rel="icon" href="/favicon.ico" sizes="any"/>
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
 <title>Bianca Di Rino | Soul — Transformación y Bienestar</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cinzel:wght@400;600&family=Raleway:wght@300;400;500;600&display=swap" rel="stylesheet"/>
 <style>
@@ -71,8 +86,10 @@ section { padding: 6rem 2rem; }
 .beneficio-card p { font-size: 0.9rem; }
 .servicios-section { background: var(--deep); }
 .servicios-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 3rem; }
-.servicio-card { background: var(--mid); border: 1px solid rgba(176,142,212,0.12); border-radius: 8px; padding: 1.8rem; cursor: pointer; transition: border-color 0.3s, transform 0.3s, background 0.3s; display: flex; flex-direction: column; gap: 0.6rem; }
+.servicio-card { position: relative; background: var(--mid); border: 1px solid rgba(176,142,212,0.12); border-radius: 8px; padding: 1.8rem; cursor: pointer; transition: border-color 0.3s, transform 0.3s, background 0.3s; display: flex; flex-direction: column; gap: 0.6rem; }
 .servicio-card:hover { border-color: rgba(176,142,212,0.4); transform: translateY(-3px); background: var(--mid2); }
+.servicio-card-btn { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; padding: 0; background: transparent; border: none; border-radius: 8px; cursor: pointer; z-index: 1; }
+.servicio-card-btn:focus-visible { outline: 2px solid var(--lavender); outline-offset: 2px; }
 .servicio-precio { font-family: 'Cinzel', serif; font-size: 0.75rem; color: var(--gold); letter-spacing: 0.1em; }
 .servicio-card h3 { font-size: 1.15rem; color: var(--white); line-height: 1.3; }
 .servicio-card p { font-size: 0.88rem; color: var(--muted); flex: 1; }
@@ -201,10 +218,13 @@ section{padding:4rem 1.5rem 6rem;}
 <body>
 <!-- ========== LOGO PARALLAX ========== -->
 <div class="logo-parallax" id="logoParallax">
-<img src="soul-logo.png" alt="" aria-hidden="true" />
+<picture>
+<source srcset="soul-logo.webp" type="image/webp" />
+<img src="soul-logo.png" alt="" aria-hidden="true" width="1024" height="1024" />
+</picture>
 </div>
 <nav>
-<div class="nav-logo"><a href="#"><img src="bian.jpg" alt="Soul" style="height:38px;width:38px;object-fit:cover;border-radius:50%;border:1px solid rgba(176,142,212,0.3);"/></a></div>
+<div class="nav-logo"><a href="#"><picture><source srcset="bian-avatar.webp" type="image/webp" /><img src="bian-avatar.jpg" alt="Soul" width="38" height="38" style="height:38px;width:38px;object-fit:cover;border-radius:50%;border:1px solid rgba(176,142,212,0.3);"/></picture></a></div>
 <ul class="nav-links" id="navLinks">
 <li><a href="#para-quien">¿Es para mí?</a></li>
 <li><a href="#servicios">Servicios</a></li>
@@ -281,15 +301,15 @@ section{padding:4rem 1.5rem 6rem;}
 <h2 class="section-title">¿En qué puedo acompañarte?</h2>
 <p class="section-lead">Cada sesión está pensada para una situación específica. Hacé click en la que más te resuene para ver cómo funciona y qué incluye.</p>
 <div class="servicios-grid">
-<div class="servicio-card" onclick="abrirServicio('pendulo')"><div class="servicio-precio">$30.000</div><h3>Limpieza Energética Personal</h3><p>Para cuando sentís cansancio sin causa, emociones pesadas o la sensación de cargar algo que no es tuyo.</p><div class="servicio-cta">Ver detalle</div></div>
-<div class="servicio-card" onclick="abrirServicio('mesa')"><div class="servicio-precio">$25.000</div><h3>Apertura de Caminos</h3><p>Cuando las oportunidades no llegan o hay obstáculos invisibles en el amor, el trabajo o la economía.</p><div class="servicio-cta">Ver detalle</div></div>
-<div class="servicio-card" onclick="abrirServicio('sanacion')"><div class="servicio-precio">$30.000</div><h3>Transformación Profunda</h3><p>Para quienes buscan trabajar patrones heredados, creencias arraigadas o vínculos que se repiten.</p><div class="servicio-cta">Ver detalle</div></div>
-<div class="servicio-card" onclick="abrirServicio('hogar')"><div class="servicio-precio">$45.000</div><h3>Armonización de tu Hogar</h3><p>Si tu casa se siente pesada, hay conflictos frecuentes o simplemente no lográs descansar en paz.</p><div class="servicio-cta">Ver detalle</div></div>
-<div class="servicio-card" onclick="abrirServicio('negocio')"><div class="servicio-precio">$40.000</div><h3>Impulso para tu Proyecto</h3><p>Para emprendedores y proyectos que no despegan a pesar del esfuerzo. Activamos el flujo de prosperidad.</p><div class="servicio-cta">Ver detalle</div></div>
-<div class="servicio-card" onclick="abrirServicio('ninos')"><div class="servicio-precio">$15.000</div><h3>Acompañamiento para Niños</h3><p>Cuando tu hijo/a está intranquilo/a, tiene cambios de conducta o está pasando por momentos difíciles.</p><div class="servicio-cta">Ver detalle</div></div>
-<div class="servicio-card" onclick="abrirServicio('mascota')"><div class="servicio-precio">$15.000</div><h3>Sanación para tu Mascota</h3><p>Tus animales también sienten y absorben las energías del entorno. Este proceso los ayuda a estar mejor.</p><div class="servicio-cta">Ver detalle</div></div>
-<div class="servicio-card" onclick="abrirServicio('legales')"><div class="servicio-precio">$30.000</div><h3>Destrabe de Procesos Legales</h3><p>Cuando una venta, sucesión o trámite no avanza a pesar de que todo parecería estar en orden.</p><div class="servicio-cta">Ver detalle</div></div>
-<div class="servicio-card" onclick="abrirServicio('tarot')"><div class="servicio-precio">$20.000</div><h3>Guía de Tarot</h3><p>Material digital completo para aprender tarot desde una mirada intuitiva y espiritual. Incluye numerología y tiradas.</p><div class="servicio-cta">Ver detalle</div></div>
+<div class="servicio-card"><button type="button" class="servicio-card-btn" aria-labelledby="servicio-pendulo-titulo servicio-pendulo-cta" onclick="abrirServicio('pendulo')"></button><div class="servicio-precio">$30.000</div><h3 id="servicio-pendulo-titulo">Limpieza Energética Personal</h3><p>Para cuando sentís cansancio sin causa, emociones pesadas o la sensación de cargar algo que no es tuyo.</p><div class="servicio-cta" id="servicio-pendulo-cta">Ver detalle</div></div>
+<div class="servicio-card"><button type="button" class="servicio-card-btn" aria-labelledby="servicio-mesa-titulo servicio-mesa-cta" onclick="abrirServicio('mesa')"></button><div class="servicio-precio">$25.000</div><h3 id="servicio-mesa-titulo">Apertura de Caminos</h3><p>Cuando las oportunidades no llegan o hay obstáculos invisibles en el amor, el trabajo o la economía.</p><div class="servicio-cta" id="servicio-mesa-cta">Ver detalle</div></div>
+<div class="servicio-card"><button type="button" class="servicio-card-btn" aria-labelledby="servicio-sanacion-titulo servicio-sanacion-cta" onclick="abrirServicio('sanacion')"></button><div class="servicio-precio">$30.000</div><h3 id="servicio-sanacion-titulo">Transformación Profunda</h3><p>Para quienes buscan trabajar patrones heredados, creencias arraigadas o vínculos que se repiten.</p><div class="servicio-cta" id="servicio-sanacion-cta">Ver detalle</div></div>
+<div class="servicio-card"><button type="button" class="servicio-card-btn" aria-labelledby="servicio-hogar-titulo servicio-hogar-cta" onclick="abrirServicio('hogar')"></button><div class="servicio-precio">$45.000</div><h3 id="servicio-hogar-titulo">Armonización de tu Hogar</h3><p>Si tu casa se siente pesada, hay conflictos frecuentes o simplemente no lográs descansar en paz.</p><div class="servicio-cta" id="servicio-hogar-cta">Ver detalle</div></div>
+<div class="servicio-card"><button type="button" class="servicio-card-btn" aria-labelledby="servicio-negocio-titulo servicio-negocio-cta" onclick="abrirServicio('negocio')"></button><div class="servicio-precio">$40.000</div><h3 id="servicio-negocio-titulo">Impulso para tu Proyecto</h3><p>Para emprendedores y proyectos que no despegan a pesar del esfuerzo. Activamos el flujo de prosperidad.</p><div class="servicio-cta" id="servicio-negocio-cta">Ver detalle</div></div>
+<div class="servicio-card"><button type="button" class="servicio-card-btn" aria-labelledby="servicio-ninos-titulo servicio-ninos-cta" onclick="abrirServicio('ninos')"></button><div class="servicio-precio">$15.000</div><h3 id="servicio-ninos-titulo">Acompañamiento para Niños</h3><p>Cuando tu hijo/a está intranquilo/a, tiene cambios de conducta o está pasando por momentos difíciles.</p><div class="servicio-cta" id="servicio-ninos-cta">Ver detalle</div></div>
+<div class="servicio-card"><button type="button" class="servicio-card-btn" aria-labelledby="servicio-mascota-titulo servicio-mascota-cta" onclick="abrirServicio('mascota')"></button><div class="servicio-precio">$15.000</div><h3 id="servicio-mascota-titulo">Sanación para tu Mascota</h3><p>Tus animales también sienten y absorben las energías del entorno. Este proceso los ayuda a estar mejor.</p><div class="servicio-cta" id="servicio-mascota-cta">Ver detalle</div></div>
+<div class="servicio-card"><button type="button" class="servicio-card-btn" aria-labelledby="servicio-legales-titulo servicio-legales-cta" onclick="abrirServicio('legales')"></button><div class="servicio-precio">$30.000</div><h3 id="servicio-legales-titulo">Destrabe de Procesos Legales</h3><p>Cuando una venta, sucesión o trámite no avanza a pesar de que todo parecería estar en orden.</p><div class="servicio-cta" id="servicio-legales-cta">Ver detalle</div></div>
+<div class="servicio-card"><button type="button" class="servicio-card-btn" aria-labelledby="servicio-tarot-titulo servicio-tarot-cta" onclick="abrirServicio('tarot')"></button><div class="servicio-precio">$20.000</div><h3 id="servicio-tarot-titulo">Guía de Tarot</h3><p>Material digital completo para aprender tarot desde una mirada intuitiva y espiritual. Incluye numerología y tiradas.</p><div class="servicio-cta" id="servicio-tarot-cta">Ver detalle</div></div>
 </div>
 <div style="text-align:center;background:var(--mid);border-radius:8px;padding:2.5rem;border:1px solid rgba(176,142,212,0.15);">
 <p style="color:var(--soft);font-size:1rem;margin-bottom:0.5rem;">¿No sabés cuál es la sesión más adecuada para vos?</p>
@@ -301,7 +321,7 @@ section{padding:4rem 1.5rem 6rem;}
 <section class="bianca-section" id="bianca">
 <div class="container">
 <div class="bianca-layout">
-<div class="bianca-frame"><img src="bian.jpg" alt="Bianca Di Rino" /></div>
+<div class="bianca-frame"><picture><source srcset="bian-large.webp" type="image/webp" /><img src="bian-large.jpg" alt="Bianca Di Rino" width="1600" height="1097" loading="lazy" /></picture></div>
 <div class="bianca-content">
 <span class="section-badge">Sobre Bianca</span>
 <h2>Llegué al trabajo energético por mi propia historia — no por un título</h2>
@@ -373,13 +393,13 @@ section{padding:4rem 1.5rem 6rem;}
 <a href="https://www.instagram.com/soul.transmutacion" target="_blank">Instagram</a>
 <a href="https://wa.me/5493416644513" target="_blank">WhatsApp</a>
 </div>
-<p class="footer-copy">© 2025 Bianca Di Rino · Soul · Todos los derechos reservados</p>
+<p class="footer-copy">© <span id="footer-year">2026</span> Bianca Di Rino · Soul · Todos los derechos reservados</p>
 </div>
 </footer>
 <a href="https://wa.me/5493416644513?text=Hola%20Bianca%2C%20quiero%20saber%20m%C3%A1s" target="_blank" class="wa-float" title="Escribirme por WhatsApp" aria-label="Escribirme por WhatsApp"><svg viewBox="0 0 448 512" aria-hidden="true"><path fill="currentColor" d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7.9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg></a>
 <div id="modal-servicio" class="modal-overlay" onclick="cerrarModal(event)">
-<div class="modal-box">
-<button class="modal-close" onclick="cerrarServicio()">×</button>
+<div class="modal-box" role="dialog" aria-modal="true" aria-labelledby="modal-titulo-txt" tabindex="-1">
+<button class="modal-close" onclick="cerrarServicio()" aria-label="Cerrar">×</button>
 <div class="modal-header">
 <span class="modal-precio" id="modal-precio-txt"></span>
 <h2 class="modal-titulo" id="modal-titulo-txt"></h2>
@@ -392,9 +412,9 @@ section{padding:4rem 1.5rem 6rem;}
 </div>
 </div>
 <div id="modal-pago" class="modal-overlay" onclick="cerrarPagoModal(event)">
-<div class="modal-box modal-pago-box">
-<button class="modal-close" onclick="cerrarPago()">×</button>
-<h2 class="modal-titulo" style="margin-bottom:0.5rem">Reservar sesión</h2>
+<div class="modal-box modal-pago-box" role="dialog" aria-modal="true" aria-labelledby="modal-pago-titulo-txt" tabindex="-1">
+<button class="modal-close" onclick="cerrarPago()" aria-label="Cerrar">×</button>
+<h2 class="modal-titulo" id="modal-pago-titulo-txt" style="margin-bottom:0.5rem">Reservar sesión</h2>
 <p class="modal-servicio-sel" id="pago-servicio-nombre"></p>
 <p class="modal-servicio-precio" id="pago-servicio-precio"></p>
 <div class="pago-opciones">
@@ -418,25 +438,69 @@ legales: { nombre: 'Destrabe de Procesos Legales y Administrativos', precio: '$3
 tarot: { nombre: 'Guía Completa de Tarot', precio: '$20.000', desc: '<p>Material digital para quienes quieren aprender o profundizar en la lectura del Tarot desde una mirada intuitiva y espiritual.</p><h4>📖 ¿Qué incluye?</h4><ul><li>Introducción al tarot desde una perspectiva intuitiva</li><li>Significado de los 22 Arcanos Mayores</li><li>Arcanos Menores y sus aplicaciones</li><li>Numerología aplicada al tarot</li><li>Tiradas principales y cómo interpretarlas</li><li>Herramientas para desarrollar tu propia intuición</li></ul><p>Entrega inmediata en formato digital.</p>' }
 };
 let servicioActual = null;
+let elementoAnteriorModal = null;
+
+function obtenerFocoables(contenedor) {
+  const selector = 'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
+  return Array.from(contenedor.querySelectorAll(selector)).filter(el => el.offsetParent !== null);
+}
+function enfocarModal(modalBox) {
+  const focoables = obtenerFocoables(modalBox);
+  (focoables[0] || modalBox).focus();
+}
+function restaurarFocoAnterior() {
+  if (elementoAnteriorModal && typeof elementoAnteriorModal.focus === 'function') {
+    elementoAnteriorModal.focus();
+  }
+  elementoAnteriorModal = null;
+}
+function atraparFoco(e, modalBox) {
+  if (e.key !== 'Tab') return;
+  const focoables = obtenerFocoables(modalBox);
+  if (!focoables.length) { e.preventDefault(); return; }
+  const primero = focoables[0];
+  const ultimo = focoables[focoables.length - 1];
+  if (e.shiftKey && document.activeElement === primero) {
+    e.preventDefault(); ultimo.focus();
+  } else if (!e.shiftKey && document.activeElement === ultimo) {
+    e.preventDefault(); primero.focus();
+  }
+}
+
 function abrirServicio(id) {
 const s = SERVICIOS[id]; if (!s) return;
 servicioActual = { id, ...s };
+elementoAnteriorModal = document.activeElement;
 document.getElementById('modal-precio-txt').textContent = s.precio;
 document.getElementById('modal-titulo-txt').textContent = s.nombre;
 document.getElementById('modal-cuerpo').innerHTML = s.desc;
 document.getElementById('modal-servicio').classList.add('activo');
 document.body.style.overflow = 'hidden';
 window.scrollTo(0, 0);
+enfocarModal(document.querySelector('#modal-servicio .modal-box'));
 }
-function cerrarServicio() { document.getElementById('modal-servicio').classList.remove('activo'); document.body.style.overflow = ''; }
+function cerrarServicio() {
+  const modal = document.getElementById('modal-servicio');
+  if (!modal.classList.contains('activo')) return;
+  modal.classList.remove('activo');
+  document.body.style.overflow = '';
+  restaurarFocoAnterior();
+}
 function iniciarReserva() {
 if (!servicioActual) return;
 document.getElementById('pago-servicio-nombre').textContent = servicioActual.nombre;
 document.getElementById('pago-servicio-precio').textContent = servicioActual.precio;
 document.getElementById('modal-servicio').classList.remove('activo');
 document.getElementById('modal-pago').classList.add('activo');
+enfocarModal(document.querySelector('#modal-pago .modal-box'));
 }
-function cerrarPago() { document.getElementById('modal-pago').classList.remove('activo'); document.body.style.overflow = ''; }
+function cerrarPago() {
+  const modal = document.getElementById('modal-pago');
+  if (!modal.classList.contains('activo')) return;
+  modal.classList.remove('activo');
+  document.body.style.overflow = '';
+  restaurarFocoAnterior();
+}
 function cerrarPagoModal(e) { if (e.target === document.getElementById('modal-pago')) cerrarPago(); }
 function cerrarModal(e) { if (e.target === document.getElementById('modal-servicio')) cerrarServicio(); }
 function toggleFaq(btn) {
@@ -445,7 +509,38 @@ const isOpen = item.classList.contains('open');
 document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
 if (!isOpen) item.classList.add('open');
 }
-document.addEventListener('keydown', e => { if (e.key === 'Escape') { cerrarServicio(); cerrarPago(); } });
+document.addEventListener('keydown', e => {
+  const modalPago = document.getElementById('modal-pago');
+  const modalServicio = document.getElementById('modal-servicio');
+  const modalAbierto = modalPago.classList.contains('activo') ? modalPago : (modalServicio.classList.contains('activo') ? modalServicio : null);
+  if (!modalAbierto) return;
+  if (e.key === 'Escape') {
+    if (modalAbierto === modalPago) cerrarPago(); else cerrarServicio();
+    return;
+  }
+  if (e.key === 'Tab') {
+    atraparFoco(e, modalAbierto.querySelector('.modal-box'));
+  }
+});
+// ——— AÑO DINÁMICO DEL FOOTER ———
+(function() {
+  var elAnio = document.getElementById('footer-year');
+  if (elAnio) elAnio.textContent = new Date().getFullYear();
+})();
+// ——— NÚMERO DE WHATSAPP CENTRALIZADO ———
+// Fuente única del número: cualquier cambio futuro se hace acá.
+// Los enlaces wa.me del HTML mantienen un número de respaldo por si el
+// JS no llegara a ejecutarse; al cargar la página se normalizan todos
+// contra WA_NUMERO conservando intacto el mensaje precargado de cada uno.
+var WA_NUMERO = '5493416644513';
+window.SOUL_WA_NUMERO = WA_NUMERO;
+document.querySelectorAll('a[href*="wa.me/"]').forEach(function(a) {
+  try {
+    var url = new URL(a.href);
+    var texto = url.searchParams.get('text');
+    a.href = 'https://wa.me/' + WA_NUMERO + (texto ? ('?text=' + encodeURIComponent(texto)) : '');
+  } catch (err) { /* deja el href original si no se puede parsear */ }
+});
 document.querySelectorAll('a[href^="#"]').forEach(a => {
 a.addEventListener('click', e => {
 const target = document.querySelector(a.getAttribute('href'));
@@ -499,7 +594,7 @@ ticking = true;
 (function () {
   const ENDPOINT = "/api/soul-assistant";
   const STORAGE_KEY = "soul_advisor_historial";
-  const WA_NUMERO = "5493416644513";
+  const WA_NUMERO = window.SOUL_WA_NUMERO || "5493416644513";
 
   const styles = `
     #soul-advisor-btn {

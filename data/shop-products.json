@@ -1,0 +1,116 @@
+{
+  "currency": "ARS",
+  "freeShippingThreshold": 150000,
+  "belowThresholdShippingMessage": "Envío a calcular según destino",
+  "freeShippingMessage": "Envío gratis en compras desde $150.000",
+  "products": [
+    {
+      "id": "aurico-ganesha",
+      "slug": "aurico-ganesha",
+      "name": "Áurico Ganesha",
+      "price": 15000,
+      "currency": "ARS",
+      "stockStatus": "in_stock",
+      "category": "auricos",
+      "image": null,
+      "shortDescription": "Producto de la colección Áuricos de Soul Transmutación.",
+      "active": true
+    },
+    {
+      "id": "aurico-atrae-clientes",
+      "slug": "aurico-atrae-clientes",
+      "name": "Áurico Atrae Clientes",
+      "price": 15000,
+      "currency": "ARS",
+      "stockStatus": "in_stock",
+      "category": "auricos",
+      "image": null,
+      "shortDescription": "Producto de la colección Áuricos de Soul Transmutación.",
+      "active": true
+    },
+    {
+      "id": "aurico-uriel",
+      "slug": "aurico-uriel",
+      "name": "Áurico Uriel",
+      "price": 15000,
+      "currency": "ARS",
+      "stockStatus": "in_stock",
+      "category": "auricos",
+      "image": null,
+      "shortDescription": "Producto de la colección Áuricos de Soul Transmutación.",
+      "active": true
+    },
+    {
+      "id": "aurico-jofiel",
+      "slug": "aurico-jofiel",
+      "name": "Áurico Jofiel",
+      "price": 15000,
+      "currency": "ARS",
+      "stockStatus": "in_stock",
+      "category": "auricos",
+      "image": null,
+      "shortDescription": "Producto de la colección Áuricos de Soul Transmutación.",
+      "active": true
+    },
+    {
+      "id": "aurico-miguel",
+      "slug": "aurico-miguel",
+      "name": "Áurico Miguel",
+      "price": 15000,
+      "currency": "ARS",
+      "stockStatus": "in_stock",
+      "category": "auricos",
+      "image": null,
+      "shortDescription": "Producto de la colección Áuricos de Soul Transmutación.",
+      "active": true
+    },
+    {
+      "id": "aurico-chamuel",
+      "slug": "aurico-chamuel",
+      "name": "Áurico Chamuel",
+      "price": 15000,
+      "currency": "ARS",
+      "stockStatus": "in_stock",
+      "category": "auricos",
+      "image": null,
+      "shortDescription": "Producto de la colección Áuricos de Soul Transmutación.",
+      "active": true
+    },
+    {
+      "id": "aurico-gabriel",
+      "slug": "aurico-gabriel",
+      "name": "Áurico Gabriel",
+      "price": 15000,
+      "currency": "ARS",
+      "stockStatus": "in_stock",
+      "category": "auricos",
+      "image": null,
+      "shortDescription": "Producto de la colección Áuricos de Soul Transmutación.",
+      "active": true
+    },
+    {
+      "id": "aurico-rafael",
+      "slug": "aurico-rafael",
+      "name": "Áurico Rafael",
+      "price": 15000,
+      "currency": "ARS",
+      "stockStatus": "in_stock",
+      "category": "auricos",
+      "image": null,
+      "shortDescription": "Producto de la colección Áuricos de Soul Transmutación.",
+      "active": true
+    },
+    {
+      "id": "aurico-zadquiel",
+      "slug": "aurico-zadquiel",
+      "name": "Áurico Zadquiel",
+      "price": 15000,
+      "currency": "ARS",
+      "stockStatus": "in_stock",
+      "category": "auricos",
+      "image": null,
+      "shortDescription": "Producto de la colección Áuricos de Soul Transmutación.",
+      "active": true
+    }
+  ]
+}

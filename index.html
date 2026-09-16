@@ -24,7 +24,7 @@
 <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
 <title>Bianca Di Rino | Soul — Transformación y Bienestar</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Cinzel:wght@400;600&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Fraunces:ital,wght@0,600;1,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet"/>
 <style>
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 :root {
@@ -42,7 +42,7 @@ body { background-color: #FBF8F3 !important; color: #332C40 !important; }
 }
 body { background-color: var(--deep); color: var(--text); font-family: 'Manrope', sans-serif; font-weight: 400; line-height: 1.7; overflow-x: hidden; }
 h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 600; line-height: 1.18; color: var(--soft); }
-.cinzel { font-family: 'Cinzel', serif; font-weight: 400; letter-spacing: 0.15em; text-transform: uppercase; }
+.cinzel { font-family: 'Manrope', sans-serif; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; }
 .gold { color: var(--gold-strong); } .violet { color: var(--violet); } .muted { color: var(--muted); }
 p { color: var(--muted); font-size: 1rem; line-height: 1.75; }
 .icon { display: inline-block; vertical-align: -3px; flex-shrink: 0; }
@@ -54,6 +54,8 @@ p { color: var(--muted); font-size: 1rem; line-height: 1.75; }
 .btn-wa:hover { background: var(--violet); transform: translateY(-1px); border-color: var(--gold-light); box-shadow: 0 8px 22px var(--shadow); }
 .btn-ghost { display: inline-block; border: 1px solid rgba(69,58,88,0.4); color: var(--violet-deep); padding: 0.85rem 2rem; font-family: 'Manrope', sans-serif; font-weight: 600; font-size: 0.9rem; letter-spacing: 0.02em; text-transform: uppercase; cursor: pointer; text-decoration: none; transition: border-color 0.3s, color 0.3s, transform 0.2s, background 0.3s; border-radius: 3px; background: transparent; }
 .btn-ghost:hover { border-color: var(--violet-deep); color: var(--violet-deep); background: rgba(142,125,174,0.1); transform: translateY(-1px); }
+.hero .btn-ghost { color: #4B3A5C; border-color: #8D789F; background: transparent; }
+.hero .btn-ghost:hover { color: #2E2438; border-color: #4B3A5C; background: rgba(255,253,249,0.35); }
 .btn-row { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; }
 nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; justify-content: space-between; align-items: center; padding: 1.1rem 3rem; background: rgba(251,248,243,0.92); backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
 .nav-logo a { display: flex; align-items: center; }
@@ -64,15 +66,15 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; 
 .nav-cta { display: inline-flex; align-items: center; gap: 0.4rem; font-family: 'Manrope', sans-serif; font-weight: 600; font-size: 0.85rem; letter-spacing: 0.01em; color: var(--violet-deep); text-decoration: none; border: 1px solid rgba(69,58,88,0.4); padding: 0.5rem 1.1rem; border-radius: 3px; transition: all 0.3s; }
 .nav-cta svg { width: 13px; height: 13px; }
 .nav-cta:hover { background: var(--violet-deep); border-color: var(--violet-deep); color: var(--white); }
-.hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; overflow: hidden; background: radial-gradient(ellipse at 62% 28%, rgba(142,125,174,0.16) 0%, transparent 60%), radial-gradient(ellipse at 15% 85%, rgba(173,139,80,0.10) 0%, transparent 55%), var(--deep); padding: 8rem 2rem 5rem; }
-.hero-badge { display: inline-block; font-family: 'Cinzel', serif; font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-strong); border: 1px solid var(--line-gold); padding: 0.45rem 1.3rem; border-radius: 50px; margin-bottom: 2rem; background: rgba(255,255,255,0.55); }
-.hero h1 { font-size: clamp(2.5rem, 6vw, 5.2rem); line-height: 1.12; margin-bottom: 0.6rem; }
-.hero h1 em { color: var(--violet); font-style: italic; }
-.hero-sub { font-size: clamp(1.05rem, 2vw, 1.25rem); color: var(--text); max-width: 620px; margin: 0 auto 1.1rem; line-height: 1.6; }
-.hero-quien { font-family: 'Manrope', sans-serif; font-weight: 600; font-size: 0.88rem; letter-spacing: 0.03em; color: var(--gold-strong); margin-bottom: 2.4rem; text-transform: uppercase; }
+.hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; overflow: hidden; background-color: var(--deep); background-image: radial-gradient(ellipse at 62% 28%, rgba(142,125,174,0.16) 0%, transparent 60%), radial-gradient(ellipse at 15% 85%, rgba(173,139,80,0.10) 0%, transparent 55%), linear-gradient(rgba(255,253,249,0.06), rgba(255,253,249,0.06)), url('fondo-hero-soul.png'); background-size: auto, auto, cover, cover; background-position: center, center, center, center; background-repeat: no-repeat, no-repeat, no-repeat, no-repeat; padding: 8rem 2rem 5rem; }
+.hero-firma { display: block; margin: 0 auto 1.25rem; width: clamp(190px, 20vw, 265px); height: auto; object-fit: contain; }
+.hero h1 { font-family: 'Fraunces', serif; font-size: clamp(2.5rem, 6vw, 5.2rem); font-weight: 600; font-style: normal; line-height: 1.12; margin-bottom: 0.6rem; color: #352B43; }
+.hero h1 em { font-family: 'Fraunces', serif; font-weight: 500; color: #5A4772; font-style: italic; }
+.hero-sub { font-size: clamp(1.05rem, 2vw, 1.25rem); color: #302B36; max-width: 620px; margin: 0 auto 1.1rem; line-height: 1.7; }
+.hero-quien { font-family: 'Manrope', sans-serif; font-weight: 600; font-size: 0.88rem; letter-spacing: 0.03em; color: #80631F; margin-bottom: 2.4rem; text-transform: uppercase; }
 .hero-ctas { display: flex; flex-wrap: wrap; gap: 1rem; justify-content: center; margin-bottom: 1.6rem; }
 .hero-promise { display: flex; justify-content: center; gap: 2.4rem; flex-wrap: wrap; margin-top: 2.2rem; }
-.hero-promise-item { text-align: center; font-family: 'Manrope', sans-serif; font-weight: 600; font-size: 0.75rem; letter-spacing: 0.02em; color: var(--text); text-transform: uppercase; }
+.hero-promise-item { text-align: center; font-family: 'Manrope', sans-serif; font-weight: 600; font-size: 0.75rem; letter-spacing: 0.02em; color: #574F5F; text-transform: uppercase; }
 .hero-promise-item strong { display: flex; align-items: center; justify-content: center; width: 26px; height: 26px; margin: 0 auto 0.4rem; color: var(--violet); border: 1px solid var(--line-gold); border-radius: 50%; font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 0.85rem; }
 section { padding: 6.5rem 2rem; position: relative; }
 .container { max-width: 1100px; margin: 0 auto; }
@@ -80,7 +82,7 @@ section { padding: 6.5rem 2rem; position: relative; }
 content: ""; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 90px; height: 1px;
 background: linear-gradient(90deg, transparent, var(--gold-light), transparent); opacity: 0.7;
 }
-.section-badge { font-family: 'Cinzel', serif; font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-strong); display: block; margin-bottom: 1rem; }
+.section-badge { font-family: 'Manrope', sans-serif; font-weight: 600; font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-strong); display: block; margin-bottom: 1rem; }
 .section-title { font-size: clamp(1.9rem, 4vw, 2.85rem); margin-bottom: 1rem; }
 .section-lead { font-size: 1.1rem; color: var(--text); max-width: 650px; line-height: 1.75; margin-bottom: 3rem; }
 .situaciones-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-bottom: 3rem; }
@@ -211,8 +213,8 @@ display: block;
 .nav-toggle.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
 .nav-links-mobile-cta{display:none;}
 .wa-float::before{content:"WhatsApp";position:absolute;right:66px;top:50%;transform:translateY(-50%);background:var(--violet-deep);color:var(--white);font-family:'Manrope',sans-serif;font-weight:600;font-size:0.72rem;letter-spacing:0.01em;text-transform:uppercase;padding:0.35rem 0.7rem;border-radius:20px;white-space:nowrap;box-shadow:0 4px 14px var(--shadow);pointer-events:none;opacity:0.95;}
-.hero-soul-hint{margin-top:1.25rem;font-size:0.9rem;color:var(--text);text-align:center;}
-.hero-soul-hint a{color:var(--gold-strong);font-weight:600;text-decoration:underline;text-underline-offset:3px;}
+.hero-soul-hint{margin-top:1.25rem;font-size:0.9rem;color:#403748;text-align:center;}
+.hero-soul-hint a{color:#80631F;font-weight:600;text-decoration:underline;text-underline-offset:3px;}
 @media (max-width: 768px) {
 nav{flex-wrap:wrap;}
 .nav-links{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;background:rgba(251,248,243,0.99);border-bottom:1px solid var(--line);padding:0 1.5rem;gap:0;max-height:0;overflow:hidden;opacity:0;pointer-events:none;transition:max-height 0.3s ease, opacity 0.25s ease, padding 0.3s ease;}
@@ -223,22 +225,23 @@ nav{flex-wrap:wrap;}
 .nav-links-mobile-cta a{color:var(--violet-deep) !important;border-bottom:none !important;font-weight:700;}
 .nav-toggle{display:flex;}
 .wa-float, #soul-advisor-btn{width:48px;height:48px;font-size:1.3rem;}
-.wa-float{bottom:1.1rem;right:1.1rem;}
+.wa-float{bottom:calc(0.3rem + min(env(safe-area-inset-bottom, 0px), 24px));right:1.1rem;}
 .wa-float::before{display:none;}
 .logo-parallax{width:min(40vw,220px);}
 section{padding:4rem 1.5rem 6rem;}
 .cta-final{padding:5rem 1.5rem 7rem;}
+.hero{padding-bottom:10rem;}
 }
 @media (max-width: 420px) {
 .hero h1 { font-size: clamp(1.9rem, 8.5vw, 2.6rem); margin-bottom: 0.4rem; }
-.hero { padding: 5.5rem 1.25rem 2.5rem; }
-.hero-badge { margin-bottom: 1.2rem; }
-.hero-sub { margin-bottom: 0.8rem; }
-.hero-quien { margin-bottom: 1.4rem; }
-.hero-ctas { margin-bottom: 1rem; }
-.hero-soul-hint { margin-top: 0.75rem; }
+.hero { padding: 5.2rem 1.25rem 3.7rem; }
+.hero-firma { margin-bottom: 0.5rem; }
+.hero-sub { margin-bottom: 0.3rem; }
+.hero-quien { font-size: 0.7rem; margin-bottom: 0.5rem; }
+.hero-ctas { margin-bottom: 0.4rem; }
+.hero-soul-hint { margin-top: 0.2rem; }
 .modal-box { padding: 1.6rem; }
-.hero-promise { gap: 1rem 1rem; margin-top: 1.3rem; max-width: 300px; margin-left: auto; margin-right: auto; }
+.hero-promise { gap: 0.4rem 1rem; margin-top: 0.5rem; max-width: 300px; margin-left: auto; margin-right: auto; }
 .hero-promise-item { font-size: 0.66rem; }
 }
 
@@ -269,7 +272,7 @@ section{padding:4rem 1.5rem 6rem;}
 </nav>
 <section class="hero" id="inicio">
 <div class="container" style="max-width:780px;">
-<div class="hero-badge">Bianca Di Rino · Soul · Transformación</div>
+<img src="firma-bianca-di-rino.png" alt="Bianca Di Rino" width="2172" height="724" class="hero-firma"/>
 <h1>¿Sentís que algo<br><em>no termina de fluir</em>?</h1>
 <p class="hero-sub">Acompaño a personas que sienten bloqueos emocionales, repiten patrones o buscan recuperar claridad y conexión con su propósito — para transformar su realidad desde adentro hacia afuera.</p>
 <p class="hero-quien">Sesiones energéticas · 100% Online · Argentina</p>
@@ -700,9 +703,9 @@ ticking = true;
     #soul-advisor-tooltip { transition: none; }
   }
     @media (max-width: 768px) {
-      #soul-advisor-btn { width: 48px; height: 48px; font-size: 1.3rem; bottom: 1.1rem; left: 1.1rem; }
+      #soul-advisor-btn { width: 48px; height: 48px; font-size: 1.3rem; bottom: calc(0.3rem + min(env(safe-area-inset-bottom, 0px), 24px)); left: 1.1rem; }
       #soul-advisor-btn::before { font-size: 0.58rem; padding: 0.3rem 0.55rem; left: 58px; }
-      #soul-advisor-panel { left: 1.1rem; bottom: 4.6rem; width: min(88vw, 360px); }
+      #soul-advisor-panel { left: 1.1rem; bottom: calc(3.8rem + min(env(safe-area-inset-bottom, 0px), 24px)); width: min(88vw, 360px); }
       #soul-advisor-tooltip { max-width: 190px; font-size: 0.74rem; padding: 0.7rem 1.4rem 0.7rem 0.9rem; }
     }
   `;

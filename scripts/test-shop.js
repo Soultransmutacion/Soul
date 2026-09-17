@@ -10,7 +10,7 @@
 const assert = require("assert");
 const fs = require("fs");
 const path = require("path");
-const { PRODUCTS, FREE_SHIPPING_THRESHOLD, CURRENCY, getActiveProducts } = require("../lib/shop-catalog");
+const { catalogo, PRODUCTS, FREE_SHIPPING_THRESHOLD, CURRENCY, getActiveProducts } = require("../lib/shop-catalog");
 const ShopCart = require("../lib/shop-cart");
 
 let fallidas = 0;
@@ -248,6 +248,105 @@ test("el envío del formulario de checkout nunca llama a fetch ni crea pedidos",
   const bloque = html.slice(inicio, fin);
   assert.ok(bloque.includes("e.preventDefault()"));
   assert.ok(!bloque.includes("fetch("));
+});
+
+// ——— Fotografías reales de los 9 áuricos ———
+
+seccion("Fotografías reales de los productos");
+
+const DESCRIPCIONES_ESPERADAS = {
+  "aurico-miguel": "Áurico Miguel — Protección.",
+  "aurico-rafael": "Áurico Rafael — Sanación.",
+  "aurico-gabriel": "Áurico Gabriel — Claridad.",
+  "aurico-jofiel": "Áurico Jofiel — Armonía.",
+  "aurico-chamuel": "Áurico Chamuel — Amor.",
+  "aurico-zadquiel": "Áurico Zadquiel — Transmutación.",
+  "aurico-uriel": "Áurico Uriel — Abundancia.",
+  "aurico-ganesha": "Áurico Ganesha — Apertura de caminos.",
+  "aurico-atrae-clientes": "Áurico Atrae Clientes — Magnetismo comercial.",
+};
+
+test("los nueve productos tienen una imagen real (no null) con webp y jpg", () => {
+  PRODUCTS.forEach((p) => {
+    assert.ok(p.image && typeof p.image === "object", p.id + " debe tener un objeto image");
+    assert.ok(p.image.webp && p.image.webp.startsWith("assets/shop/"), p.id + ": ruta webp inválida");
+    assert.ok(p.image.jpg && p.image.jpg.startsWith("assets/shop/"), p.id + ": ruta jpg inválida");
+    assert.ok(p.image.width > 0 && p.image.height > 0, p.id + ": dimensiones inválidas");
+    assert.ok(typeof p.image.alt === "string" && p.image.alt.length > 0, p.id + ": falta alt descriptivo");
+  });
+});
+
+test("los archivos webp y jpg de cada producto existen en disco y no están vacíos", () => {
+  PRODUCTS.forEach((p) => {
+    [p.image.webp, p.image.jpg].forEach((rutaRelativa) => {
+      const rutaAbsoluta = path.join(__dirname, "..", rutaRelativa);
+      assert.ok(fs.existsSync(rutaAbsoluta), "no existe " + rutaRelativa);
+      assert.ok(fs.statSync(rutaAbsoluta).size > 0, rutaRelativa + " está vacío");
+    });
+  });
+});
+
+test("las dos fotos de portada (marfil y naturaleza) existen y la marfil va primero en index.html", () => {
+  assert.ok(catalogo.cover && catalogo.cover.marfil && catalogo.cover.naturaleza, "faltan las portadas en el catálogo");
+  [catalogo.cover.marfil, catalogo.cover.naturaleza].forEach((img) => {
+    [img.webp, img.jpg].forEach((rutaRelativa) => {
+      const rutaAbsoluta = path.join(__dirname, "..", rutaRelativa);
+      assert.ok(fs.existsSync(rutaAbsoluta), "no existe " + rutaRelativa);
+    });
+  });
+  const html = fs.readFileSync(path.join(__dirname, "..", "index.html"), "utf8");
+  const posMarfil = html.indexOf("shop-portada-auricos-marfil");
+  const posNaturaleza = html.indexOf("shop-portada-auricos-naturaleza");
+  assert.ok(posMarfil !== -1 && posNaturaleza !== -1, "faltan las portadas en index.html");
+  assert.ok(posMarfil < posNaturaleza, "la portada marfil debe aparecer primero que la de naturaleza");
+});
+
+test("la descripción breve de cada producto coincide con la etiqueta real (sin inventar beneficios)", () => {
+  PRODUCTS.forEach((p) => {
+    const esperada = DESCRIPCIONES_ESPERADAS[p.id];
+    assert.ok(esperada, "no hay descripción esperada definida para " + p.id);
+    assert.strictEqual(p.shortDescription, esperada);
+  });
+});
+
+test("los nueve productos indican contenido de 125 ml", () => {
+  PRODUCTS.forEach((p) => {
+    assert.strictEqual(p.content, "125 ml");
+  });
+});
+
+test("index.html ya no muestra el aviso provisional de 'imagen próximamente' como introducción del Shop", () => {
+  const html = fs.readFileSync(path.join(__dirname, "..", "index.html"), "utf8");
+  assert.ok(html.includes("Conocé la línea de sprays áuricos SOUL"));
+  assert.ok(!html.includes("Todavía estamos preparando las fotografías"));
+});
+
+// ——— Venta mayorista ———
+
+seccion("Bloque de venta mayorista");
+
+test("el bloque mayorista existe con título, texto y botón de WhatsApp con el mensaje correcto", () => {
+  const html = fs.readFileSync(path.join(__dirname, "..", "index.html"), "utf8");
+  const inicio = html.indexOf('class="shop-mayorista"');
+  assert.ok(inicio !== -1, "falta el bloque .shop-mayorista");
+  const fin = html.indexOf("</div>", inicio);
+  const bloque = html.slice(inicio, fin);
+  assert.ok(bloque.includes("Venta mayorista"));
+  assert.ok(bloque.includes("Consultanos por disponibilidad y condiciones mayoristas"));
+  assert.ok(bloque.includes("Consultar venta mayorista"));
+  assert.ok(bloque.includes("wa.me/5493416644513"));
+  const mensajeEsperado = encodeURIComponent("Hola, quiero recibir información sobre la venta mayorista de los áuricos SOUL.");
+  assert.ok(bloque.includes(mensajeEsperado), "el mensaje precargado de WhatsApp no coincide");
+});
+
+test("el bloque mayorista no inventa condiciones comerciales todavía no definidas", () => {
+  const html = fs.readFileSync(path.join(__dirname, "..", "index.html"), "utf8");
+  const inicio = html.indexOf('class="shop-mayorista"');
+  const fin = html.indexOf("</div>", inicio);
+  const bloque = html.slice(inicio, fin).toLowerCase();
+  ["compra mínima", "descuento", "% off", "exclusividad", "plazo"].forEach((termino) => {
+    assert.ok(!bloque.includes(termino), "no debería mencionar: " + termino);
+  });
 });
 
 function main() {

@@ -1,0 +1,204 @@
+{
+  "currency": "ARS",
+  "freeShippingThreshold": 150000,
+  "belowThresholdShippingMessage": "Envío a calcular según destino",
+  "freeShippingMessage": "Envío gratis en compras desde $150.000",
+  "cover": {
+    "marfil": {
+      "webp": "assets/shop/shop-portada-auricos-marfil.webp",
+      "jpg": "assets/shop/shop-portada-auricos-marfil.jpg",
+      "width": 1254,
+      "height": 1254,
+      "alt": "Los nueve sprays áuricos SOUL en fila sobre fondo marfil, con velas y cristales alrededor"
+    },
+    "naturaleza": {
+      "webp": "assets/shop/shop-portada-auricos-naturaleza.webp",
+      "jpg": "assets/shop/shop-portada-auricos-naturaleza.jpg",
+      "width": 1254,
+      "height": 1254,
+      "alt": "Los nueve sprays áuricos SOUL en fila al aire libre, sobre fondo natural verde"
+    }
+  },
+  "products": [
+    {
+      "id": "aurico-ganesha",
+      "slug": "aurico-ganesha",
+      "name": "Áurico Ganesha",
+      "price": 15000,
+      "currency": "ARS",
+      "stockStatus": "in_stock",
+      "category": "auricos",
+      "intention": "Apertura de caminos",
+      "content": "125 ml",
+      "image": {
+        "webp": "assets/shop/aurico-ganesha.webp",
+        "jpg": "assets/shop/aurico-ganesha.jpg",
+        "width": 675,
+        "height": 1200,
+        "alt": "Spray áurico SOUL Ganesha, Apertura de caminos, envase de 125 ml"
+      },
+      "shortDescription": "Áurico Ganesha — Apertura de caminos.",
+      "active": true
+    },
+    {
+      "id": "aurico-atrae-clientes",
+      "slug": "aurico-atrae-clientes",
+      "name": "Áurico Atrae Clientes",
+      "price": 15000,
+      "currency": "ARS",
+      "stockStatus": "in_stock",
+      "category": "auricos",
+      "intention": "Magnetismo comercial",
+      "content": "125 ml",
+      "image": {
+        "webp": "assets/shop/aurico-atrae-clientes.webp",
+        "jpg": "assets/shop/aurico-atrae-clientes.jpg",
+        "width": 800,
+        "height": 1200,
+        "alt": "Spray áurico SOUL Atrae Clientes, Magnetismo comercial, envase de 125 ml"
+      },
+      "shortDescription": "Áurico Atrae Clientes — Magnetismo comercial.",
+      "active": true
+    },
+    {
+      "id": "aurico-uriel",
+      "slug": "aurico-uriel",
+      "name": "Áurico Uriel",
+      "price": 15000,
+      "currency": "ARS",
+      "stockStatus": "in_stock",
+      "category": "auricos",
+      "intention": "Abundancia",
+      "content": "125 ml",
+      "image": {
+        "webp": "assets/shop/aurico-uriel.webp",
+        "jpg": "assets/shop/aurico-uriel.jpg",
+        "width": 800,
+        "height": 1200,
+        "alt": "Spray áurico SOUL Arcángel Uriel, Abundancia, envase de 125 ml"
+      },
+      "shortDescription": "Áurico Uriel — Abundancia.",
+      "active": true
+    },
+    {
+      "id": "aurico-jofiel",
+      "slug": "aurico-jofiel",
+      "name": "Áurico Jofiel",
+      "price": 15000,
+      "currency": "ARS",
+      "stockStatus": "in_stock",
+      "category": "auricos",
+      "intention": "Armonía",
+      "content": "125 ml",
+      "image": {
+        "webp": "assets/shop/aurico-jofiel.webp",
+        "jpg": "assets/shop/aurico-jofiel.jpg",
+        "width": 800,
+        "height": 1200,
+        "alt": "Spray áurico SOUL Arcángel Jofiel, Armonía, envase de 125 ml"
+      },
+      "shortDescription": "Áurico Jofiel — Armonía.",
+      "active": true
+    },
+    {
+      "id": "aurico-miguel",
+      "slug": "aurico-miguel",
+      "name": "Áurico Miguel",
+      "price": 15000,
+      "currency": "ARS",
+      "stockStatus": "in_stock",
+      "category": "auricos",
+      "intention": "Protección",
+      "content": "125 ml",
+      "image": {
+        "webp": "assets/shop/aurico-miguel.webp",
+        "jpg": "assets/shop/aurico-miguel.jpg",
+        "width": 800,
+        "height": 1200,
+        "alt": "Spray áurico SOUL Arcángel Miguel, Protección, envase de 125 ml"
+      },
+      "shortDescription": "Áurico Miguel — Protección.",
+      "active": true
+    },
+    {
+      "id": "aurico-chamuel",
+      "slug": "aurico-chamuel",
+      "name": "Áurico Chamuel",
+      "price": 15000,
+      "currency": "ARS",
+      "stockStatus": "in_stock",
+      "category": "auricos",
+      "intention": "Amor",
+      "content": "125 ml",
+      "image": {
+        "webp": "assets/shop/aurico-chamuel.webp",
+        "jpg": "assets/shop/aurico-chamuel.jpg",
+        "width": 675,
+        "height": 1200,
+        "alt": "Spray áurico SOUL Arcángel Chamuel, Amor, envase de 125 ml"
+      },
+      "shortDescription": "Áurico Chamuel — Amor.",
+      "active": true
+    },
+    {
+      "id": "aurico-gabriel",
+      "slug": "aurico-gabriel",
+      "name": "Áurico Gabriel",
+      "price": 15000,
+      "currency": "ARS",
+      "stockStatus": "in_stock",
+      "category": "auricos",
+      "intention": "Claridad",
+      "content": "125 ml",
+      "image": {
+        "webp": "assets/shop/aurico-gabriel.webp",
+        "jpg": "assets/shop/aurico-gabriel.jpg",
+        "width": 800,
+        "height": 1200,
+        "alt": "Spray áurico SOUL Arcángel Gabriel, Claridad, envase de 125 ml"
+      },
+      "shortDescription": "Áurico Gabriel — Claridad.",
+      "active": true
+    },
+    {
+      "id": "aurico-rafael",
+      "slug": "aurico-rafael",
+      "name": "Áurico Rafael",
+      "price": 15000,
+      "currency": "ARS",
+      "stockStatus": "in_stock",
+      "category": "auricos",
+      "intention": "Sanación",
+      "content": "125 ml",
+      "image": {
+        "webp": "assets/shop/aurico-rafael.webp",
+        "jpg": "assets/shop/aurico-rafael.jpg",
+        "width": 675,
+        "height": 1200,
+        "alt": "Spray áurico SOUL Arcángel Rafael, Sanación, envase de 125 ml"
+      },
+      "shortDescription": "Áurico Rafael — Sanación.",
+      "active": true
+    },
+    {
+      "id": "aurico-zadquiel",
+      "slug": "aurico-zadquiel",
+      "name": "Áurico Zadquiel",
+      "price": 15000,
+      "currency": "ARS",
+      "stockStatus": "in_stock",
+      "category": "auricos",
+      "intention": "Transmutación",
+      "content": "125 ml",
+      "image": {
+        "webp": "assets/shop/aurico-zadquiel.webp",
+        "jpg": "assets/shop/aurico-zadquiel.jpg",
+        "width": 675,
+        "height": 1200,
+        "alt": "Spray áurico SOUL Arcángel Zadquiel, Transmutación, envase de 125 ml"
+      },
+      "shortDescription": "Áurico Zadquiel — Transmutación.",
+      "active": true
+    }
+  ]
+}

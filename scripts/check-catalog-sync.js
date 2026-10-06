@@ -28,7 +28,7 @@ function leerServiciosDesdeHtml() {
     let match;
     while ((match = regexEntrada.exec(bloque)) !== null) {
           const [, id, nombre, precioTexto] = match;
-          const precio = Number(precioTexto.replace(/[^0-9]/g, ""));
+          const precio = precioTexto.startsWith("$") ? Number(precioTexto.replace(/[^0-9]/g, "")) : null;
           servicios.push({ id, nombre, precio });
     }
     return servicios;

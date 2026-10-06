@@ -39,7 +39,7 @@ function msg(role, texto) {
 }
 
 seccion("Sincronizacion de catalogo");
-test("index.html y lib/soul-catalog.js coinciden en los 9 servicios", () => {
+test("index.html y lib/soul-catalog.js coinciden en los 8 servicios", () => {
     const diferencias = compararCatalogos();
     assert.deepStrictEqual(diferencias, []);
 });

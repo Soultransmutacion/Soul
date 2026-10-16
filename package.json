@@ -3,7 +3,7 @@
       "version": "1.0.0",
       "private": true,
       "scripts": {
-              "test": "node scripts/check-catalog-sync.js && node scripts/test-security.js"
+              "test": "node scripts/check-catalog-sync.js && node scripts/test-security.js && node scripts/test-shop.js"
       },
       "dependencies": {
               "@anthropic-ai/sdk": "^0.32.1"

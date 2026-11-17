@@ -1315,7 +1315,7 @@ ticking = true;
       d:'Vela aromática intencionada con la energía de '+a.n+'. Encendela con tu intención para acompañar '+a.i.toLowerCase()+' en tu espacio.'};
   });
   var fmt = function(n){ return '$' + n.toLocaleString('es-AR'); };
-  var img = function(id, cls){ return '<picture><source srcset="assets/tienda/'+id+'-card.webp" type="image/webp"/><img src="assets/tienda/'+id+'-card.jpg" alt="" loading="lazy" width="480" height="600"'+(cls?' class="'+cls+'"':'')+'/></picture>'; };
+  var img = function(id, cls){ return '<picture><source srcset="assets/tienda/'+id+'-card.webp?v=2" type="image/webp"/><img src="assets/tienda/'+id+'-card.jpg?v=2" alt="" loading="lazy" width="480" height="600"'+(cls?' class="'+cls+'"':'')+'/></picture>'; };
   var velaSVG = function(v){ return '<svg viewBox="0 0 120 150" aria-hidden="true"><ellipse cx="60" cy="140" rx="44" ry="6" fill="rgba(60,50,72,0.10)"/><path d="M60 14c7 10 9 17 0 27-9-10-7-17 0-27z" fill="#E9B65C"/><path d="M60 22c3 6 3 10 0 15-3-5-3-9 0-15z" fill="#FFF3D6"/><rect x="58.5" y="40" width="3" height="10" rx="1.5" fill="#4A3F55"/><rect x="24" y="50" width="72" height="88" rx="10" fill="'+v.col[1]+'" stroke="'+v.col[0]+'" stroke-width="2"/><rect x="24" y="78" width="72" height="34" fill="'+v.col[0]+'" opacity="0.35"/><text x="60" y="94" text-anchor="middle" font-family="Georgia,serif" font-size="10" fill="#4A3F55" letter-spacing="2">SOUL</text><text x="60" y="106" text-anchor="middle" font-family="Georgia,serif" font-size="6.5" fill="#4A3F55">'+v.corto.toUpperCase()+'</text></svg>'; };
   var tag = function(i){ return '<span class="ts-tag" style="--c:'+INT[i].c+'"><i></i>'+i+'</span>'; };
 
@@ -1400,7 +1400,7 @@ ticking = true;
   var modal = document.getElementById('ts-modal');
   window.tsCerrarDetalle = function(){ modal.classList.remove('activo'); document.body.style.overflow=''; };
   function verDetalle(id){ var it = CAT[id], media;
-    if (it.tipo==='auricos') media = '<picture><source srcset="assets/tienda/'+id+'.webp" type="image/webp"/><img src="assets/tienda/'+id+'-card.jpg" alt="'+it.n+'"/></picture>';
+    if (it.tipo==='auricos') media = '<picture><source srcset="assets/tienda/'+id+'.webp?v=2" type="image/webp"/><img src="assets/tienda/'+id+'-card.jpg?v=2" alt="'+it.n+'"/></picture>';
     else if (it.tipo==='kits') media = '<div class="ts-kit-img" style="border-radius:4px;padding:1.6rem 1rem .6rem">'+it.inc.map(function(x){return img(x);}).join('')+'</div>';
     else media = '<div class="ts-vela-img" style="border-radius:4px;--vb:linear-gradient(180deg,'+it.v.col[1]+',#FBF6F0)">'+velaSVG(it.v)+'</div>';
     var extra = it.tipo==='auricos' ? '<ul><li>Envase de 125 ml</li><li>Rociá sobre tu aura, tu espacio o tus objetos</li><li>Usalo con intención: respirá y pensá en lo que querés atraer</li></ul>'

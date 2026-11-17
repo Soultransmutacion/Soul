@@ -532,7 +532,7 @@ body:not(.scrolled) .wa-float, body:not(.scrolled) #soul-advisor-btn { opacity: 
 <div>
 <span class="section-badge">Tienda SOUL</span>
 <h2>Rituales para<br><em>llevar a tu casa</em></h2>
-<p>Sprays áuricos y velas preparados con intención, para sostener la energía de tu espacio entre sesión y sesión. Elegí según lo que necesitás hoy.</p>
+<p>Sprays áuricos preparados con intención, para sostener la energía de tu espacio entre sesión y sesión. Elegí según lo que necesitás hoy.</p>
 <ul class="ts-perks">
 <li>Una intención para cada momento: protección, amor, abundancia y más</li>
 <li>Pedido simple por WhatsApp, pagás por transferencia o Mercado Pago</li>
@@ -546,7 +546,6 @@ body:not(.scrolled) .wa-float, body:not(.scrolled) #soul-advisor-btn { opacity: 
 <button class="ts-tab" role="tab" aria-selected="true" data-cat="todo">Todo</button>
 <button class="ts-tab" role="tab" aria-selected="false" data-cat="auricos">Sprays áuricos</button>
 <button class="ts-tab" role="tab" aria-selected="false" data-cat="kits">Kits</button>
-<button class="ts-tab" role="tab" aria-selected="false" data-cat="velas">Velas aromáticas</button>
 </div>
 <div class="ts-intenciones" id="tsIntenciones">
 <span class="ts-intenciones-label">¿Qué necesitás hoy?</span>
@@ -554,7 +553,6 @@ body:not(.scrolled) .wa-float, body:not(.scrolled) #soul-advisor-btn { opacity: 
 </div>
 <div data-bloque="auricos"><div class="ts-subtitulo"><h3>Sprays áuricos</h3></div><div class="ts-grid" id="tsGridAuricos"></div></div>
 <div data-bloque="kits"><div class="ts-subtitulo"><h3>Kits con intención</h3></div><p class="ts-subtitulo-nota">Tres áuricos que se potencian entre sí, a un precio especial.</p><div class="ts-grid" id="tsGridKits"></div></div>
-<div data-bloque="velas"><div class="ts-subtitulo"><h3>Velas aromáticas</h3></div><p class="ts-subtitulo-nota">Intencionadas con los mismos arcángeles que los áuricos. Combiná vela + áurico de la misma intención y armá tu ritual completo.</p><div class="ts-grid" id="tsGridVelas"></div></div>
 </div>
 <div class="ts-mayorista">
 <div><h3>¿Tenés un espacio o emprendimiento?</h3><p>Sumá la línea SOUL a tu local, consultorio o centro holístico. Consultá condiciones mayoristas.</p></div>
@@ -1310,7 +1308,8 @@ ticking = true;
   var P_RITUAL = 28000;        // áurico + vela de la misma intención
   var tint = function(hex, k){ var n = parseInt(hex.slice(1),16), r=n>>16, g=(n>>8)&255, b=n&255;
     var f=function(c){ return Math.round(c+(255-c)*k).toString(16).padStart(2,'0'); }; return '#'+f(r)+f(g)+f(b); };
-  var VELAS = AUR.filter(function(a){ return a.id!=='aurico-ganesha'; }).map(function(a){
+  var VELAS_ACTIVAS = false;   // poner en true cuando estén las fotos de las velas (y volver a agregar la sección/pestaña)
+  var VELAS = !VELAS_ACTIVAS ? [] : AUR.filter(function(a){ return a.id!=='aurico-ganesha'; }).map(function(a){
     var corto = a.n.replace('Arcángel ','');
     return {id:'vela-'+a.id.replace('aurico-',''), aur:a.id, n:'Vela '+a.n, corto:corto, i:a.i, col:[INT[a.i].c, tint(INT[a.i].c,0.82)],
       d:'Vela aromática intencionada con la energía de '+a.n+'. Encendela con tu intención para acompañar '+a.i.toLowerCase()+' en tu espacio.'};
@@ -1340,7 +1339,7 @@ ticking = true;
   }
   document.getElementById('tsGridAuricos').innerHTML = AUR.map(function(a){return card(CAT[a.id]);}).join('');
   document.getElementById('tsGridKits').innerHTML = KITS.map(function(k){return card(CAT[k.id]);}).join('');
-  document.getElementById('tsGridVelas').innerHTML = VELAS.map(function(v){return card(CAT[v.id]);}).join('');
+  var gv = document.getElementById('tsGridVelas'); if (gv) gv.innerHTML = VELAS.map(function(v){return card(CAT[v.id]);}).join('');
 
   // filtros
   var chipsWrap = document.getElementById('tsChips');

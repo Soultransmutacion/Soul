@@ -310,6 +310,105 @@ body:not(.scrolled) .wa-float, body:not(.scrolled) #soul-advisor-btn { opacity: 
   .hero-promise-item strong { width: 20px; height: 20px; margin: 0; font-size: 0.7rem; flex-shrink: 0; }
   .hero-ctas .btn-wa, .hero-ctas .btn-ghost { width: 100%; justify-content: center; text-align: center; }
 }
+
+/* ===== TIENDA SOUL (muestra) ===== */
+.tienda-section { background: radial-gradient(ellipse 50% 40% at 100% 0%, rgba(176,150,206,0.22), transparent 70%), radial-gradient(ellipse 45% 35% at 0% 100%, rgba(240,190,160,0.22), transparent 70%), var(--mid2); }
+.ts-hero { display: grid; grid-template-columns: 1.05fr 1fr; gap: 3.5rem; align-items: center; margin-bottom: 3.5rem; }
+.ts-hero-img { border-radius: 6px; overflow: hidden; border: 1px solid var(--line-gold); box-shadow: 0 18px 44px rgba(91,75,114,0.16); background: #F4EEE4; }
+.ts-hero-img img { display: block; width: 100%; height: auto; }
+.ts-hero h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 1rem; }
+.ts-hero h2 em { font-style: italic; color: var(--violet); }
+.ts-hero p { color: var(--text); font-size: 1.05rem; margin-bottom: 1.4rem; }
+.ts-perks { list-style: none; display: grid; gap: 0.6rem; margin-bottom: 1.8rem; }
+.ts-perks li { display: flex; gap: 0.6rem; align-items: baseline; color: var(--text); font-size: 0.95rem; }
+.ts-perks li::before { content: "✦"; color: var(--gold); font-size: 0.75rem; }
+.ts-tabs { display: flex; gap: 0.5rem; justify-content: center; margin-bottom: 1.4rem; flex-wrap: wrap; }
+.ts-tab { font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 0.8rem; letter-spacing: 0.06em; text-transform: uppercase; padding: 0.7rem 1.3rem; border-radius: 30px; border: 1px solid var(--line); background: var(--mid); color: var(--muted); cursor: pointer; transition: all 0.25s; }
+.ts-tab[aria-selected="true"] { background: var(--violet); color: var(--white); border-color: var(--violet); }
+.ts-intenciones { text-align: center; margin-bottom: 2.2rem; }
+.ts-intenciones-label { display: block; font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.2rem; color: var(--soft); margin-bottom: 0.8rem; }
+.ts-chips { display: flex; flex-wrap: wrap; gap: 0.45rem; justify-content: center; }
+.ts-chip { display: inline-flex; align-items: center; gap: 0.4rem; font-family: 'Manrope', sans-serif; font-size: 0.82rem; font-weight: 600; padding: 0.42rem 0.85rem; border-radius: 30px; border: 1px solid var(--line); background: rgba(255,253,249,0.8); color: var(--text); cursor: pointer; transition: all 0.2s; }
+.ts-chip i { width: 9px; height: 9px; border-radius: 50%; background: var(--c, var(--gold)); display: inline-block; }
+.ts-chip[aria-pressed="true"] { border-color: var(--c, var(--violet)); background: color-mix(in srgb, var(--c, var(--violet)) 14%, white); color: var(--soft); }
+.ts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.6rem; }
+.ts-card { position: relative; background: var(--mid); border: 1px solid var(--line); border-radius: 6px; overflow: hidden; display: flex; flex-direction: column; transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s; }
+.ts-card:hover { transform: translateY(-3px); box-shadow: 0 16px 34px var(--shadow); border-color: rgba(142,125,174,0.35); }
+.ts-card-img { position: relative; aspect-ratio: 4 / 5; background: #F1EADF; overflow: hidden; cursor: pointer; border: none; padding: 0; display: block; width: 100%; }
+.ts-card-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s ease; }
+.ts-card:hover .ts-card-img img { transform: scale(1.04); }
+.ts-tag { position: absolute; top: 0.8rem; left: 0.8rem; display: inline-flex; align-items: center; gap: 0.35rem; background: rgba(255,253,249,0.92); color: var(--soft); font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.35rem 0.7rem; border-radius: 30px; backdrop-filter: blur(4px); }
+.ts-tag i { width: 8px; height: 8px; border-radius: 50%; background: var(--c); }
+.ts-tag--ejemplo { left: auto; right: 0.8rem; background: var(--gold-light); color: #3A2E1A; }
+.ts-card-body { padding: 1.1rem 1.2rem 1.25rem; display: flex; flex-direction: column; gap: 0.25rem; flex: 1; }
+.ts-card-body h3 { font-size: 1.3rem; line-height: 1.2; }
+.ts-card-sub { font-size: 0.88rem; color: var(--muted); }
+.ts-card-foot { display: flex; align-items: center; justify-content: space-between; margin-top: auto; padding-top: 0.9rem; gap: 0.6rem; }
+.ts-precio { font-family: 'Manrope', sans-serif; font-weight: 700; color: var(--gold-strong); font-size: 1.05rem; }
+.ts-precio s { color: var(--muted); font-weight: 500; font-size: 0.85rem; margin-right: 0.35rem; }
+.ts-add { font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 0.75rem; letter-spacing: 0.05em; text-transform: uppercase; background: var(--violet); color: var(--white); border: none; border-radius: 3px; padding: 0.6rem 0.9rem; cursor: pointer; transition: background 0.2s; white-space: nowrap; }
+.ts-add:hover { background: var(--violet-deep); }
+.ts-add.ok { background: #5E9B76; }
+.ts-subtitulo { display: flex; align-items: center; gap: 1rem; margin: 3.2rem 0 1.4rem; }
+.ts-subtitulo h3 { font-size: 1.7rem; white-space: nowrap; }
+.ts-subtitulo::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, var(--line-gold), transparent); }
+.ts-subtitulo-nota { color: var(--muted); font-size: 0.95rem; margin: -0.8rem 0 1.4rem; }
+.ts-kit-img { aspect-ratio: 5 / 4 !important; display: flex; align-items: center; justify-content: center; gap: 0; padding: 1rem; background: radial-gradient(ellipse at 50% 100%, rgba(199,165,103,0.25), transparent 70%), linear-gradient(180deg, #F4ECF6, #F8EEEA); }
+.ts-kit-img picture { width: 38%; margin: 0 -4%; display: block; }
+.ts-kit-img img { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 4px; border: 2px solid #fff; box-shadow: 0 8px 18px rgba(60,50,72,0.18); display: block; }
+.ts-kit-img picture:nth-child(2) { position: relative; z-index: 1; transform: translateY(-12px) scale(1.06); }
+.ts-kit-img picture:nth-child(1) { transform: rotate(-4deg); } .ts-kit-img picture:nth-child(3) { transform: rotate(4deg); }
+.ts-vela-img { aspect-ratio: 4 / 5; display: flex; align-items: center; justify-content: center; background: var(--vb, linear-gradient(180deg, #F4ECF6, #FBF3EA)); }
+.ts-vela-img svg { width: 58%; height: auto; }
+.ts-mayorista { margin-top: 3rem; display: flex; align-items: center; justify-content: space-between; gap: 1.5rem; flex-wrap: wrap; background: var(--mid); border: 1px solid var(--line); border-left: 3px solid var(--gold-light); border-radius: 6px; padding: 1.6rem 2rem; }
+.ts-mayorista h3 { font-size: 1.35rem; margin-bottom: 0.2rem; }
+.ts-mayorista p { margin: 0; color: var(--text); font-size: 0.95rem; }
+.ts-oculto { display: none !important; }
+/* carrito */
+.ts-cart-btn { position: fixed; right: 1.8rem; bottom: 6.2rem; z-index: 998; display: flex; align-items: center; gap: 0.5rem; background: var(--gold-light); color: #2A2236; border: none; border-radius: 30px; padding: 0.75rem 1.1rem; font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 0.85rem; cursor: pointer; box-shadow: 0 8px 22px rgba(60,50,72,0.22); transition: transform 0.25s; }
+.ts-cart-btn svg { width: 18px; height: 18px; }
+.ts-cart-btn.pulse { animation: tsPulse 0.5s ease; }
+@keyframes tsPulse { 50% { transform: scale(1.1); } }
+.ts-drawer-bg { position: fixed; inset: 0; background: rgba(47,40,56,0.45); backdrop-filter: blur(3px); z-index: 10000; opacity: 0; pointer-events: none; transition: opacity 0.3s; }
+.ts-drawer { position: fixed; top: 0; right: 0; bottom: 0; width: min(420px, 100vw); background: var(--deep); z-index: 10001; transform: translateX(100%); transition: transform 0.35s ease, visibility 0.35s; visibility: hidden; display: flex; flex-direction: column; box-shadow: -18px 0 50px rgba(47,40,56,0.22); }
+.ts-drawer.open { transform: none; visibility: visible; } .ts-drawer-bg.open { opacity: 1; pointer-events: auto; }
+.ts-drawer-head { display: flex; justify-content: space-between; align-items: center; padding: 1.4rem 1.5rem; border-bottom: 1px solid var(--line); }
+.ts-drawer-head h3 { font-size: 1.5rem; }
+.ts-x { background: none; border: none; font-size: 1.6rem; color: var(--muted); cursor: pointer; line-height: 1; }
+.ts-items { flex: 1; overflow-y: auto; padding: 1rem 1.5rem; display: flex; flex-direction: column; gap: 0.9rem; }
+.ts-item { display: grid; grid-template-columns: 58px 1fr auto; gap: 0.8rem; align-items: center; }
+.ts-item img, .ts-item .ts-item-ph { width: 58px; height: 72px; object-fit: cover; border-radius: 4px; background: #F1EADF; }
+.ts-item strong { display: block; color: var(--soft); font-size: 0.92rem; }
+.ts-item small { color: var(--muted); }
+.ts-qty { display: flex; align-items: center; gap: 0.4rem; margin-top: 0.3rem; }
+.ts-qty button { width: 24px; height: 24px; border-radius: 50%; border: 1px solid var(--line); background: var(--mid); color: var(--violet); cursor: pointer; font-weight: 700; }
+.ts-vacio { text-align: center; color: var(--muted); padding: 3rem 1rem; font-style: italic; }
+.ts-drawer-foot { border-top: 1px solid var(--line); padding: 1.3rem 1.5rem 1.6rem; background: var(--mid); }
+.ts-total { display: flex; justify-content: space-between; font-weight: 700; color: var(--soft); font-size: 1.1rem; margin-bottom: 0.4rem; }
+.ts-nota { font-size: 0.82rem; color: var(--muted); margin-bottom: 1rem; }
+.ts-drawer-foot .btn-wa { width: 100%; justify-content: center; }
+/* detalle */
+.ts-detalle { display: grid; grid-template-columns: 0.9fr 1fr; gap: 1.6rem; align-items: start; }
+.ts-detalle img { width: 100%; border-radius: 4px; display: block; }
+.ts-detalle h2 { font-size: 1.8rem; margin: 0.4rem 0 0.2rem; }
+.ts-detalle ul { padding-left: 1.1rem; margin: 0.8rem 0 1.2rem; color: var(--text); font-size: 0.95rem; }
+@media (max-width: 860px) { .ts-hero { grid-template-columns: 1fr; gap: 2rem; } }
+@media (max-width: 768px) {
+  .ts-grid { grid-template-columns: repeat(2, 1fr); gap: 0.8rem; }
+  .ts-card-body { padding: 0.8rem 0.8rem 0.9rem; }
+  .ts-card-body h3 { font-size: 1.08rem; }
+  .ts-card-sub { font-size: 0.78rem; }
+  .ts-card-foot { flex-direction: column; align-items: stretch; gap: 0.5rem; }
+  .ts-add { width: 100%; padding: 0.65rem 0.4rem; }
+  .ts-tag { font-size: 0.6rem; padding: 0.28rem 0.55rem; top: 0.5rem; left: 0.5rem; }
+  .ts-tag--ejemplo { left: auto; right: 0.5rem; }
+  .ts-chips { flex-wrap: nowrap; overflow-x: auto; justify-content: flex-start; padding-bottom: 0.4rem; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+  .ts-chip { flex-shrink: 0; }
+  .ts-subtitulo h3 { font-size: 1.4rem; white-space: normal; }
+  .ts-cart-btn { right: 1.1rem; bottom: 4.6rem; }
+  .ts-detalle { grid-template-columns: 1fr; }
+  .ts-detalle img { max-height: 340px; object-fit: cover; }
+}
 </style>
 </head>
 <body>
@@ -327,7 +426,7 @@ body:not(.scrolled) .wa-float, body:not(.scrolled) #soul-advisor-btn { opacity: 
 <li><a href="#servicios">Servicios</a></li>
 <li><a href="#bianca">Bianca</a></li>
 <li><a href="#faq">Preguntas</a></li>
-<!-- Próximamente: <li><a href="#shop">Shop</a></li> -->
+<li><a href="#tienda">Tienda</a></li>
 <li class="nav-links-mobile-cta"><a href="https://wa.me/5493416644513" target="_blank"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5.5h16a1 1 0 0 1 1 1V16a1 1 0 0 1-1 1H9l-4.2 3.3a.5.5 0 0 1-.8-.4V17H4a1 1 0 0 1-1-1V6.5a1 1 0 0 1 1-1Z"/></svg></span> Escribirme</a></li>
 </ul>
 <a href="https://wa.me/5493416644513" target="_blank" class="nav-cta"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5h16a1 1 0 0 1 1 1V16a1 1 0 0 1-1 1H9l-4.2 3.3a.5.5 0 0 1-.8-.4V17H4a1 1 0 0 1-1-1V6.5a1 1 0 0 1 1-1Z"/></svg> Escribirme</a>
@@ -417,6 +516,60 @@ body:not(.scrolled) .wa-float, body:not(.scrolled) #soul-advisor-btn { opacity: 
 </div>
 </div>
 </section>
+<section class="tienda-section" id="tienda">
+<div class="container">
+<div class="ts-hero">
+<div class="ts-hero-img"><picture><source srcset="assets/tienda/portada-auricos.webp" type="image/webp"/><img src="assets/tienda/portada-auricos.jpg" alt="Los nueve sprays áuricos SOUL en fila sobre fondo marfil, con velas y cristales" width="1100" height="1100" loading="lazy"/></picture></div>
+<div>
+<span class="section-badge">Tienda SOUL</span>
+<h2>Rituales para<br><em>llevar a tu casa</em></h2>
+<p>Sprays áuricos y velas preparados con intención, para sostener la energía de tu espacio entre sesión y sesión. Elegí según lo que necesitás hoy.</p>
+<ul class="ts-perks">
+<li>Una intención para cada momento: protección, amor, abundancia y más</li>
+<li>Pedido simple por WhatsApp, pagás por transferencia o Mercado Pago</li>
+<li>Ideales para personas, hogares, consultorios y negocios</li>
+</ul>
+<a href="#ts-catalogo" class="btn-primary">Ver productos</a>
+</div>
+</div>
+<div id="ts-catalogo">
+<div class="ts-tabs" role="tablist" aria-label="Categorías de la tienda">
+<button class="ts-tab" role="tab" aria-selected="true" data-cat="todo">Todo</button>
+<button class="ts-tab" role="tab" aria-selected="false" data-cat="auricos">Sprays áuricos</button>
+<button class="ts-tab" role="tab" aria-selected="false" data-cat="kits">Kits</button>
+<button class="ts-tab" role="tab" aria-selected="false" data-cat="velas">Velas aromáticas</button>
+</div>
+<div class="ts-intenciones" id="tsIntenciones">
+<span class="ts-intenciones-label">¿Qué necesitás hoy?</span>
+<div class="ts-chips" id="tsChips"></div>
+</div>
+<div data-bloque="auricos"><div class="ts-subtitulo"><h3>Sprays áuricos</h3></div><div class="ts-grid" id="tsGridAuricos"></div></div>
+<div data-bloque="kits"><div class="ts-subtitulo"><h3>Kits con intención</h3></div><p class="ts-subtitulo-nota">Tres áuricos que se potencian entre sí, a un precio especial.</p><div class="ts-grid" id="tsGridKits"></div></div>
+<div data-bloque="velas"><div class="ts-subtitulo"><h3>Velas aromáticas</h3></div><p class="ts-subtitulo-nota">Para acompañar tus rituales y armonizar el ambiente.</p><div class="ts-grid" id="tsGridVelas"></div></div>
+</div>
+<div class="ts-mayorista">
+<div><h3>¿Tenés un espacio o emprendimiento?</h3><p>Sumá la línea SOUL a tu local, consultorio o centro holístico. Consultá condiciones mayoristas.</p></div>
+<a href="https://wa.me/5493416644513?text=Hola%2C%20quiero%20info%20sobre%20la%20venta%20mayorista%20de%20la%20Tienda%20SOUL." target="_blank" class="btn-ghost">Consultar mayorista</a>
+</div>
+</div>
+</section>
+<button type="button" class="ts-cart-btn ts-oculto" id="tsCartBtn" aria-label="Ver mi pedido"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 7h12l-1 13H7z"/><path d="M9 7a3 3 0 0 1 6 0"/></svg><span id="tsCartCount">0</span></button>
+<div class="ts-drawer-bg" id="tsDrawerBg"></div>
+<aside class="ts-drawer" id="tsDrawer" aria-label="Tu pedido" aria-hidden="true">
+<div class="ts-drawer-head"><h3>Tu pedido</h3><button class="ts-x" id="tsDrawerClose" aria-label="Cerrar">×</button></div>
+<div class="ts-items" id="tsItems"></div>
+<div class="ts-drawer-foot">
+<div class="ts-total"><span>Total</span><span id="tsTotal">$0</span></div>
+<p class="ts-nota">El envío se coordina por WhatsApp según tu zona. Pagás por transferencia (alias soul.1111) o Mercado Pago.</p>
+<a href="#" target="_blank" class="btn-wa" id="tsCheckout"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5h16a1 1 0 0 1 1 1V16a1 1 0 0 1-1 1H9l-4.2 3.3a.5.5 0 0 1-.8-.4V17H4a1 1 0 0 1-1-1V6.5a1 1 0 0 1 1-1Z"/></svg> Enviar pedido por WhatsApp</a>
+</div>
+</aside>
+<div id="ts-modal" class="modal-overlay" onclick="if(event.target===this)tsCerrarDetalle()">
+<div class="modal-box" role="dialog" aria-modal="true" style="max-width:760px">
+<button class="modal-close" onclick="tsCerrarDetalle()" aria-label="Cerrar">×</button>
+<div id="tsDetalle"></div>
+</div>
+</div>
 <section class="bianca-section" id="bianca">
 <div class="container">
 <div class="bianca-layout">
@@ -487,6 +640,7 @@ body:not(.scrolled) .wa-float, body:not(.scrolled) #soul-advisor-btn { opacity: 
 <div class="footer-links">
 <a href="#para-quien">¿Es para mí?</a>
 <a href="#servicios">Sesiones</a>
+<a href="#tienda">Tienda SOUL</a>
 <a href="#bianca">Sobre Bianca</a>
 <a href="#faq">Preguntas frecuentes</a>
 <a href="https://www.instagram.com/soul.transmutacion" target="_blank">Instagram</a>
@@ -1117,5 +1271,139 @@ ticking = true;
 })();
 </script>
 <script>(function(){function u(){document.body.classList.toggle("scrolled",window.scrollY>window.innerHeight*0.55);}window.addEventListener("scroll",u,{passive:true});u();})();</script>
+<script>
+(function(){
+  var WA = '5493416644513';
+  var INT = {
+    'Protección':{c:'#4E6FA8'}, 'Amor':{c:'#D88AA0'}, 'Abundancia':{c:'#D98E3A'}, 'Armonía':{c:'#C9A23C'},
+    'Claridad':{c:'#7FA0C4'}, 'Sanación':{c:'#5E9B76'}, 'Transmutación':{c:'#8466B0'},
+    'Apertura de caminos':{c:'#C46F4A'}, 'Magnetismo comercial':{c:'#6E8F5A'}, 'Calma':{c:'#9B8AC4'}, 'Limpieza':{c:'#A89A7A'}
+  };
+  var AUR = [
+    {id:'aurico-miguel', n:'Arcángel Miguel', i:'Protección', d:'Para cuidar tu energía y la de tu hogar de cargas externas. Ideal para la entrada de casa, el auto o antes de salir.'},
+    {id:'aurico-chamuel', n:'Arcángel Chamuel', i:'Amor', d:'Abre el corazón al amor propio y a vínculos más amorosos. Para tu cuarto o tu momento de autocuidado.'},
+    {id:'aurico-uriel', n:'Arcángel Uriel', i:'Abundancia', d:'Activa la energía de prosperidad y la confianza en tus recursos. Para tu espacio de trabajo o tu billetera.'},
+    {id:'aurico-jofiel', n:'Arcángel Jofiel', i:'Armonía', d:'Trae belleza, calma y buen clima a los ambientes. Para el living o cuando la casa se siente pesada.'},
+    {id:'aurico-gabriel', n:'Arcángel Gabriel', i:'Claridad', d:'Ayuda a ordenar ideas y comunicar desde la verdad. Para antes de estudiar, decidir o hablar algo importante.'},
+    {id:'aurico-rafael', n:'Arcángel Rafael', i:'Sanación', d:'Acompaña procesos de sanación física y emocional. Para el descanso y los momentos de recuperación.'},
+    {id:'aurico-zadquiel', n:'Arcángel Zadquiel', i:'Transmutación', d:'Ayuda a soltar y transformar lo que ya no te sirve. Para cierres de ciclo y nuevos comienzos.'},
+    {id:'aurico-ganesha', n:'Ganesha', i:'Apertura de caminos', d:'Para destrabar situaciones y abrir nuevas oportunidades en el amor, el trabajo o la economía.'},
+    {id:'aurico-atrae-clientes', n:'Atrae Clientes', i:'Magnetismo comercial', d:'Para emprendimientos y locales: magnetiza clientes y mueve la energía del negocio. Ideal en la entrada o el mostrador.'}
+  ];
+  var P_AUR = 15000;
+  var KITS = [
+    {id:'kit-hogar', n:'Kit Hogar en Armonía', inc:['aurico-miguel','aurico-jofiel','aurico-zadquiel'], p:40000, d:'Protección, armonía y transmutación para limpiar y sostener la energía de tu casa.'},
+    {id:'kit-emprendedor', n:'Kit Emprendedor', inc:['aurico-atrae-clientes','aurico-uriel','aurico-ganesha'], p:40000, d:'Magnetismo, abundancia y apertura de caminos para tu negocio o proyecto.'},
+    {id:'kit-amor-propio', n:'Kit Amor Propio', inc:['aurico-chamuel','aurico-rafael','aurico-gabriel'], p:40000, d:'Amor, sanación y claridad para volver a vos.'}
+  ];
+  var VELAS = [
+    {id:'vela-lavanda', n:'Vela Lavanda', i:'Calma', aroma:'Lavanda', col:['#B7A6D6','#E9E1F3'], d:'Aroma suave para bajar el ritmo y descansar. Ideal para la noche o la meditación.'},
+    {id:'vela-palo-santo', n:'Vela Palo Santo', i:'Limpieza', aroma:'Palo santo', col:['#C9B79A','#F2EBDD'], d:'Para limpiar el ambiente después de una discusión, una visita o un día pesado.'},
+    {id:'vela-canela', n:'Vela Canela y Naranja', i:'Abundancia', aroma:'Canela y naranja', col:['#E2A66B','#F8E9DA'], d:'Cálida y envolvente, para atraer prosperidad y buena energía al hogar o al local.'}
+  ];
+  var fmt = function(n){ return '$' + n.toLocaleString('es-AR'); };
+  var img = function(id, cls){ return '<picture><source srcset="assets/tienda/'+id+'-card.webp" type="image/webp"/><img src="assets/tienda/'+id+'-card.jpg" alt="" loading="lazy" width="480" height="600"'+(cls?' class="'+cls+'"':'')+'/></picture>'; };
+  var velaSVG = function(v){ return '<svg viewBox="0 0 120 150" aria-hidden="true"><ellipse cx="60" cy="140" rx="44" ry="6" fill="rgba(60,50,72,0.10)"/><path d="M60 14c7 10 9 17 0 27-9-10-7-17 0-27z" fill="#E9B65C"/><path d="M60 22c3 6 3 10 0 15-3-5-3-9 0-15z" fill="#FFF3D6"/><rect x="58.5" y="40" width="3" height="10" rx="1.5" fill="#4A3F55"/><rect x="24" y="50" width="72" height="88" rx="10" fill="'+v.col[1]+'" stroke="'+v.col[0]+'" stroke-width="2"/><rect x="24" y="78" width="72" height="34" fill="'+v.col[0]+'" opacity="0.35"/><text x="60" y="94" text-anchor="middle" font-family="Georgia,serif" font-size="10" fill="#4A3F55" letter-spacing="2">SOUL</text><text x="60" y="106" text-anchor="middle" font-family="Georgia,serif" font-size="6.5" fill="#4A3F55">'+v.aroma.toUpperCase()+'</text></svg>'; };
+  var tag = function(i){ return '<span class="ts-tag" style="--c:'+INT[i].c+'"><i></i>'+i+'</span>'; };
+
+  // catálogo unificado
+  var CAT = {};
+  AUR.forEach(function(a){ CAT[a.id] = {id:a.id, tipo:'auricos', n:a.n, i:a.i, p:P_AUR, d:a.d, sub:'Spray áurico · 125 ml'}; });
+  KITS.forEach(function(k){ CAT[k.id] = {id:k.id, tipo:'kits', n:k.n, p:k.p, d:k.d, inc:k.inc, sub:k.inc.map(function(x){return CAT[x].i;}).join(' · ')}; });
+  VELAS.forEach(function(v){ CAT[v.id] = {id:v.id, tipo:'velas', n:v.n, i:v.i, p:null, d:v.d, v:v, sub:'Vela aromática · '+v.aroma, ejemplo:true}; });
+
+  function card(it){
+    var media;
+    if (it.tipo==='kits') media = '<button type="button" class="ts-card-img ts-kit-img" data-ver="'+it.id+'" aria-label="Ver '+it.n+'">'+it.inc.map(function(x){return img(x);}).join('')+'</button>';
+    else if (it.tipo==='velas') media = '<button type="button" class="ts-card-img ts-vela-img" data-ver="'+it.id+'" style="--vb:linear-gradient(180deg,'+it.v.col[1]+',#FBF6F0)" aria-label="Ver '+it.n+'">'+velaSVG(it.v)+tag(it.i)+'<span class="ts-tag ts-tag--ejemplo">Ejemplo</span></button>';
+    else media = '<button type="button" class="ts-card-img" data-ver="'+it.id+'" aria-label="Ver '+it.n+'">'+img(it.id)+tag(it.i)+'</button>';
+    var precio = it.p===null ? '<span class="ts-precio" style="font-size:.85rem;color:var(--muted)">Precio a definir</span>'
+      : '<span class="ts-precio">'+(it.tipo==='kits'?'<s>'+fmt(P_AUR*3)+'</s>':'')+fmt(it.p)+'</span>';
+    return '<article class="ts-card" data-int="'+(it.i||'')+'" data-ints="'+(it.inc?it.inc.map(function(x){return CAT[x].i;}).join('|'):it.i)+'">'+media+
+      '<div class="ts-card-body"><h3>'+it.n+'</h3><span class="ts-card-sub">'+it.sub+'</span>'+
+      '<div class="ts-card-foot">'+precio+'<button type="button" class="ts-add" data-add="'+it.id+'">Agregar</button></div></div></article>';
+  }
+  document.getElementById('tsGridAuricos').innerHTML = AUR.map(function(a){return card(CAT[a.id]);}).join('');
+  document.getElementById('tsGridKits').innerHTML = KITS.map(function(k){return card(CAT[k.id]);}).join('');
+  document.getElementById('tsGridVelas').innerHTML = VELAS.map(function(v){return card(CAT[v.id]);}).join('');
+
+  // filtros
+  var chipsWrap = document.getElementById('tsChips');
+  var ints = AUR.map(function(a){return a.i;});
+  chipsWrap.innerHTML = '<button type="button" class="ts-chip" aria-pressed="true" data-int="">Todas</button>' +
+    ints.map(function(i){ return '<button type="button" class="ts-chip" aria-pressed="false" data-int="'+i+'" style="--c:'+INT[i].c+'"><i></i>'+i+'</button>'; }).join('');
+  var catActual = 'todo', intActual = '';
+  function aplicar(){
+    document.querySelectorAll('#tienda [data-bloque]').forEach(function(b){
+      var vis = catActual==='todo' || b.getAttribute('data-bloque')===catActual;
+      b.classList.toggle('ts-oculto', !vis);
+      var algun = false;
+      b.querySelectorAll('.ts-card').forEach(function(c){
+        var ok = !intActual || (c.getAttribute('data-ints')||'').split('|').indexOf(intActual) > -1;
+        c.classList.toggle('ts-oculto', !ok); if (ok) algun = true;
+      });
+      if (vis && !algun) b.classList.add('ts-oculto');
+    });
+    document.getElementById('tsIntenciones').classList.toggle('ts-oculto', catActual==='velas');
+  }
+  document.querySelectorAll('.ts-tab').forEach(function(t){ t.addEventListener('click', function(){
+    document.querySelectorAll('.ts-tab').forEach(function(x){x.setAttribute('aria-selected','false');});
+    t.setAttribute('aria-selected','true'); catActual = t.getAttribute('data-cat'); aplicar();
+  });});
+  chipsWrap.addEventListener('click', function(e){ var b = e.target.closest('.ts-chip'); if(!b) return;
+    chipsWrap.querySelectorAll('.ts-chip').forEach(function(x){x.setAttribute('aria-pressed','false');});
+    b.setAttribute('aria-pressed','true'); intActual = b.getAttribute('data-int'); aplicar();
+  });
+
+  // carrito
+  var cart = {};
+  var btn = document.getElementById('tsCartBtn'), drawer = document.getElementById('tsDrawer'), bg = document.getElementById('tsDrawerBg');
+  function abrir(){ drawer.classList.add('open'); bg.classList.add('open'); drawer.setAttribute('aria-hidden','false'); }
+  function cerrar(){ drawer.classList.remove('open'); bg.classList.remove('open'); drawer.setAttribute('aria-hidden','true'); }
+  btn.addEventListener('click', abrir); bg.addEventListener('click', cerrar); document.getElementById('tsDrawerClose').addEventListener('click', cerrar);
+  function render(){
+    var ids = Object.keys(cart), cant = 0, total = 0, sinPrecio = false;
+    ids.forEach(function(id){ cant += cart[id]; if (CAT[id].p===null) sinPrecio = true; else total += CAT[id].p*cart[id]; });
+    document.getElementById('tsCartCount').textContent = cant;
+    btn.classList.toggle('ts-oculto', cant===0);
+    document.getElementById('tsTotal').textContent = fmt(total) + (sinPrecio?' + velas':'');
+    document.getElementById('tsItems').innerHTML = ids.length ? ids.map(function(id){ var it = CAT[id];
+      var th = it.tipo==='velas' ? '<div class="ts-item-ph" style="background:'+it.v.col[1]+'"></div>' : img(it.tipo==='kits'?it.inc[0]:id);
+      return '<div class="ts-item">'+th+'<div><strong>'+it.n+'</strong><small>'+(it.p===null?'Precio a definir':fmt(it.p))+'</small>'+
+        '<div class="ts-qty"><button data-q="-1" data-id="'+id+'" aria-label="Quitar uno">−</button><span>'+cart[id]+'</span><button data-q="1" data-id="'+id+'" aria-label="Sumar uno">+</button></div></div>'+
+        '<strong>'+(it.p===null?'—':fmt(it.p*cart[id]))+'</strong></div>'; }).join('')
+      : '<p class="ts-vacio">Todavía no agregaste productos.</p>';
+    var lineas = ids.map(function(id){ var it = CAT[id]; return '• '+cart[id]+' x '+it.n+(it.p?(' ('+fmt(it.p*cart[id])+')'):''); });
+    var msg = 'Hola Bianca! Quiero hacer este pedido de la Tienda SOUL:\n' + lineas.join('\n') + '\nTotal: ' + fmt(total) + (sinPrecio?' + velas':'') + '\n¿Cómo seguimos con el envío y el pago?';
+    document.getElementById('tsCheckout').href = 'https://wa.me/'+WA+'?text='+encodeURIComponent(msg);
+  }
+  function agregar(id, b){ cart[id] = (cart[id]||0)+1; render(); btn.classList.remove('pulse'); void btn.offsetWidth; btn.classList.add('pulse');
+    if (b){ b.textContent = '✓ Agregado'; b.classList.add('ok'); setTimeout(function(){ b.textContent='Agregar'; b.classList.remove('ok'); }, 1400); } }
+  document.getElementById('tsItems').addEventListener('click', function(e){ var b = e.target.closest('[data-q]'); if(!b) return;
+    var id = b.getAttribute('data-id'); cart[id] += +b.getAttribute('data-q'); if (cart[id]<=0) delete cart[id]; render(); });
+
+  // detalle
+  var modal = document.getElementById('ts-modal');
+  window.tsCerrarDetalle = function(){ modal.classList.remove('activo'); document.body.style.overflow=''; };
+  function verDetalle(id){ var it = CAT[id], media;
+    if (it.tipo==='auricos') media = '<picture><source srcset="assets/tienda/'+id+'.webp" type="image/webp"/><img src="assets/tienda/'+id+'-card.jpg" alt="'+it.n+'"/></picture>';
+    else if (it.tipo==='kits') media = '<div class="ts-kit-img" style="border-radius:4px;padding:1.6rem 1rem .6rem">'+it.inc.map(function(x){return img(x);}).join('')+'</div>';
+    else media = '<div class="ts-vela-img" style="border-radius:4px;--vb:linear-gradient(180deg,'+it.v.col[1]+',#FBF6F0)">'+velaSVG(it.v)+'</div>';
+    var extra = it.tipo==='auricos' ? '<ul><li>Envase de 125 ml</li><li>Rociá sobre tu aura, tu espacio o tus objetos</li><li>Usalo con intención: respirá y pensá en lo que querés atraer</li></ul>'
+      : it.tipo==='kits' ? '<ul>'+it.inc.map(function(x){return '<li>'+CAT[x].n+' · '+CAT[x].i+'</li>';}).join('')+'</ul>'
+      : '<ul><li>Aroma: '+it.v.aroma+'</li><li><em>Producto de ejemplo: completar con medidas, duración y precio reales</em></li></ul>';
+    document.getElementById('tsDetalle').innerHTML = '<div class="ts-detalle"><div>'+media+'</div><div>'+(it.i?tag(it.i).replace('ts-tag','ts-tag" style="position:static;--c:'+INT[it.i].c):'')+
+      '<h2>'+it.n+'</h2><span class="ts-card-sub">'+it.sub+'</span><p style="margin-top:1rem;color:var(--text)">'+it.d+'</p>'+extra+
+      '<div style="display:flex;align-items:center;justify-content:space-between;gap:1rem"><span class="ts-precio" style="font-size:1.3rem">'+(it.p===null?'Precio a definir':fmt(it.p))+'</span><button type="button" class="ts-add" data-add="'+id+'" style="padding:.8rem 1.4rem">Agregar al pedido</button></div></div></div>';
+    modal.classList.add('activo'); document.body.style.overflow='hidden';
+  }
+  document.addEventListener('click', function(e){
+    var a = e.target.closest('[data-add]'); if (a && a.closest('#tienda, #ts-modal')) { agregar(a.getAttribute('data-add'), a); return; }
+    var v = e.target.closest('[data-ver]'); if (v) verDetalle(v.getAttribute('data-ver'));
+  });
+  document.addEventListener('keydown', function(e){ if (e.key==='Escape'){ cerrar(); tsCerrarDetalle(); } });
+  render();
+})();
+</script>
 </body>
 </html>

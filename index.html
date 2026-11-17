@@ -1321,7 +1321,7 @@ ticking = true;
 
   // catálogo unificado
   var CAT = {};
-  AUR.forEach(function(a){ CAT[a.id] = {id:a.id, tipo:'auricos', n:a.n, i:a.i, p:P_AUR, d:a.d, sub:'Spray áurico · 125 ml'}; });
+  AUR.forEach(function(a){ CAT[a.id] = {id:a.id, tipo:'auricos', n:a.n, i:a.i, p:P_AUR, d:a.d, sub:a.d.split('. ')[0].replace(/\.$/,'')+'.', sub2:'Spray áurico · 125 ml'}; });
   KITS.forEach(function(k){ CAT[k.id] = {id:k.id, tipo:'kits', n:k.n, p:k.p, d:k.d, inc:k.inc, sub:k.inc.map(function(x){return CAT[x].i;}).join(' · ')}; });
   VELAS.forEach(function(v){ CAT[v.id] = {id:v.id, tipo:'velas', n:v.n, i:v.i, p:P_VELA, d:v.d, v:v, aur:v.aur, sub:'Vela intencionada · '+v.i}; });
   VELAS.forEach(function(v){ CAT['ritual-'+v.id] = {id:'ritual-'+v.id, tipo:'ritual', n:'Ritual '+v.corto+' (áurico + vela)', i:v.i, p:P_RITUAL, v:v, aur:v.aur, sub:'Ritual completo'}; });
@@ -1412,7 +1412,7 @@ ticking = true;
         '<div><strong>Ritual completo '+vv.corto+'</strong><small>Áurico + vela de la misma intención</small><span class="ts-precio"><s>'+fmt(P_AUR+P_VELA)+'</s>'+fmt(P_RITUAL)+'</span></div>'+
         '<button type="button" class="ts-add" data-add="ritual-'+vid+'">Agregar ritual</button></div>'; }
     document.getElementById('tsDetalle').innerHTML = '<div class="ts-detalle"><div>'+media+'</div><div>'+(it.i?tag(it.i).replace('ts-tag','ts-tag" style="position:static;--c:'+INT[it.i].c):'')+
-      '<h2>'+it.n+'</h2><span class="ts-card-sub">'+it.sub+'</span><p style="margin-top:1rem;color:var(--text)">'+it.d+'</p>'+extra+
+      '<h2>'+it.n+'</h2><span class="ts-card-sub">'+(it.sub2||it.sub)+'</span><p style="margin-top:1rem;color:var(--text)">'+it.d+'</p>'+extra+
       '<div style="display:flex;align-items:center;justify-content:space-between;gap:1rem"><span class="ts-precio" style="font-size:1.3rem">'+(it.p===null?'Precio a definir':fmt(it.p))+'</span><button type="button" class="ts-add" data-add="'+id+'" style="padding:.8rem 1.4rem">Agregar al pedido</button></div></div></div>';
     modal.classList.add('activo'); document.body.style.overflow='hidden';
   }

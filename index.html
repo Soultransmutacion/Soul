@@ -65,7 +65,7 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; 
 .nav-cta { display: inline-flex; align-items: center; gap: 0.4rem; font-family: 'Manrope', sans-serif; font-weight: 600; font-size: 0.85rem; letter-spacing: 0.01em; color: var(--violet-deep); text-decoration: none; border: 1px solid rgba(69,58,88,0.4); padding: 0.5rem 1.1rem; border-radius: 3px; transition: all 0.3s; }
 .nav-cta svg { width: 13px; height: 13px; }
 .nav-cta:hover { background: var(--violet-deep); border-color: var(--violet-deep); color: var(--white); }
-.hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; overflow: hidden; background-color: var(--deep); background-image: radial-gradient(ellipse at 62% 28%, rgba(142,125,174,0.16) 0%, transparent 60%), radial-gradient(ellipse at 15% 85%, rgba(173,139,80,0.10) 0%, transparent 55%), linear-gradient(rgba(255,253,249,0.06), rgba(255,253,249,0.06)), url('fondo-hero-soul.png'); background-size: auto, auto, cover, cover; background-position: center, center, center, center; background-repeat: no-repeat, no-repeat, no-repeat, no-repeat; padding: 8rem 2rem 5rem; }
+.hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center; position: relative; overflow: hidden; background-color: var(--deep); background-image: radial-gradient(ellipse at 62% 28%, rgba(142,125,174,0.16) 0%, transparent 60%), radial-gradient(ellipse at 15% 85%, rgba(173,139,80,0.10) 0%, transparent 55%), linear-gradient(rgba(255,253,249,0.06), rgba(255,253,249,0.06)), url('fondo-hero-soul.jpg'); background-size: auto, auto, cover, cover; background-position: center, center, center, center; background-repeat: no-repeat, no-repeat, no-repeat, no-repeat; padding: 8rem 2rem 5rem; }
 .hero-firma { display: block; margin: 0 auto 1.25rem; width: clamp(190px, 20vw, 265px); height: auto; object-fit: contain; }
 .hero h1 { font-family: 'Fraunces', serif; font-size: clamp(2.5rem, 6vw, 5.2rem); font-weight: 600; font-style: normal; line-height: 1.12; margin-bottom: 0.6rem; color: #352B43; }
 .hero h1 em { font-family: 'Fraunces', serif; font-weight: 500; color: #5A4772; font-style: italic; }
@@ -78,8 +78,8 @@ nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; display: flex; 
 section { padding: 6.5rem 2rem; position: relative; }
 .container { max-width: 1100px; margin: 0 auto; }
 #para-quien::before, .beneficios-section::before, .servicios-section::before, .bianca-section::before, .testimonios-section::before, .faq-section::before, .cta-final::before {
-content: ""; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 90px; height: 1px;
-background: linear-gradient(90deg, transparent, var(--gold-light), transparent); opacity: 0.7;
+content: "✦"; position: absolute; top: -0.65rem; left: 50%; transform: translateX(-50%); width: 140px; height: 1.3rem; line-height: 1.3rem; text-align: center; font-size: 0.75rem; color: var(--gold);
+background: linear-gradient(90deg, transparent, var(--gold-light) 30%, transparent 44%, transparent 56%, var(--gold-light) 70%, transparent) center / 100% 1px no-repeat; opacity: 0.85; z-index: 2;
 }
 .section-badge { font-family: 'Manrope', sans-serif; font-weight: 600; font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gold-strong); display: block; margin-bottom: 1rem; }
 .section-title { font-size: clamp(1.9rem, 4vw, 2.85rem); margin-bottom: 1rem; }
@@ -244,6 +244,72 @@ section{padding:4rem 1.5rem 6rem;}
 .hero-promise-item { font-size: 0.66rem; }
 }
 
+
+/* ===== v2: ritmo visual, servicios, hero mobile ===== */
+@supports (background-image: image-set(url("x.webp") type("image/webp"))) {
+.hero { background-image: radial-gradient(ellipse at 62% 28%, rgba(142,125,174,0.16) 0%, transparent 60%), radial-gradient(ellipse at 15% 85%, rgba(173,139,80,0.10) 0%, transparent 55%), linear-gradient(rgba(255,253,249,0.06), rgba(255,253,249,0.06)), image-set(url('fondo-hero-soul.webp') type('image/webp'), url('fondo-hero-soul.jpg') type('image/jpeg')); }
+}
+/* Secciones "atardecer lavanda" (alineadas al Instagram nuevo) */
+.testimonios-section, .cta-final {
+  background:
+    radial-gradient(ellipse 60% 70% at 0% 10%, rgba(176,150,206,0.38) 0%, transparent 70%),
+    radial-gradient(ellipse 55% 60% at 100% 100%, rgba(240,190,160,0.40) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 85% 15%, rgba(199,165,103,0.16) 0%, transparent 70%),
+    linear-gradient(180deg, #F4ECF6 0%, #F8EEEA 55%, #FBF3EA 100%);
+  border-top: none;
+}
+.testimonios-section::after, .cta-final::after {
+  content: "✦"; position: absolute; top: 2.6rem; right: 8%; font-size: 1.1rem; color: var(--gold-light); opacity: 0.8; pointer-events: none;
+}
+.testimonios-section .container, .cta-final .container { position: relative; z-index: 1; }
+.testimonio-card { background: rgba(255,253,249,0.78); border: 1px solid rgba(154,122,68,0.22); backdrop-filter: blur(6px); box-shadow: 0 14px 34px rgba(91,75,114,0.10); }
+.testimonio-card::before { content: "“"; font-family: 'Cormorant Garamond', serif; font-size: 3.4rem; line-height: 0.6; color: rgba(142,125,174,0.45); height: 1.2rem; }
+footer { background: linear-gradient(180deg, #F1E9F3, #EDE3EF); border-top: 1px solid var(--line); }
+.cta-final h2 em { font-style: italic; color: var(--violet); }
+/* Servicios */
+.servicio-top { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-bottom: 0.3rem; }
+.servicio-icon { width: 46px; height: 46px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--violet); background: linear-gradient(135deg, rgba(142,125,174,0.14), rgba(199,165,103,0.14)); border: 1px solid var(--line-gold); flex-shrink: 0; }
+.servicio-icon svg { width: 22px; height: 22px; }
+.servicio-precio--consultar { font-size: 0.82rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+.servicio-card--destacada { grid-column: 1 / -1; display: grid; grid-template-columns: auto 1fr auto; grid-template-areas: "top title cta" "top desc cta"; column-gap: 2rem; row-gap: 0.4rem; align-items: center; padding: 2.2rem 2.4rem; background: radial-gradient(ellipse at 0% 0%, rgba(176,150,206,0.35), transparent 60%), radial-gradient(ellipse at 100% 100%, rgba(240,190,160,0.35), transparent 60%), #FBF6F2; border: 1px solid rgba(142,125,174,0.35); border-top: 2px solid var(--gold-light); box-shadow: 0 16px 36px rgba(91,75,114,0.12); }
+.servicio-card--destacada .servicio-top { grid-area: top; flex-direction: column; align-items: flex-start; gap: 0.9rem; margin: 0; }
+.servicio-card--destacada .servicio-icon { width: 60px; height: 60px; background: #fff; }
+.servicio-card--destacada .servicio-icon svg { width: 28px; height: 28px; }
+.servicio-card--destacada .servicio-precio { font-size: 1.25rem; }
+.servicio-card--destacada h3 { grid-area: title; font-size: 1.6rem; align-self: end; }
+.servicio-card--destacada p { grid-area: desc; align-self: start; max-width: 560px; }
+.servicio-card--destacada .servicio-cta { grid-area: cta; color: var(--white); background: var(--violet); padding: 0.85rem 1.4rem; border-radius: 3px; margin: 0; white-space: nowrap; }
+.servicio-card--destacada:hover { border-color: var(--violet); box-shadow: 0 20px 44px rgba(91,75,114,0.18); }
+.servicio-badge { position: absolute; top: -0.8rem; left: 2.4rem; z-index: 2; background: var(--gold-light); color: #3A2E1A; font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.3rem 0.8rem; border-radius: 20px; pointer-events: none; }
+.tarot-banner { display: grid; grid-template-columns: auto 1fr auto; gap: 1.6rem; align-items: center; background: var(--mid); border: 1px dashed var(--line-gold); border-radius: 6px; padding: 1.6rem 2rem; margin-bottom: 1.5rem; }
+.tarot-banner-icon { width: 52px; height: 52px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: var(--gold-strong); border: 1px solid var(--line-gold); }
+.tarot-banner-icon svg { width: 24px; height: 24px; }
+.tarot-banner-kicker { font-size: 0.7rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold-strong); }
+.tarot-banner h3 { font-size: 1.3rem; margin: 0.2rem 0 0.3rem; }
+.tarot-banner p { font-size: 0.95rem; color: var(--text); margin: 0; }
+.tarot-banner-cta { display: flex; flex-direction: column; align-items: flex-end; gap: 0.6rem; }
+/* Botones flotantes: aparecen después del hero */
+body .wa-float, body #soul-advisor-btn { transition: transform 0.3s, box-shadow 0.3s, background 0.3s, opacity 0.4s; }
+body:not(.scrolled) #soul-advisor-tooltip { opacity: 0; pointer-events: none; }
+body:not(.scrolled) .wa-float, body:not(.scrolled) #soul-advisor-btn { opacity: 0; pointer-events: none; transform: translateY(14px); }
+@media (max-width: 768px) {
+  .servicio-card--destacada { display: flex; flex-direction: column; align-items: stretch; padding: 2rem 1.6rem; }
+  .servicio-card--destacada .servicio-top { flex-direction: row; align-items: center; justify-content: space-between; }
+  .servicio-card--destacada h3 { font-size: 1.35rem; }
+  .servicio-card--destacada .servicio-cta { align-self: flex-start; margin-top: 0.6rem; }
+  .servicio-badge { left: 1.6rem; }
+  .tarot-banner { grid-template-columns: 1fr; text-align: left; padding: 1.6rem; }
+  .tarot-banner-icon { display: none; }
+  .tarot-banner-cta { flex-direction: row; align-items: center; justify-content: space-between; }
+}
+@media (max-width: 420px) {
+  .hide-mobile { display: none; }
+  .hero-sub { font-size: 1.02rem; }
+  .hero-promise { display: grid; grid-template-columns: 1fr 1fr; gap: 0.55rem 1rem; max-width: 320px; margin-top: 1rem; }
+  .hero-promise-item { display: flex; align-items: center; gap: 0.45rem; text-align: left; }
+  .hero-promise-item strong { width: 20px; height: 20px; margin: 0; font-size: 0.7rem; flex-shrink: 0; }
+  .hero-ctas .btn-wa, .hero-ctas .btn-ghost { width: 100%; justify-content: center; text-align: center; }
+}
 </style>
 </head>
 <body>
@@ -271,9 +337,9 @@ section{padding:4rem 1.5rem 6rem;}
 </nav>
 <section class="hero" id="inicio">
 <div class="container" style="max-width:780px;">
-<img src="firma-bianca-di-rino.png" alt="Bianca Di Rino" width="2172" height="724" class="hero-firma"/>
+<picture><source srcset="firma-bianca-di-rino.webp" type="image/webp" /><img src="firma-bianca-di-rino-800.png" alt="Bianca Di Rino" width="800" height="267" class="hero-firma" fetchpriority="high"/></picture>
 <h1>¿Sentís que algo<br><em>no termina de fluir</em>?</h1>
-<p class="hero-sub">Acompaño a personas que sienten bloqueos emocionales, repiten patrones o buscan recuperar claridad y conexión con su propósito — para transformar su realidad desde adentro hacia afuera.</p>
+<p class="hero-sub">Acompaño a personas que sienten bloqueos emocionales, repiten patrones o buscan recuperar claridad y conexión con su propósito<span class="hide-mobile"> — para transformar su realidad desde adentro hacia afuera</span>.</p>
 <p class="hero-quien">Sesiones energéticas · 100% Online · Argentina</p>
 <div class="hero-ctas">
 <a href="https://wa.me/5493416644513?text=Hola%20Bianca%2C%20quiero%20saber%20m%C3%A1s%20sobre%20las%20sesiones" target="_blank" class="btn-wa"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5h16a1 1 0 0 1 1 1V16a1 1 0 0 1-1 1H9l-4.2 3.3a.5.5 0 0 1-.8-.4V17H4a1 1 0 0 1-1-1V6.5a1 1 0 0 1 1-1Z"/></svg> Quiero más información</a>
@@ -335,15 +401,15 @@ section{padding:4rem 1.5rem 6rem;}
 <h2 class="section-title">¿En qué puedo acompañarte?</h2>
 <p class="section-lead">Cada sesión está pensada para una situación específica. Hacé click en la que más te resuene para ver cómo funciona y qué incluye.</p>
 <div class="servicios-grid">
-<div class="servicio-card"><button type="button" class="servicio-card-btn" aria-labelledby="servicio-pendulo-titulo servicio-pendulo-cta" onclick="abrirServicio('pendulo')"></button><div class="servicio-precio">$40.000</div><h3 id="servicio-pendulo-titulo">Limpieza Energética y Sanación Profunda con Péndulo Karnak</h3><p>Para cuando sentís cansancio sin causa, emociones pesadas o la sensación de cargar algo que no es tuyo.</p><div class="servicio-cta" id="servicio-pendulo-cta">Ver detalle <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div></div>
-<div class="servicio-card"><button type="button" class="servicio-card-btn" aria-labelledby="servicio-mesa-titulo servicio-mesa-cta" onclick="abrirServicio('mesa')"></button><div class="servicio-precio">$30.000</div><h3 id="servicio-mesa-titulo">Apertura de Caminos</h3><p>Cuando las oportunidades no llegan o hay obstáculos invisibles en el amor, el trabajo o la economía.</p><div class="servicio-cta" id="servicio-mesa-cta">Ver detalle <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div></div>
-<div class="servicio-card"><button type="button" class="servicio-card-btn" aria-labelledby="servicio-hogar-titulo servicio-hogar-cta" onclick="abrirServicio('hogar')"></button><div class="servicio-precio">Consultar por WhatsApp</div><h3 id="servicio-hogar-titulo">Armonización de tu Hogar</h3><p>Si tu casa se siente pesada, hay conflictos frecuentes o simplemente no lográs descansar en paz.</p><div class="servicio-cta" id="servicio-hogar-cta">Ver detalle <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div></div>
-<div class="servicio-card"><button type="button" class="servicio-card-btn" aria-labelledby="servicio-negocio-titulo servicio-negocio-cta" onclick="abrirServicio('negocio')"></button><div class="servicio-precio">$40.000</div><h3 id="servicio-negocio-titulo">Impulso para tu Proyecto</h3><p>Para emprendedores y proyectos que no despegan a pesar del esfuerzo. Activamos el flujo de prosperidad.</p><div class="servicio-cta" id="servicio-negocio-cta">Ver detalle <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div></div>
-<div class="servicio-card"><button type="button" class="servicio-card-btn" aria-labelledby="servicio-ninos-titulo servicio-ninos-cta" onclick="abrirServicio('ninos')"></button><div class="servicio-precio">$25.000</div><h3 id="servicio-ninos-titulo">Acompañamiento para Niños</h3><p>Cuando tu hijo/a está intranquilo/a, tiene cambios de conducta o está pasando por momentos difíciles.</p><div class="servicio-cta" id="servicio-ninos-cta">Ver detalle <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div></div>
-<div class="servicio-card"><button type="button" class="servicio-card-btn" aria-labelledby="servicio-mascota-titulo servicio-mascota-cta" onclick="abrirServicio('mascota')"></button><div class="servicio-precio">$25.000</div><h3 id="servicio-mascota-titulo">Sanación para tu Mascota</h3><p>Tus animales también sienten y absorben las energías del entorno. Este proceso los ayuda a estar mejor.</p><div class="servicio-cta" id="servicio-mascota-cta">Ver detalle <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div></div>
-<div class="servicio-card"><button type="button" class="servicio-card-btn" aria-labelledby="servicio-legales-titulo servicio-legales-cta" onclick="abrirServicio('legales')"></button><div class="servicio-precio">$30.000</div><h3 id="servicio-legales-titulo">Destrabe de Procesos Legales</h3><p>Cuando una venta, sucesión o trámite no avanza a pesar de que todo parecería estar en orden.</p><div class="servicio-cta" id="servicio-legales-cta">Ver detalle <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div></div>
-<div class="servicio-card"><button type="button" class="servicio-card-btn" aria-labelledby="servicio-tarot-titulo servicio-tarot-cta" onclick="abrirServicio('tarot')"></button><div class="servicio-precio">$20.000</div><h3 id="servicio-tarot-titulo">Guía de Tarot</h3><p>Material digital completo para aprender tarot desde una mirada intuitiva y espiritual. Incluye numerología y tiradas.</p><div class="servicio-cta" id="servicio-tarot-cta">Ver detalle <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div></div>
+<div class="servicio-card servicio-card--destacada"><span class="servicio-badge">La más elegida</span><button type="button" class="servicio-card-btn" aria-labelledby="servicio-pendulo-titulo servicio-pendulo-cta" onclick="abrirServicio('pendulo')"></button><div class="servicio-top"><span class="servicio-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v8"/><path d="M8.5 10h7L12 21z"/></svg></span><div class="servicio-precio">$40.000</div></div><h3 id="servicio-pendulo-titulo">Limpieza Energética y Sanación Profunda con Péndulo Karnak</h3><p>Para cuando sentís cansancio sin causa, emociones pesadas o la sensación de cargar algo que no es tuyo.</p><div class="servicio-cta" id="servicio-pendulo-cta">Ver detalle <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div></div>
+<div class="servicio-card"><button type="button" class="servicio-card-btn" aria-labelledby="servicio-mesa-titulo servicio-mesa-cta" onclick="abrirServicio('mesa')"></button><div class="servicio-top"><span class="servicio-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20 10 4M20 20 14 4M12 8v2M12 13v2M12 18v2"/></svg></span><div class="servicio-precio">$30.000</div></div><h3 id="servicio-mesa-titulo">Apertura de Caminos</h3><p>Cuando las oportunidades no llegan o hay obstáculos invisibles en el amor, el trabajo o la economía.</p><div class="servicio-cta" id="servicio-mesa-cta">Ver detalle <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div></div>
+<div class="servicio-card"><button type="button" class="servicio-card-btn" aria-labelledby="servicio-hogar-titulo servicio-hogar-cta" onclick="abrirServicio('hogar')"></button><div class="servicio-top"><span class="servicio-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/><path d="M10 20v-5h4v5"/></svg></span><div class="servicio-precio servicio-precio--consultar">A consultar</div></div><h3 id="servicio-hogar-titulo">Armonización de tu Hogar</h3><p>Si tu casa se siente pesada, hay conflictos frecuentes o simplemente no lográs descansar en paz.</p><div class="servicio-cta" id="servicio-hogar-cta">Ver detalle <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div></div>
+<div class="servicio-card"><button type="button" class="servicio-card-btn" aria-labelledby="servicio-negocio-titulo servicio-negocio-cta" onclick="abrirServicio('negocio')"></button><div class="servicio-top"><span class="servicio-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 18l6-6 4 4 6-8"/><path d="M15 8h5v5"/></svg></span><div class="servicio-precio">$40.000</div></div><h3 id="servicio-negocio-titulo">Impulso para tu Proyecto</h3><p>Para emprendedores y proyectos que no despegan a pesar del esfuerzo. Activamos el flujo de prosperidad.</p><div class="servicio-cta" id="servicio-negocio-cta">Ver detalle <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div></div>
+<div class="servicio-card"><button type="button" class="servicio-card-btn" aria-labelledby="servicio-ninos-titulo servicio-ninos-cta" onclick="abrirServicio('ninos')"></button><div class="servicio-top"><span class="servicio-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3 2.6 5.6 6 .7-4.5 4.1 1.2 6L12 16.4l-5.3 3 1.2-6-4.5-4.1 6-.7z"/></svg></span><div class="servicio-precio">$25.000</div></div><h3 id="servicio-ninos-titulo">Acompañamiento para Niños</h3><p>Cuando tu hijo/a está intranquilo/a, tiene cambios de conducta o está pasando por momentos difíciles.</p><div class="servicio-cta" id="servicio-ninos-cta">Ver detalle <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div></div>
+<div class="servicio-card"><button type="button" class="servicio-card-btn" aria-labelledby="servicio-mascota-titulo servicio-mascota-cta" onclick="abrirServicio('mascota')"></button><div class="servicio-top"><span class="servicio-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="6.5" cy="10" r="1.6"/><circle cx="10" cy="6" r="1.6"/><circle cx="14.5" cy="6" r="1.6"/><circle cx="18" cy="10" r="1.6"/><path d="M8 17.5c0-3 2-5.5 4-5.5s4 2.5 4 5.5c0 2-2 2-4 1.6-2 .4-4 .4-4-1.6z"/></svg></span><div class="servicio-precio">$25.000</div></div><h3 id="servicio-mascota-titulo">Sanación para tu Mascota</h3><p>Tus animales también sienten y absorben las energías del entorno. Este proceso los ayuda a estar mejor.</p><div class="servicio-cta" id="servicio-mascota-cta">Ver detalle <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div></div>
+<div class="servicio-card"><button type="button" class="servicio-card-btn" aria-labelledby="servicio-legales-titulo servicio-legales-cta" onclick="abrirServicio('legales')"></button><div class="servicio-top"><span class="servicio-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v16M8 20h8M5 7h14"/><path d="M5 7l-2.5 6h5zM19 7l-2.5 6h5z"/></svg></span><div class="servicio-precio">$30.000</div></div><h3 id="servicio-legales-titulo">Destrabe de Procesos Legales</h3><p>Cuando una venta, sucesión o trámite no avanza a pesar de que todo parecería estar en orden.</p><div class="servicio-cta" id="servicio-legales-cta">Ver detalle <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div></div>
 </div>
+<div class="tarot-banner"><div class="tarot-banner-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="3" width="12" height="18" rx="1.5"/><path d="m12 8 1.2 2.6 2.8.3-2.1 1.9.6 2.8L12 14.2l-2.5 1.4.6-2.8L8 10.9l2.8-.3z"/></svg></div><div class="tarot-banner-text"><span class="tarot-banner-kicker">Material digital · Entrega inmediata</span><h3>Guía Completa de Tarot</h3><p>Para aprender tarot desde una mirada intuitiva y espiritual. Incluye arcanos, numerología y tiradas.</p></div><div class="tarot-banner-cta"><span class="servicio-precio">$20.000</span><button type="button" class="btn-ghost" onclick="abrirServicio('tarot')">Ver la guía</button></div></div>
 <div class="servicios-ayuda">
 <p style="color:var(--soft);font-size:1rem;margin-bottom:0.5rem;">¿No sabés cuál es la sesión más adecuada para vos?</p>
 <p style="color:var(--muted);font-size:0.88rem;margin-bottom:1.5rem;">Escribime y charlamos. Sin compromiso, sin presión — solo encontramos el mejor punto de partida para tu proceso.</p>
@@ -408,7 +474,7 @@ section{padding:4rem 1.5rem 6rem;}
 <section class="cta-final" id="contacto">
 <div class="container" style="max-width:700px;">
 <span class="section-badge" style="display:block;text-align:center;margin-bottom:1.5rem;">El primer paso</span>
-<h2>Si algo de lo que leíste<br>resonó con lo que estás viviendo…</h2>
+<h2>Si algo de lo que leíste<br><em>resonó con lo que estás viviendo…</em></h2>
 <p>Eso ya es una señal. No hace falta tener todo claro ni saber exactamente qué necesitás. Solo escribime y charlamos. Sin compromiso, sin presión — a tu tiempo.</p>
 <div style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;">
 <a href="https://wa.me/5493416644513?text=Hola%20Bianca%2C%20quiero%20empezar%20mi%20proceso" target="_blank" class="btn-wa" style="font-size:0.78rem;padding:1rem 2.5rem;"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 5.5h16a1 1 0 0 1 1 1V16a1 1 0 0 1-1 1H9l-4.2 3.3a.5.5 0 0 1-.8-.4V17H4a1 1 0 0 1-1-1V6.5a1 1 0 0 1 1-1Z"/></svg> Escribirle a Bianca</a>
@@ -899,7 +965,7 @@ ticking = true;
       if (tooltip.classList.contains("visible")) positionTooltip();
     });
 
-    setTimeout(() => { showTooltip(); }, 4500);
+    (function waitScroll(){ if (document.body.classList.contains("scrolled")) setTimeout(showTooltip, 1500); else setTimeout(waitScroll, 400); })();
 
     tooltip.querySelector(".sat-close").addEventListener("click", (e) => {
       e.stopPropagation();
@@ -1050,5 +1116,6 @@ ticking = true;
   });
 })();
 </script>
+<script>(function(){function u(){document.body.classList.toggle("scrolled",window.scrollY>window.innerHeight*0.55);}window.addEventListener("scroll",u,{passive:true});u();})();</script>
 </body>
 </html>
